@@ -5,12 +5,12 @@
 
     This file is part of BMS Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    ENNOID-BMS Tool is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -407,7 +407,7 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::about(this, "DieBieMS Tool", Utility::aboutText());
+    QMessageBox::about(this, "ENNOID-BMS Tool", Utility::aboutText());
 }
 
 void MainWindow::on_actionLibrariesUsed_triggered()
@@ -801,7 +801,7 @@ void MainWindow::on_actionWarrantyStatement_triggered()
 
 void MainWindow::on_actionDieBieMSToolChangelog_triggered()
 {
-    HelpDialog::showHelp(this, "DieBieMS Tool Changelog", Utility::vescToolChangeLog());
+    HelpDialog::showHelp(this, "ENNOID-BMS Tool Changelog", Utility::vescToolChangeLog());
 }
 
 void MainWindow::on_actionFirmwareChangelog_triggered()

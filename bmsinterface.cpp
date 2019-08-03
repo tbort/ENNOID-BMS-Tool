@@ -5,12 +5,12 @@
 
     This file is part of BMS Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    ENNOID-BMS Tool is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -426,7 +426,7 @@ bool BMSInterface::connectSerial(QString port, int baudrate)
     (void)baudrate;
     emit messageDialog(tr("Connect serial"),
                        tr("Serial port support is not enabled in this build "
-                          "of DieBieMS Tool."),
+                          "of ENNOID-BMS Tool."),
                        false, false);
     return false;
 #endif
@@ -669,7 +669,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
 
     if (fwPairs.isEmpty()) {
         emit messageDialog(tr("No Supported Firmwares"),
-                           tr("This version of DieBieMS Tool does not seem to have any supported "
+                           tr("This version of ENNOID-BMS Tool does not seem to have any supported "
                               "firmwares. Something is probably wrong with the motor configuration "
                               "file."),
                            false, false);
@@ -695,7 +695,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(true);
         if (!wasReceived) {
             emit messageDialog(tr("Warning"), tr("The connected DieBieMS has newer firmware than this version of the"
-                                                " DieBieMS Tool supports. It is recommended that you update the DieBieMS"
+                                                " ENNOID-BMS Tool supports. It is recommended that you update the DieBieMS"
                                                 " Tool to the latest version. Alternatively, the firmware on"
                                                 " the connected DieBieMS can be downgraded in the firmware page."
                                                 " Until then, limited communication mode will be used where"

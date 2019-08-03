@@ -5,12 +5,12 @@
 
     This file is part of BMS Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    ENNOID-BMS Tool is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -138,9 +138,9 @@ void Utility::checkVersion(BMSInterface *dieBieMS)
 
         if (res.toDouble() > version.toDouble()) {
             if (dieBieMS) {
-                //dieBieMS->emitStatusMessage("A new version of DieBieMS Tool is available", true);
+                //dieBieMS->emitStatusMessage("A new version of ENNOID-BMS Tool is available", true);
             } else {
-                //qDebug() << "A new version of DieBieMS Tool is available. Go to DeiBie.nl to download it and get all the latest features.";
+                //qDebug() << "A new version of ENNOID-BMS Tool is available. Go to DeiBie.nl to download it and get all the latest features.";
             }
         }
     } else {
@@ -170,7 +170,7 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>DieBieMS Tool %1</b><br>"
+    return tr("<b>ENNOID-BMS Tool %1</b><br>"
               "&copy; Danny Bokma 2018<br>"
               "<a href=\"mailto:bms@diebie.nl\">bms@diebie.nl</a><br>"
               "<a href=\"https://diebie.nl/\">https://diebie.nl/</a><br>"

@@ -5,12 +5,12 @@
 
     This file is part of BMS Tool.
 
-    DieBieMS Tool is free software: you can redistribute it and/or modify
+    ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    DieBieMS Tool is distributed in the hope that it will be useful,
+    ENNOID-BMS Tool is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
     // Settings
     QCoreApplication::setOrganizationName("DieBie");
     QCoreApplication::setOrganizationDomain("diebie.nl");
-    QCoreApplication::setApplicationName("DieBieMS Tool");
+    QCoreApplication::setApplicationName("ENNOID-BMS Tool");
 
     // DPI settings
     // TODO: http://www.qcustomplot.com/index.php/support/forum/1344

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>DieBieMS Tool</string>
+   <string>ENNOID-BMS Tool</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
@@ -324,10 +324,10 @@
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>About DieBieMS Tool</string>
+    <string>About ENNOID-BMS Tool</string>
    </property>
    <property name="toolTip">
-    <string>About DieBieMS Tool</string>
+    <string>About ENNOID-BMS Tool</string>
    </property>
   </action>
   <action name="actionParameterEditorBMScconf">
@@ -491,10 +491,10 @@
      <normaloff>:/res/icons/About-96.png</normaloff>:/res/icons/About-96.png</iconset>
    </property>
    <property name="text">
-    <string>DieBieMS Tool Changelog</string>
+    <string>ENNOID-BMS Tool Changelog</string>
    </property>
    <property name="toolTip">
-    <string>DieBieMS Tool Changelog</string>
+    <string>ENNOID-BMS Tool Changelog</string>
    </property>
   </action>
   <action name="actionFirmwareChangelog">
