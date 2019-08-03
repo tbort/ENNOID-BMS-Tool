@@ -3,7 +3,7 @@
 # Project created by QtCreator 2016-08-12T21:55:19
 #
 #-------------------------------------------------
-
+INCLUDEPATH += $$PWD
 # Version
 DT_VERSION = 0.30
 
