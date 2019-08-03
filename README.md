@@ -6,7 +6,8 @@ The ENNOID-BMS tool can be used to configure the ENNOID-BMS, update the firmware
 
 ![alt text](images/IMAGE02.png)
 
-Latest compiled version can be found in releases.
+Latest compiled version can be found in the release tab:
+[ENNOID-BMS Tool](https://github.com/EnnoidMe/ENNOID-BMS-Tool/releases/download/Windows_V0.30/ENNOID-BMS.Tool.V0.30.zip) 
 
 # Other parts of this project:
 
