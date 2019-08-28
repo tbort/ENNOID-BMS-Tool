@@ -123,12 +123,7 @@
         <file>res/logo.png</file>
         <file>res/bg.png</file>
         <file>res/bootloaders/DieBieMS.bin</file>
-        <file>res/firmwares/DieBieMS/DieBieMS_default.bin</file>
         <file>res/config.xml</file>
-        <file>res/bootloaders/EFoilBMSHW2.bin</file>
-        <file>res/bootloaders/EFoilBMSHW1.bin</file>
-        <file>res/firmwares/EFoilBMSHW1/DieBieMS_default.bin</file>
-        <file>res/firmwares/EFoilBMSHW2/DieBieMS_default.bin</file>
-        <file>res/bootloaders/DSBTSolarHW1.bin</file>
+        <file>res/firmwares/ENNOID/ENNOID-BMS.bin</file>
     </qresource>
 </RCC>
