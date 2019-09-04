@@ -56,6 +56,7 @@ signals:
     void valuesReceived(BMS_VALUES values);
 
     void cellsReceived(int cellCount, QVector<double> cellVoltageArray);
+    void auxReceived(int auxCount, QVector<double> auxVoltageArray);
 
     void printReceived(QString str);
     void rotorPosReceived(double pos);
@@ -66,6 +67,7 @@ public slots:
     void getFwVersion();
     void getValues();
     void getCells();
+    void getAux();
     void sendTerminalCmd(QString cmd);
     void setDetect(disp_pos_mode mode);
     void samplePrint(debug_sampling_mode mode, int sample_len, int dec);
@@ -108,6 +110,7 @@ private:
     int mTimeoutBMSconf;
     int mTimeoutValues;
     int mTimeoutCells;
+    int mTimeoutAux;
 };
 
 #endif // COMMANDS_H

@@ -49,6 +49,7 @@ Commands::Commands(QObject *parent) : QObject(parent)
     mTimeoutBMSconf = 0;
     mTimeoutValues = 0;
     mTimeoutCells = 0;
+    mTimeoutAux = 0;
 
     connect(mTimer, SIGNAL(timeout()), this, SLOT(timerSlot()));
 }
@@ -171,6 +172,22 @@ void Commands::processPacket(QByteArray data)
 
        } break;
 
+    case COMM_GET_BMS_AUX:{
+        mTimeoutAux = 0;
+        int mAuxAmount;
+        QVector<double> mAuxVoltages;
+        mAuxVoltages.clear();
+
+        mAuxAmount = vb.vbPopFrontUint8();
+
+        for(int auxValuePointer = 0; auxValuePointer < mAuxAmount; auxValuePointer++){
+            mAuxVoltages.append(vb.vbPopFrontDouble16(1e3));
+        }
+
+        emit auxReceived(mAuxAmount,mAuxVoltages);
+
+       } break;
+
     case COMM_PRINT:
         emit printReceived(QString::fromLatin1(vb));
         break;
@@ -244,6 +261,19 @@ void Commands::getCells()
 
     VByteArray vb;
     vb.vbAppendInt8(COMM_GET_BMS_CELLS);
+    emitData(vb);
+}
+
+void Commands::getAux()
+{
+    if (mTimeoutAux > 0) {
+        return;
+    }
+
+    mTimeoutAux = mTimeoutCount;
+
+    VByteArray vb;
+    vb.vbAppendInt8(COMM_GET_BMS_AUX);
     emitData(vb);
 }
 
@@ -353,6 +383,7 @@ void Commands::timerSlot()
     if (mTimeoutBMSconf > 0) mTimeoutBMSconf--;
     if (mTimeoutValues > 0) mTimeoutValues--;
     if (mTimeoutCells > 0) mTimeoutCells--;
+    if (mTimeoutAux > 0) mTimeoutAux--;
 }
 
 void Commands::emitData(QByteArray data)

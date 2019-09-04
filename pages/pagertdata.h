@@ -47,6 +47,7 @@ private slots:
     void timerSlot();
     void valuesReceived(BMS_VALUES values);
     void cellsReceived(int cellCount, QVector<double> cellVoltageArray);
+    void auxReceived(int auxCount, QVector<double> auxVoltageArray);
 
     void on_zoomHButton_toggled(bool checked);
     void on_zoomVButton_toggled(bool checked);

@@ -93,12 +93,15 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cell&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;monitor&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;IC&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;type.&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;Set&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;to&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;LTC6803&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;for&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;DieBieMS,&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;set&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;to&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;LTC6803&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;for&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;EFoilBMSV1,&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;set&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;to&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;LTC6804&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;for&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;EFoilBMSV2&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;and&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;set&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;to&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;LTC6804&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;for&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;DieBieMSHV.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cell monitor IC type.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CELL_MONITOR_IC_TYPE</cDefine>
             <valInt>2</valInt>
             <enumNames>None</enumNames>
             <enumNames>LTC6803-2</enumNames>
             <enumNames>LTC6804-1</enumNames>
+            <enumNames>LTC6811-1</enumNames>
+            <enumNames>LTC6812-1</enumNames>
+            <enumNames>LTC6813-1</enumNames>
         </cellMonitorICType>
         <cellMonitorICCount>
             <longName>IC count</longName>
@@ -416,7 +419,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The pack current data source can be selected here. For ADC's the callibration/scaling/offset values will be taken into account, for CAN based sensors the measured voltage will be used directly from the CAN sensor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CELL_MONITOR_IC_TYPE</cDefine>
-            <valInt>2</valInt>
+            <valInt>1</valInt>
             <enumNames>NoSource</enumNames>
             <enumNames>Low current path current</enumNames>
             <enumNames>High current path current</enumNames>
@@ -434,7 +437,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the desired signal source / reason for the buzzer to start buzzing.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>BUZZER_SIGNAL_SOURCE</cDefine>
-            <valInt>3</valInt>
+            <valInt>0</valInt>
             <enumNames>Always off</enumNames>
             <enumNames>Always on</enumNames>
             <enumNames>All sources below</enumNames>
@@ -471,7 +474,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define whether tje buzzer should stay on or should reset when signal condition resets.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define whether the buzzer should stay on or should reset when signal condition resets.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>BUZZER_PERSISTENT</cDefine>
             <valInt>1</valInt>
         </buzzerPersistent>
@@ -1414,7 +1417,7 @@ p, li { white-space: pre-wrap; }
             <minInt>0</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
-            <valInt>7176</valInt>
+            <valInt>8</valInt>
             <suffix></suffix>
             <vTx>5</vTx>
         </tempEnableMaskBMS>
@@ -1683,7 +1686,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The HC load voltage data source can be selected here. For ADC's the callibration/scaling/offset values will be taken into account, for CAN based sensors the measured voltage will be used directly from the CAN sensor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>HC_LOAD_VOLTAGE_DATA_SOURCE</cDefine>
-            <valInt>2</valInt>
+            <valInt>0</valInt>
             <enumNames>NoSource</enumNames>
             <enumNames>ISL28022 (I2C2 - 0x40) LV BatteryInput</enumNames>
             <enumNames>ISL28022 (I2C1 - 0x44) LV LoadOutput</enumNames>
@@ -1704,7 +1707,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The HC load voltage data source can be selected here. For ADC's the callibration/scaling/offset values will be taken into account, for CAN based sensors the measured voltage will be used directly from the CAN sensor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>HC_LOAD_VOLTAGE_DATA_SOURCE</cDefine>
-            <valInt>2</valInt>
+            <valInt>0</valInt>
             <enumNames>NoSource</enumNames>
             <enumNames>ISL28022 (I2C2 - 0x40) LV LC shunt</enumNames>
             <enumNames>ISL28022 (I2C1 - 0x44) LV HC shunt</enumNames>

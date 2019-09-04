@@ -34,6 +34,16 @@
          </item>
         </layout>
        </widget>
+       <widget class="QWidget" name="auxBarGraphTab">
+        <attribute name="title">
+         <string>AuxBarGraph</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QCustomPlot" name="auxBarGraph" native="true"/>
+         </item>
+        </layout>
+       </widget>
        <widget class="QWidget" name="ivLCGraphTab">
         <attribute name="title">
          <string>LC IVGraph</string>

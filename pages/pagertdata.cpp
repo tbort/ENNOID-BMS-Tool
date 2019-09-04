@@ -180,6 +180,22 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->cellBarGraph->xAxis->setSubTicks(false);
     ui->cellBarGraph->xAxis->setTickLength(0, 5);
 
+    // Aux bar graph
+    group = new QCPBarsGroup(ui->auxBarGraph);
+    barsNormal = new QCPBars(ui->auxBarGraph->xAxis, ui->auxBarGraph->yAxis);
+
+    barsNormal->setBrush(QColor(0, 255, 0, 50));
+    barsNormal->setPen(QColor(0, 211, 56));
+    barsNormal->setWidth(0.9);
+    barsNormal->setBarsGroup(group);
+
+    ui->auxBarGraph->xAxis->setRange(0.5, 12);
+    ui->auxBarGraph->yAxis->setRange(2.5, 4.15);
+    ui->auxBarGraph->yAxis->setLabel("Voltage (V)");
+    ui->auxBarGraph->xAxis->setTickLabelRotation(85);
+    ui->auxBarGraph->xAxis->setSubTicks(false);
+    ui->auxBarGraph->xAxis->setTickLength(0, 5);
+
     connect(mTimer, SIGNAL(timeout()),this, SLOT(timerSlot()));
 }
 
@@ -200,6 +216,7 @@ void PageRtData::setDieBieMS(BMSInterface *dieBieMS)
     if (mDieBieMS) {
         connect(mDieBieMS->commands(), SIGNAL(valuesReceived(BMS_VALUES)),this, SLOT(valuesReceived(BMS_VALUES)));
         connect(mDieBieMS->commands(), SIGNAL(cellsReceived(int,QVector<double>)),this, SLOT(cellsReceived(int,QVector<double>)));
+        connect(mDieBieMS->commands(), SIGNAL(auxReceived(int,QVector<double>)),this, SLOT(auxReceived(int,QVector<double>)));
     }
 }
 
@@ -246,6 +263,7 @@ void PageRtData::timerSlot()
         ui->cellGraph->replot();
         ui->tempGraph->replot();
         ui->cellBarGraph->replot();
+        ui->auxBarGraph->replot();
 
         mUpdateValPlot = false;
     }
@@ -325,6 +343,44 @@ void PageRtData::cellsReceived(int cellCount, QVector<double> cellVoltageArray){
     ui->cellBarGraph->xAxis->setTicker(textTicker);
     ui->cellBarGraph->xAxis->setRange(0.5, indexPointer + 0.5);
     ui->cellBarGraph->yAxis->setRange(cellHardUnder, cellHardOver);
+    barsNormal->setData(dataxNew, datayNormal);
+    barsBalance->setData(dataxNew, datayBalance);
+}
+
+void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
+    QVector<double> dataxNew;
+    dataxNew.clear();
+    QVector<double> datayNormal;
+    datayNormal.clear();
+    QVector<double> datayBalance;
+    datayBalance.clear();
+    QVector<QString> labels;
+    int indexPointer;
+
+    double auxHardUnder = mDieBieMS->bmsConfig()->getParamDouble("cellHardUnderVoltage");
+    double auxHardOver  = mDieBieMS->bmsConfig()->getParamDouble("cellHardOverVoltage");
+
+    for(indexPointer = 0; indexPointer < auxCount; indexPointer++){
+        dataxNew.append(indexPointer + 1);
+
+        if(auxVoltageArray[indexPointer] < 0.0){
+            datayNormal.append(0.0);
+            datayBalance.append(fabs(auxVoltageArray[indexPointer]));
+        }else{
+            datayNormal.append(fabs(auxVoltageArray[indexPointer]));
+            datayBalance.append(0.0);
+        }
+
+        QString voltageString = QStringLiteral("%1V (C").arg(fabs(auxVoltageArray[indexPointer]), 0, 'f',3);
+        labels.append(voltageString + QString::number(indexPointer) + ")");
+    }
+
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(dataxNew, labels);
+
+    ui->auxBarGraph->xAxis->setTicker(textTicker);
+    ui->auxBarGraph->xAxis->setRange(0.5, indexPointer + 0.5);
+    ui->auxBarGraph->yAxis->setRange(auxHardUnder, auxHardOver);
     barsNormal->setData(dataxNew, datayNormal);
     barsBalance->setData(dataxNew, datayBalance);
 }
