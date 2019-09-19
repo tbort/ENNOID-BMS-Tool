@@ -190,8 +190,8 @@ PageRtData::PageRtData(QWidget *parent) :
     barsTemperature->setBarsGroup(group);
 
     ui->auxBarGraph->xAxis->setRange(0.5, 12);
-    ui->auxBarGraph->yAxis->setRange(2.5, 4.15);
-    ui->auxBarGraph->yAxis->setLabel("Voltage (V)");
+    ui->auxBarGraph->yAxis->setRange(-20, 60);
+    ui->auxBarGraph->yAxis->setLabel("Temperature (°C)");
     ui->auxBarGraph->xAxis->setTickLabelRotation(85);
     ui->auxBarGraph->xAxis->setSubTicks(false);
     ui->auxBarGraph->xAxis->setTickLength(0, 5);
@@ -364,7 +364,7 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
             datayNormal.append(fabs(auxVoltageArray[indexPointer]));
         }
 
-        QString voltageString = QStringLiteral("%1V (C").arg(fabs(auxVoltageArray[indexPointer]), 0, 'f',3);
+        QString voltageString = QStringLiteral("%1°C (T").arg(fabs(auxVoltageArray[indexPointer]), 0, 'f',3);
         labels.append(voltageString + QString::number(indexPointer) + ")");
     }
 
@@ -373,7 +373,7 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
 
     ui->auxBarGraph->xAxis->setTicker(textTicker);
     ui->auxBarGraph->xAxis->setRange(0.5, indexPointer + 0.5);
-    ui->auxBarGraph->yAxis->setRange(0, 6);
+    ui->auxBarGraph->yAxis->setRange(-20, 60);
     barsTemperature->setData(dataxNew, datayNormal);
 }
 

@@ -53,6 +53,8 @@ void PageMasterSignals::setDieBieMS(BMSInterface *dieBieMS)
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntLCOffset");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "voltageLCFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "voltageLCOffset");
+        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "loadVoltageFactor");
+        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "loadVoltageOffset");
         ui->signalsTab->addRowSeparator(tr("High current path"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "HCLoadVoltageDataSource");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "HCLoadCurrentDataSource");
