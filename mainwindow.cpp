@@ -157,10 +157,11 @@ void MainWindow::timerSlot()
         ui->actionCanFwd->setChecked(mDieBieMS->commands()->getSendCan());
     }
 
-    // RT data only every 5 iterations
+    // RT value data only every 5 iterations. Cells & aux only every 20 iterations
     if (ui->actionRtData->isChecked()) {
         static int values_cnt = 0;
         static int cells_cnt = 0;
+        static int aux_cnt = 0;
 
         values_cnt++;
         if(values_cnt >= 5) {
@@ -172,6 +173,12 @@ void MainWindow::timerSlot()
         if(cells_cnt >= 20) {
             cells_cnt = 0;
             mDieBieMS->commands()->getCells();
+        }
+
+        aux_cnt++;
+        if(aux_cnt >= 20) {
+            aux_cnt = 0;
+            mDieBieMS->commands()->getAux();
         }
     }
 
@@ -536,7 +543,7 @@ void MainWindow::reloadPages()
     mSlaveSettings = new PageSlaveSettings(this);
     mSlaveSettings->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mSlaveSettings);
-    addPageItem(tr("Slave Settings"), "://res/icons/Outgoing Data-96.png", "", true);
+    addPageItem(tr("Expansion Board Settings"), "://res/icons/Outgoing Data-96.png", "", true);
 
     mPageSlaveGeneral = new PageSlaveGeneral(this);
     mPageSlaveGeneral->setDieBieMS(mDieBieMS);

@@ -182,12 +182,12 @@ PageRtData::PageRtData(QWidget *parent) :
 
     // Aux bar graph
     group = new QCPBarsGroup(ui->auxBarGraph);
-    barsNormal = new QCPBars(ui->auxBarGraph->xAxis, ui->auxBarGraph->yAxis);
+    barsTemperature = new QCPBars(ui->auxBarGraph->xAxis, ui->auxBarGraph->yAxis);
 
-    barsNormal->setBrush(QColor(0, 255, 0, 50));
-    barsNormal->setPen(QColor(0, 211, 56));
-    barsNormal->setWidth(0.9);
-    barsNormal->setBarsGroup(group);
+    barsTemperature->setBrush(QColor(0, 255, 0, 50));
+    barsTemperature->setPen(QColor(0, 211, 56));
+    barsTemperature->setWidth(0.9);
+    barsTemperature->setBarsGroup(group);
 
     ui->auxBarGraph->xAxis->setRange(0.5, 12);
     ui->auxBarGraph->yAxis->setRange(2.5, 4.15);
@@ -352,23 +352,16 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
     dataxNew.clear();
     QVector<double> datayNormal;
     datayNormal.clear();
-    QVector<double> datayBalance;
-    datayBalance.clear();
     QVector<QString> labels;
     int indexPointer;
-
-    double auxHardUnder = mDieBieMS->bmsConfig()->getParamDouble("cellHardUnderVoltage");
-    double auxHardOver  = mDieBieMS->bmsConfig()->getParamDouble("cellHardOverVoltage");
 
     for(indexPointer = 0; indexPointer < auxCount; indexPointer++){
         dataxNew.append(indexPointer + 1);
 
         if(auxVoltageArray[indexPointer] < 0.0){
             datayNormal.append(0.0);
-            datayBalance.append(fabs(auxVoltageArray[indexPointer]));
         }else{
             datayNormal.append(fabs(auxVoltageArray[indexPointer]));
-            datayBalance.append(0.0);
         }
 
         QString voltageString = QStringLiteral("%1V (C").arg(fabs(auxVoltageArray[indexPointer]), 0, 'f',3);
@@ -380,9 +373,8 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
 
     ui->auxBarGraph->xAxis->setTicker(textTicker);
     ui->auxBarGraph->xAxis->setRange(0.5, indexPointer + 0.5);
-    ui->auxBarGraph->yAxis->setRange(auxHardUnder, auxHardOver);
-    barsNormal->setData(dataxNew, datayNormal);
-    barsBalance->setData(dataxNew, datayBalance);
+    ui->auxBarGraph->yAxis->setRange(0, 6);
+    barsTemperature->setData(dataxNew, datayNormal);
 }
 
 void PageRtData::appendDoubleAndTrunc(QVector<double> *vec, double num, int maxSize)

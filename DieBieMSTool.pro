@@ -5,7 +5,7 @@
 #-------------------------------------------------
 INCLUDEPATH += $$PWD
 # Version
-DT_VERSION = 0.30
+DT_VERSION = 0.31
 
 DEFINES += DT_VERSION=$$DT_VERSION
 

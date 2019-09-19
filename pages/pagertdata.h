@@ -84,6 +84,7 @@ private:
     QCPBarsGroup *group;
     QCPBars *barsNormal;
     QCPBars *barsBalance;
+    QCPBars *barsTemperature;
 
     void appendDoubleAndTrunc(QVector<double> *vec, double num, int maxSize);
     void updateZoom();
