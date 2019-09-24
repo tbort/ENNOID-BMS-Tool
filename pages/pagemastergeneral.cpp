@@ -85,6 +85,7 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->masterSensorsTab->addRowSeparator(tr("NTC enable mask"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBMS");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBattery");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerModule");
         ui->masterSensorsTab->addRowSeparator(tr("Water detect enable mask"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "waterSensorEnableMask");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "waterSensorThreshold");

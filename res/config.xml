@@ -15,7 +15,7 @@ p, li { white-space: pre-wrap; }
             <cDefine>NO_OF_CELLS_SERIES</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxInt>90</maxInt>
+            <maxInt>96</maxInt>
             <minInt>3</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
@@ -52,10 +52,10 @@ p, li { white-space: pre-wrap; }
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of modules in parallel.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>NO_OF_CELLS_PARALLEL</cDefine>
+            <cDefine>NO_OF_PARALLEL_MODULE</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxInt>200</maxInt>
+            <maxInt>10</maxInt>
             <minInt>1</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
@@ -95,7 +95,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cell monitor IC type.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CELL_MONITOR_IC_TYPE</cDefine>
-            <valInt>2</valInt>
+            <valInt>3</valInt>
             <enumNames>None</enumNames>
             <enumNames>LTC6803-2</enumNames>
             <enumNames>LTC6804-1</enumNames>
@@ -1437,7 +1437,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tell what temperature sensor to use for the BMS temperature stats. The bitwise representation of this decimal value will show what sensor is enabled. The sensor order is as follows:&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_DISABLE&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_ENABLE&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_LTC_NTC1&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_LTC_CHIP&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_STM_NTC&lt;/p&gt;
@@ -1471,11 +1471,11 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Look at the discription of 'tempEnableMaskBMS'.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Slave Module temperature 0 = Disable, 1 = Enable.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>TEMPERATURE_ENABLE_MASK_BATTERY</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxInt>100000000</maxInt>
+            <maxInt>1</maxInt>
             <minInt>0</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
@@ -1483,6 +1483,26 @@ p, li { white-space: pre-wrap; }
             <suffix></suffix>
             <vTx>5</vTx>
         </tempEnableMaskBattery>
+        <noOfTempSensorPerModule>
+            <longName>Temp sensor per module</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of Temperature sensor per slave module.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NO_OF_TEMP_SENSOR_PER_MODULE</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>9</maxInt>
+            <minInt>1</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>5</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </noOfTempSensorPerModule>
         <LCUseDischarge>
             <longName>Discharge output</longName>
             <type>4</type>
@@ -2325,6 +2345,7 @@ p, li { white-space: pre-wrap; }
         <ser>waterSensorThreshold</ser>
         <ser>tempEnableMaskBMS</ser>
         <ser>tempEnableMaskBattery</ser>
+        <ser>noOfTempSensorPerModule</ser>
         <ser>LCUseDischarge</ser>
         <ser>LCUsePrecharge</ser>
         <ser>allowChargingDuringDischarge</ser>
