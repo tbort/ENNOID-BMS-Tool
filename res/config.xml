@@ -15,7 +15,7 @@ p, li { white-space: pre-wrap; }
             <cDefine>NO_OF_CELLS_SERIES</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxInt>96</maxInt>
+            <maxInt>180</maxInt>
             <minInt>3</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>

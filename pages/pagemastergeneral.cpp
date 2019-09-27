@@ -82,7 +82,7 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTC25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCBeta");
-        ui->masterSensorsTab->addRowSeparator(tr("NTC enable mask"));
+        ui->masterSensorsTab->addRowSeparator(tr("NTC enable"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBMS");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBattery");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerModule");

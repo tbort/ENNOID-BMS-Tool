@@ -190,7 +190,7 @@ PageRtData::PageRtData(QWidget *parent) :
     barsTemperature->setBarsGroup(group);
 
     ui->auxBarGraph->xAxis->setRange(0.5, 12);
-    ui->auxBarGraph->yAxis->setRange(-20, 60);
+    ui->auxBarGraph->yAxis->setRange(-40, 100);
     ui->auxBarGraph->yAxis->setLabel("Temperature (°C)");
     ui->auxBarGraph->xAxis->setTickLabelRotation(85);
     ui->auxBarGraph->xAxis->setSubTicks(false);
@@ -373,7 +373,7 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
 
     ui->auxBarGraph->xAxis->setTicker(textTicker);
     ui->auxBarGraph->xAxis->setRange(0.5, indexPointer + 0.5);
-    ui->auxBarGraph->yAxis->setRange(-20, 60);
+    ui->auxBarGraph->yAxis->setRange(-40, 100);
     barsTemperature->setData(dataxNew, datayNormal);
 }
 
