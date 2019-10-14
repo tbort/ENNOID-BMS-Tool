@@ -123,6 +123,37 @@ p, li { white-space: pre-wrap; }
             <suffix></suffix>
             <vTx>1</vTx>
         </cellMonitorICCount>
+        <lastICMask>
+                    <longName>Last IC Mask</longName>
+                    <type>2</type>
+                    <transmittable>1</transmittable>
+                    <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        p, li { white-space: pre-wrap; }
+        &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Last IC Enable mask enables the last IC in the serie string to have a different number of cells than the other IC.&lt;/p&gt;
+        &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Example:&lt;/p&gt;
+        &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;25S battery pack&lt;/p&gt;
+        &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Using LTC6812 IC:&lt;/p&gt;
+        &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;First IC = 13 cells&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Second IC has only 12 cells&lt;/p&gt;
+        &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;lastICMask = 0000 0000 0000 1000 = 8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+                    <cDefine></cDefine>
+                    <editorScale>1</editorScale>
+                    <editAsPercentage>0</editAsPercentage>
+                    <maxInt>255</maxInt>
+                    <minInt>0</minInt>
+                    <showDisplay>0</showDisplay>
+                    <stepInt>1</stepInt>
+                    <valInt>0</valInt>
+                    <suffix></suffix>
+                    <vTx>3</vTx>
+                </lastICMask>
         <cellTechnology>
             <longName>Cell technology</longName>
             <type>4</type>
@@ -617,8 +648,8 @@ p, li { white-space: pre-wrap; }
             <editorDecimalsDouble>6</editorDecimalsDouble>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxDouble>200</maxDouble>
-            <minDouble>-200</minDouble>
+            <maxDouble>500</maxDouble>
+            <minDouble>-500</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>0.05</stepDouble>
             <valDouble>135</valDouble>
@@ -1496,7 +1527,7 @@ p, li { white-space: pre-wrap; }
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
             <maxInt>9</maxInt>
-            <minInt>1</minInt>
+            <minInt>0</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
             <valInt>5</valInt>
@@ -2380,6 +2411,7 @@ p, li { white-space: pre-wrap; }
         <ser>NTCHiAmpAUXBeta</ser>
         <ser>cellMonitorICType</ser>
         <ser>cellMonitorICCount</ser>
+        <ser>lastICMask</ser>
         <ser>extEnableState</ser>
         <ser>chargeEnableState</ser>
         <ser>DCDCEnableInverted</ser>

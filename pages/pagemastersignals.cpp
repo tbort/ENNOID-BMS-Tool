@@ -48,6 +48,7 @@ void PageMasterSignals::setDieBieMS(BMSInterface *dieBieMS)
         ui->signalsTab->addRowSeparator(tr("Cell voltage monitor"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "cellMonitorICType");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "cellMonitorICCount");
+        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "lastICMask");
         ui->signalsTab->addRowSeparator(tr("Low current path"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntLCFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntLCOffset");
