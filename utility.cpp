@@ -170,11 +170,23 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>ENNOID-BMS Tool %1</b><br>"
+    return tr("<b>ENNOID-BMS Tool V1.0</b><br>"
+              "&copy; Kevin Dionne 2019<br>"
+              "<a href=\"mailto:kevin.dionne@ennoid.me\">kevin.dionne@ennoid.me</a><br>"
+              "<a href=\"https://www.ennoid.me/\">https://www.ennoid.me/</a><br>"
+              "Based on: DieBieMS-tool<br>"
+              "<br>"
+               "<b>DieBieMS Tool </b><br>"
               "&copy; Danny Bokma 2018<br>"
               "<a href=\"mailto:bms@diebie.nl\">bms@diebie.nl</a><br>"
               "<a href=\"https://diebie.nl/\">https://diebie.nl/</a><br>"
-              "Based on: ").
+              "Based on: VESC-tool<br>"
+              "<br>"
+              "<b>VESC Tool </b><br>"
+             "&copy; Benjamin Vedder 2018<br>"
+             "<a href=\"mailto:benjamin@vedder.se\">benjamin@vedder.se</a><br>"
+             "<a href=\"https://vesc-project.com/\">https://vesc-project.com/</a><br>"
+             "<br>").
             arg(QString::number(DT_VERSION));
 }
 
