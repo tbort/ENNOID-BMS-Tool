@@ -155,17 +155,9 @@ void RtDataText::paintEvent(QPaintEvent *event)
     // Right info box
     str.sprintf("V Load LC : %.2f V\n"
                 "P Load LC : %.1f W\n"
-                "V Load HC : %.2f V\n"
-                "P Load HC : %.1f W\n"
-                "V Aux     : %.2f V\n"
-                "P Aux     : %.1f W\n"
                 "\n",
                 mValues.loadLCVoltage,
-                mValues.loadLCCurrent * mValues.loadLCVoltage,
-                mValues.loadHCVoltage,
-                mValues.loadHCCurrent * mValues.loadHCVoltage,
-                mValues.auxVoltage,
-                mValues.auxCurrent * mValues.auxVoltage);
+                mValues.loadLCCurrent * mValues.loadLCVoltage);
 
     painter.setOpacity(0.7);
     painter.fillRect(vidw - bbox_w, 0, bbox_w,mBoxH + 2 * mTxtOfs, Qt::black);
