@@ -181,13 +181,13 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->cellBarGraph->xAxis->setTickLength(0, 5);
 
     // Aux bar graph
-    group = new QCPBarsGroup(ui->auxBarGraph);
+    group2 = new QCPBarsGroup(ui->auxBarGraph);
     barsTemperature = new QCPBars(ui->auxBarGraph->xAxis, ui->auxBarGraph->yAxis);
 
     barsTemperature->setBrush(QColor(0, 255, 0, 50));
     barsTemperature->setPen(QColor(0, 211, 56));
     barsTemperature->setWidth(0.9);
-    barsTemperature->setBarsGroup(group);
+    barsTemperature->setBarsGroup(group2);
 
     ui->auxBarGraph->xAxis->setRange(0.5, 12);
     ui->auxBarGraph->yAxis->setRange(-40, 75);
@@ -358,7 +358,7 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
     for(indexPointer = 0; indexPointer < auxCount; indexPointer++){
         dataxNew.append(indexPointer + 1);
 
-        if(auxVoltageArray[indexPointer] < 0.0){
+        if(auxVoltageArray[indexPointer] < -50.0){
             datayNormal.append(0.0);
         }else{
             datayNormal.append(fabs(auxVoltageArray[indexPointer]));

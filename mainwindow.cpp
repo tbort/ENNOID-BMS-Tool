@@ -539,7 +539,7 @@ void MainWindow::reloadPages()
     mPageMasterDisplay->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageMasterDisplay);
     addPageItem(tr("Display"), "://res/icons/Calculator-96.png","", false, true);
-
+/*
     mSlaveSettings = new PageSlaveSettings(this);
     mSlaveSettings->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mSlaveSettings);
@@ -564,7 +564,7 @@ void MainWindow::reloadPages()
     mPageSlaveFANs->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageSlaveFANs);
     addPageItem(tr("FANs"), "://res/icons/fan-96.png","", false, true);
-
+*/
     mPageDataAnalysis = new PageDataAnalysis(this);
     mPageDataAnalysis->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageDataAnalysis);
