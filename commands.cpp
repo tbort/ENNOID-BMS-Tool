@@ -138,8 +138,8 @@ void Commands::processPacket(QByteArray data)
         values.cVLow            = vb.vbPopFrontDouble32(1e3);
         values.cVMisMatch       = vb.vbPopFrontDouble32(1e3);
 
-        values.loadLCVoltage    = vb.vbPopFrontDouble16(1e2);
-        values.loadLCCurrent    = vb.vbPopFrontDouble16(1e2);
+        values.loadLCVoltage    = vb.vbPopFrontDouble16(1e1);
+        values.loadLCCurrent    = vb.vbPopFrontDouble16(1e1);
         values.loadHCVoltage    = vb.vbPopFrontDouble16(1e2);
         values.loadHCCurrent    = vb.vbPopFrontDouble16(1e2);
         values.auxVoltage       = vb.vbPopFrontDouble16(1e2);

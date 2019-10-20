@@ -50,16 +50,16 @@ float Utility::throttle_curve(float val, float curve_acc, float curve_brake, int
     float ret = 0.0;
     float val_a = fabsf(val);
 
-    if (val < -1.0) {
+    if (val < -1.0f) {
         val = -1.0;
     }
 
-    if (val > 1.0) {
+    if (val > 1.0f) {
         val = 1.0;
     }
 
     float curve;
-    if (val >= 0.0) {
+    if (val >= 0.0f) {
         curve = curve_acc;
     } else {
         curve = curve_brake;
@@ -68,32 +68,32 @@ float Utility::throttle_curve(float val, float curve_acc, float curve_brake, int
     // See
     // http://math.stackexchange.com/questions/297768/how-would-i-create-a-exponential-ramp-function-from-0-0-to-1-1-with-a-single-val
     if (mode == 0) { // Power
-        if (curve >= 0.0) {
-            ret = 1.0 - powf(1.0 - val_a, 1.0 + curve);
+        if (curve >= 0.0f) {
+            ret = 1.0f - powf(1.0f - val_a, 1.0f + curve);
         } else {
-            ret = powf(val_a, 1.0 - curve);
+            ret = powf(val_a, 1.0f - curve);
         }
     } else if (mode == 1) { // Exponential
-        if (fabsf(curve) < 1e-10) {
+        if (fabsf(curve) < 1e-10f) {
             ret = val_a;
         } else {
-            if (curve >= 0.0) {
-                ret = 1.0 - ((expf(curve * (1.0 - val_a)) - 1.0) / (expf(curve) - 1.0));
+            if (curve >= 0.0f) {
+                ret = 1.0f - ((expf(curve * (1.0f - val_a)) - 1.0f) / (expf(curve) - 1.0f));
             } else {
-                ret = (expf(-curve * val_a) - 1.0) / (expf(-curve) - 1.0);
+                ret = (expf(-curve * val_a) - 1.0f) / (expf(-curve) - 1.0f);
             }
         }
     } else if (mode == 2) { // Polynomial
-        if (curve >= 0.0) {
-            ret = 1.0 - ((1.0 - val_a) / (1.0 + curve * val_a));
+        if (curve >= 0.0f) {
+            ret = 1.0f - ((1.0f - val_a) / (1.0f + curve * val_a));
         } else {
-            ret = val_a / (1.0 - curve * (1.0 - val_a));
+            ret = val_a / (1.0f - curve * (1.0f - val_a));
         }
     } else { // Linear
         ret = val_a;
     }
 
-    if (val < 0.0) {
+    if (val < 0.0f) {
         ret = -ret;
     }
 
@@ -170,7 +170,7 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>ENNOID-BMS Tool V1.0</b><br>"
+    return tr("<b>ENNOID-BMS Tool V%1.0</b><br>"
               "&copy; Kevin Dionne 2019<br>"
               "<a href=\"mailto:kevin.dionne@ennoid.me\">kevin.dionne@ennoid.me</a><br>"
               "<a href=\"https://www.ennoid.me/\">https://www.ennoid.me/</a><br>"
