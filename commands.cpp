@@ -181,7 +181,7 @@ void Commands::processPacket(QByteArray data)
         mAuxAmount = vb.vbPopFrontUint8();
 
         for(int auxValuePointer = 0; auxValuePointer < mAuxAmount; auxValuePointer++){
-            mAuxVoltages.append(vb.vbPopFrontDouble16(1e3));
+            mAuxVoltages.append(vb.vbPopFrontDouble16(1e1));
         }
 
         emit auxReceived(mAuxAmount,mAuxVoltages);

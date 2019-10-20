@@ -361,10 +361,10 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
         if(auxVoltageArray[indexPointer] < -50.0){
             datayNormal.append(0.0);
         }else{
-            datayNormal.append(fabs(auxVoltageArray[indexPointer]));
+            datayNormal.append(auxVoltageArray[indexPointer]);
         }
 
-        QString voltageString = QStringLiteral("%1°C (T").arg(fabs(auxVoltageArray[indexPointer]), 0, 'f',3);
+        QString voltageString = QStringLiteral("%1°C (T").arg(auxVoltageArray[indexPointer], 0, 'f',3);
         labels.append(voltageString + QString::number(indexPointer) + ")");
     }
 
