@@ -973,7 +973,7 @@ p, li { white-space: pre-wrap; }
             <editorDecimalsDouble>2</editorDecimalsDouble>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxDouble>1000</maxDouble>
+            <maxDouble>2500</maxDouble>
             <minDouble>1</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>10</stepDouble>
