@@ -58,7 +58,7 @@ void PageMasterCell::setDieBieMS(BMSInterface *dieBieMS)
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHardUnderVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHardOverVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellLCSoftUnderVoltage");
-        ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHCSoftUnderVoltage");
+     //   ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHCSoftUnderVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellSoftOverVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "maxUnderAndOverVoltageErrorCount");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "hysteresisDischarge");
@@ -68,7 +68,7 @@ void PageMasterCell::setDieBieMS(BMSInterface *dieBieMS)
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceStart");
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceDifferenceThreshold");
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceUpdateInterval");
-        ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "maxSimultaneousDischargingCells");
+//        ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "maxSimultaneousDischargingCells");
 
         ui->throttlingTab->addRowSeparator(tr("Discharge"));
         ui->throttlingTab->addParamRow(mDieBieMS->bmsConfig(), "cellThrottleLowerStart");
