@@ -12,7 +12,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;The firmware version(s) that this version of ENNOID-BMS Tool supports.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine></cDefine>
             <valInt>0</valInt>
-            <enumNames>1.0</enumNames>
+            <enumNames>1.1</enumNames>
         </fw_version>
         <help_can_forward>
             <longName>CAN Forwarding</longName>
@@ -305,7 +305,7 @@ BhkhSAbafykBKAw5MJ3az4NCSgEmZM9AwnOsCo7VCtBDnKAvt9hIQakpTeDwpN8ic2C4oUgO+n7Ow4xP
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu'; font-weight:600;&quot;&gt;Realtime Data&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;The realtime data page can be used to stream and plot filtered data continuously, which can be useful for visualizing things in real time while they are happening. &lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;In ordet to stream realtime data, the &lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu'; font-style:italic;&quot;&gt;Stream realtime data&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; button in the main toolbar to the right has to be activated:&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;In order to stream realtime data, the &lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu'; font-style:italic;&quot;&gt;Stream realtime data&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; button in the main toolbar to the right has to be activated:&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;data:image/1681692777.PNG;base64,i
 VBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAGXRFW

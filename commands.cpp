@@ -140,10 +140,6 @@ void Commands::processPacket(QByteArray data)
 
         values.loadLCVoltage    = vb.vbPopFrontDouble16(1e1);
         values.loadLCCurrent    = vb.vbPopFrontDouble16(1e1);
-        values.loadHCVoltage    = vb.vbPopFrontDouble16(1e2);
-        values.loadHCCurrent    = vb.vbPopFrontDouble16(1e2);
-        values.auxVoltage       = vb.vbPopFrontDouble16(1e2);
-        values.auxCurrent       = vb.vbPopFrontDouble16(1e2);
 
         values.tempBattHigh     = vb.vbPopFrontDouble16(1e1);
         values.tempBattAverage  = vb.vbPopFrontDouble16(1e1);

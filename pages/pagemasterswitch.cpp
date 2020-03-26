@@ -45,7 +45,7 @@ void PageMasterSwitch::setDieBieMS(BMSInterface *dieBieMS)
     mDieBieMS = dieBieMS;
 
     if (mDieBieMS) {
-        ui->dischargeTab->addRowSeparator(tr("Low current output switch"));
+        ui->dischargeTab->addRowSeparator(tr("Current output switch"));
         ui->dischargeTab->addParamRow(mDieBieMS->bmsConfig(), "LCUseDischarge");
         ui->dischargeTab->addParamRow(mDieBieMS->bmsConfig(), "LCUsePrecharge");
         ui->dischargeTab->addParamRow(mDieBieMS->bmsConfig(), "minimalPrechargePercentage");

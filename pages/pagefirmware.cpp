@@ -232,7 +232,7 @@ void PageFirmware::on_uploadButton_clicked()
         if (!mDieBieMS->isPortConnected()) {
             QMessageBox::critical(this,
                                   tr("Connection Error"),
-                                  tr("The DiebieMS is not connected. Please connect it."));
+                                  tr("The ENNOID-BMS is not connected. Please connect it."));
             return;
         }
 
@@ -248,7 +248,7 @@ void PageFirmware::on_uploadButton_clicked()
                                          tr("Upload Error"),
                                          tr("This version of DieBie does not include any firmware "
                                             "for your hardware version. You can either "
-                                            "upload a custom file or look for a later version of DieBieMS "
+                                            "upload a custom file or look for a later version of ENNOID-BMS "
                                             "Tool that might support your hardware."));
                 } else {
                     QMessageBox::warning(this,
@@ -275,7 +275,7 @@ void PageFirmware::on_uploadButton_clicked()
                 if (ui->blList->count() == 0) {
                     QMessageBox::warning(this,
                                          tr("Upload Error"),
-                                         tr("This version of DieBieMS does not include any bootloader "
+                                         tr("This version of ENNOID-BMS does not include any bootloader "
                                             "for your hardware version."));
                 } else {
                     QMessageBox::warning(this,
@@ -307,7 +307,7 @@ void PageFirmware::on_uploadButton_clicked()
         if (ui->fwTabWidget->currentIndex() == 0 && ui->hwList->count() == 1) {
             reply = QMessageBox::warning(this,
                                          tr("Warning"),
-                                         tr("Uploading new firmware will clear all settings on your DieBieMS "
+                                         tr("Uploading new firmware will clear all settings on your ENNOID-BMS "
                                             "and you have to do the configuration again. Do you want to "
                                             "continue?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
@@ -315,14 +315,14 @@ void PageFirmware::on_uploadButton_clicked()
             reply = QMessageBox::warning(this,
                                          tr("Warning"),
                                          tr("Uploading firmware for the wrong hardware version "
-                                            "WILL damage the DieBieMS for sure. Are you sure that you have "
+                                            "WILL damage the ENNOID-BMS for sure. Are you sure that you have "
                                             "chosen the correct hardware version?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
         } else if (ui->fwTabWidget->currentIndex() == 2) {
             reply = QMessageBox::warning(this,
                                          tr("Warning"),
-                                         tr("This will attempt to upload a bootloader to the connected DieBieMS. "
-                                            "If the connected DieBieMS already has a bootloader this will destroy "
+                                         tr("This will attempt to upload a bootloader to the connected ENNOID-BMS. "
+                                            "If the connected ENNOID-BMS already has a bootloader this will destroy "
                                             "the bootloader and firmware updates cannot be done anymore. Do "
                                             "you want to continue?"),
                                          QMessageBox::Yes | QMessageBox::No, QMessageBox::No);
@@ -339,7 +339,7 @@ void PageFirmware::on_uploadButton_clicked()
                                  tr("Warning"),
                                  tr("The firmware upload is now ongoing. After the upload has finished you must wait at least "
                                     "10 seconds before unplugging power. Otherwise the firmware will get corrupted and your "
-                                    "DieBieMS will become bricked. If that happens you need a SWD programmer to recover it."));
+                                    "ENNOID-BMS will become bricked. If that happens you need a SWD programmer to recover it."));
         }
     }
 }

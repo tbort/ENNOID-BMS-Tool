@@ -190,7 +190,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Normal use low current path lowest cell voltage, when the cell voltage goes below this threshold the BMS turns off its current path output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Normal use BMS current path lowest cell voltage, when the cell voltage goes below this threshold the BMS turns off its current path output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CELL_LC_SOFT_UNDER_VOLTAGE</cDefine>
             <editorDecimalsDouble>3</editorDecimalsDouble>
             <editorScale>1</editorScale>
@@ -204,28 +204,6 @@ p, li { white-space: pre-wrap; }
             <suffix>V</suffix>
             <vTx>9</vTx>
         </cellLCSoftUnderVoltage>
-        <cellHCSoftUnderVoltage>
-            <longName>Cell high current soft undervoltage</longName>
-            <type>1</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Normal use high current path lowest cell voltage, when the cell voltage goes below this threshold the BMS turns off the high current path output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>CELL_HC_SOFT_UNDER_VOLTAGE</cDefine>
-            <editorDecimalsDouble>3</editorDecimalsDouble>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxDouble>5</maxDouble>
-            <minDouble>0</minDouble>
-            <showDisplay>0</showDisplay>
-            <stepDouble>0.05</stepDouble>
-            <valDouble>3</valDouble>
-            <vTxDoubleScale>100000</vTxDoubleScale>
-            <suffix>V</suffix>
-            <vTx>9</vTx>
-        </cellHCSoftUnderVoltage>
         <cellSoftOverVoltage>
             <longName>Cell soft overvoltage</longName>
             <type>1</type>
@@ -401,13 +379,7 @@ p, li { white-space: pre-wrap; }
             <valInt>1</valInt>
             <enumNames>NoSource</enumNames>
             <enumNames>ISL28022 (I2C2 - 0x40) LV BatteryInput</enumNames>
-            <enumNames>ISL28022 (I2C1 - 0x44) LV LoadOutput</enumNames>
-            <enumNames>ISL28022 (I2C1 - 0x45) DCDC</enumNames>
-            <enumNames>ADS1015 (AN01) HV BatteryInput</enumNames>
-            <enumNames>ADS1015 (AN23) HV LoadOutput</enumNames>
             <enumNames>SumOfIndividualCellVoltages</enumNames>
-            <enumNames>CAN-&gt;DieBieShunt</enumNames>
-            <enumNames>CAN-&gt;Isabellenhutte</enumNames>
         </packVoltageDataSource>
         <packCurrentDataSource>
             <longName>Current data source</longName>
@@ -421,9 +393,7 @@ p, li { white-space: pre-wrap; }
             <cDefine>CELL_MONITOR_IC_TYPE</cDefine>
             <valInt>1</valInt>
             <enumNames>NoSource</enumNames>
-            <enumNames>Low current path current</enumNames>
-            <enumNames>High current path current</enumNames>
-            <enumNames>Low + high path currents</enumNames>
+            <enumNames>ENNOID-BMS current path</enumNames>
             <enumNames>CAN-&gt;DieBieShunt</enumNames>
             <enumNames>CAN-&gt;Isabellenhutte</enumNames>
         </packCurrentDataSource>
@@ -456,7 +426,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the desired signal source type.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>BUZZER_SIGNAL_TYPE</cDefine>
-            <valInt>7</valInt>
+            <valInt>1</valInt>
             <enumNames>Off</enumNames>
             <enumNames>On</enumNames>
             <enumNames>Toggle</enumNames>
@@ -1344,6 +1314,7 @@ p, li { white-space: pre-wrap; }
             <valInt>0</valInt>
             <enumNames>DieBie / VESC</enumNames>
             <enumNames>EFoiler</enumNames>
+            <enumNames>Jan Pagels</enumNames>
         </CANIDStyle>
         <CANBaudRate>
             <longName>CAN throughput</longName>
@@ -1529,10 +1500,10 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use master BMS precharge for discharge output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>LC_USE_PRECHARGE</cDefine>
-            <valInt>2</valInt>
+            <valInt>1</valInt>
             <enumNames>Disabled</enumNames>
             <enumNames>Enabled</enumNames>
-            <enumNames>Persistent</enumNames>
+            <enumNames>Forced</enumNames>
         </LCUsePrecharge>
         <allowChargingDuringDischarge>
             <longName>Allow charging during discharge</longName>
@@ -1584,44 +1555,10 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Defines the state to be entered when the BMS is enabled by charge voltage present.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CHARGE_ENA_OP_STATE</cDefine>
-            <valInt>1</valInt>
+            <valInt>0</valInt>
             <enumNames>Charge operation</enumNames>
             <enumNames>Normal operation</enumNames>
         </chargeEnableState>
-        <DCDCEnableInverted>
-            <longName>Invert Enable signal</longName>
-            <type>5</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Defines whether or not the signal to control a DCDC converter should be inverted or not. Some DCDC converters have an inverted enable input. This config only applies to BMS's that have an additional DCDC converter.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>CHARGE_ENA_OP_STATE</cDefine>
-            <valInt>1</valInt>
-        </DCDCEnableInverted>
-        <DCDCTargetVoltage>
-            <longName>Target voltage</longName>
-            <type>1</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The BMS will check whether the DCDC output voltage is within 10% of the voltage specified here, if it is OK it will start controlling the loads on the output of it, like the Relay and FANs.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>DCDC_TARGET_VOLTAGE</cDefine>
-            <editorDecimalsDouble>1</editorDecimalsDouble>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxDouble>100</maxDouble>
-            <minDouble>0</minDouble>
-            <showDisplay>0</showDisplay>
-            <stepDouble>1</stepDouble>
-            <valDouble>12</valDouble>
-            <vTxDoubleScale>1</vTxDoubleScale>
-            <suffix>V</suffix>
-            <vTx>9</vTx>
-        </DCDCTargetVoltage>
         <pulseToggleButton>
             <longName>Pulse or toggle power button</longName>
             <type>4</type>
@@ -1638,26 +1575,6 @@ p, li { white-space: pre-wrap; }
             <enumNames>Latching / Toggle</enumNames>
             <enumNames>Momentary / Pulse</enumNames>
         </pulseToggleButton>
-        <togglePowerModeDirectHCDelay>
-            <longName>Direct or high current output control</longName>
-            <type>4</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;This function only works with a toggle switch style enabling of the BMS power. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When in &amp;quot;Always on&amp;quot; mode the BMS will turn on the output directly when the BMS is on and turn the output off when the BMS is turned off. &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When in &amp;quot;PowerbuttonToggleSwitch based&amp;quot; mode the BMS will turn on the slave load output when the switch is closed and turns it of when the switch is opened.&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Be aware that when the safety over CAN feature is enabled the output enabled state will also depend on that.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>POWER_MODE_DIRECT_HCDELAY</cDefine>
-            <valInt>1</valInt>
-            <enumNames>PowerbuttonToggleSwitch based</enumNames>
-            <enumNames>Always on</enumNames>
-        </togglePowerModeDirectHCDelay>
         <useCANSafetyInput>
             <longName>Use safety input status from CAN</longName>
             <type>5</type>
@@ -2286,7 +2203,6 @@ p, li { white-space: pre-wrap; }
         <ser>cellHardUnderVoltage</ser>
         <ser>cellHardOverVoltage</ser>
         <ser>cellLCSoftUnderVoltage</ser>
-        <ser>cellHCSoftUnderVoltage</ser>
         <ser>cellSoftOverVoltage</ser>
         <ser>cellBalanceDifferenceThreshold</ser>
         <ser>cellBalanceStart</ser>
@@ -2301,8 +2217,6 @@ p, li { white-space: pre-wrap; }
         <ser>buzzerPersistent</ser>
         <ser>shuntLCFactor</ser>
         <ser>shuntLCOffset</ser>
-        <ser>shuntHCFactor</ser>
-        <ser>shuntHCOffset</ser>
         <ser>voltageLCFactor</ser>
         <ser>voltageLCOffset</ser>
         <ser>loadVoltageFactor</ser>
@@ -2343,8 +2257,6 @@ p, li { white-space: pre-wrap; }
         <ser>CANBaudRate</ser>
         <ser>emitStatusOverCAN</ser>
         <ser>emitStatusProtocolType</ser>
-        <ser>waterSensorEnableMask</ser>
-        <ser>waterSensorThreshold</ser>
         <ser>tempEnableMaskBMS</ser>
         <ser>tempEnableMaskBattery</ser>
         <ser>noOfTempSensorPerModule</ser>
@@ -2353,39 +2265,18 @@ p, li { white-space: pre-wrap; }
         <ser>allowChargingDuringDischarge</ser>
         <ser>allowForceOn</ser>
         <ser>pulseToggleButton</ser>
-        <ser>togglePowerModeDirectHCDelay</ser>
         <ser>useCANSafetyInput</ser>
         <ser>useCANDelayedPowerDown</ser>
-        <ser>HCUseRelay</ser>
-        <ser>HCUsePrecharge</ser>
-        <ser>HCUseLoadDetect</ser>
-        <ser>HCLoadDetectThreshold</ser>
-        <ser>HCLoadVoltageDataSource</ser>
-        <ser>HCLoadCurrentDataSource</ser>
-        <ser>timeoutHCPreCharge</ser>
-        <ser>timeoutHCPreChargeRetryInterval</ser>
-        <ser>timeoutHCRelayOverlap</ser>
         <ser>NTCLTCTopResistor</ser>
         <ser>NTCLTC25Deg</ser>
         <ser>NTCLTCBeta</ser>
         <ser>NTCPCBTopResistor</ser>
         <ser>NTCPCB25Deg</ser>
         <ser>NTCPCBBeta</ser>
-        <ser>NTCHiAmpExtTopResistor</ser>
-        <ser>NTCHiAmpExt25Deg</ser>
-        <ser>NTCHiAmpExtBeta</ser>
-        <ser>NTCHiAmpPCBTopResistor</ser>
-        <ser>NTCHiAmpPCB25Deg</ser>
-        <ser>NTCHiAmpPCBBeta</ser>
-        <ser>NTCHiAmpAUXTopResistor</ser>
-        <ser>NTCHiAmpAUX25Deg</ser>
-        <ser>NTCHiAmpAUXBeta</ser>
         <ser>cellMonitorICType</ser>
         <ser>cellMonitorICCount</ser>
         <ser>extEnableState</ser>
         <ser>chargeEnableState</ser>
-        <ser>DCDCEnableInverted</ser>
-        <ser>DCDCTargetVoltage</ser>
         <ser>powerDownDelay</ser>
     </SerOrder>
 </ConfigParams>

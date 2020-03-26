@@ -53,7 +53,5 @@ void PageSlaveSwitch::setDieBieMS(BMSInterface *dieBieMS) {
         ui->switchTab->addParamRow(mDieBieMS->bmsConfig(), "HCUseLoadDetect");
         ui->switchTab->addParamRow(mDieBieMS->bmsConfig(), "HCLoadDetectThreshold");
         ui->switchTab->addRowSeparator(tr("DCDC Converter"));
-        ui->switchTab->addParamRow(mDieBieMS->bmsConfig(), "DCDCEnableInverted");
-        ui->switchTab->addParamRow(mDieBieMS->bmsConfig(), "DCDCTargetVoltage");
     }
 }

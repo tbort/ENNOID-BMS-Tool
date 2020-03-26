@@ -38,7 +38,6 @@ PageRtData::PageRtData(QWidget *parent) :
     mUpdateValPlot = false;
 
     ui->ivLCGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
-    ui->ivHCGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
     ui->cellGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
     ui->tempGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom);
 
@@ -51,15 +50,15 @@ PageRtData::PageRtData(QWidget *parent) :
 
     ui->ivLCGraph->addGraph();
     ui->ivLCGraph->graph(graphIndex)->setPen(QPen(Qt::darkGreen));
-    ui->ivLCGraph->graph(graphIndex)->setName("LC Voltage");
+    ui->ivLCGraph->graph(graphIndex)->setName("Voltage");
     graphIndex++;
 
     ui->ivLCGraph->addGraph(ui->ivLCGraph->xAxis, ui->ivLCGraph->yAxis2);
     ui->ivLCGraph->graph(graphIndex)->setPen(QPen(Qt::green));
-    ui->ivLCGraph->graph(graphIndex)->setName("LC Current");
+    ui->ivLCGraph->graph(graphIndex)->setName("Current");
     graphIndex++;
 
-    // HC IVGraph
+    /* HC IVGraph
     graphIndex = 0;
     ui->ivHCGraph->addGraph();
     ui->ivHCGraph->graph(graphIndex)->setPen(QPen(Qt::blue));
@@ -70,7 +69,7 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->ivHCGraph->graph(graphIndex)->setPen(QPen(Qt::magenta));
     ui->ivHCGraph->graph(graphIndex)->setName("HC Current");
     graphIndex++;
-
+*/
     // Cell voltage graph
     graphIndex = 0;
     ui->cellGraph->addGraph();
@@ -126,17 +125,6 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->ivLCGraph->yAxis2->setRange(-5, 5);
     ui->ivLCGraph->yAxis2->setVisible(true);
 
-    //HC Graph
-    ui->ivHCGraph->legend->setVisible(true);
-    ui->ivHCGraph->legend->setFont(legendFont);
-    ui->ivHCGraph->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignRight|Qt::AlignBottom);
-    ui->ivHCGraph->legend->setBrush(QBrush(QColor(255,255,255,230)));
-    ui->ivHCGraph->xAxis->setLabel("Seconds (s)");
-    ui->ivHCGraph->yAxis->setLabel("Voltage (V)");
-    ui->ivHCGraph->yAxis2->setLabel("Current (A)");
-    ui->ivHCGraph->yAxis->setRange(0, 60);
-    ui->ivHCGraph->yAxis2->setRange(-5, 5);
-    ui->ivHCGraph->yAxis2->setVisible(true);
 
     //Cell voltage Graph
     ui->cellGraph->legend->setVisible(true);
@@ -237,10 +225,6 @@ void PageRtData::timerSlot()
         ui->ivLCGraph->graph(graphIndex++)->setData(xAxis, mLCLoadCurrent);
 
         graphIndex = 0;
-        ui->ivHCGraph->graph(graphIndex++)->setData(xAxis, mHCLoadVoltage);
-        ui->ivHCGraph->graph(graphIndex++)->setData(xAxis, mHCLoadCurrent);
-
-        graphIndex = 0;
         ui->cellGraph->graph(graphIndex++)->setData(xAxis, mCellVHigh);
         ui->cellGraph->graph(graphIndex++)->setData(xAxis, mCellVAverage);
         ui->cellGraph->graph(graphIndex++)->setData(xAxis, mCellVLow);
@@ -253,13 +237,11 @@ void PageRtData::timerSlot()
 
         if (ui->autoscaleButton->isChecked()) {
             ui->ivLCGraph->rescaleAxes();
-            ui->ivHCGraph->rescaleAxes();
             ui->cellGraph->rescaleAxes();
             ui->tempGraph->rescaleAxes();
         }
 
         ui->ivLCGraph->replot();
-        ui->ivHCGraph->replot();
         ui->cellGraph->replot();
         ui->tempGraph->replot();
         ui->cellBarGraph->replot();
@@ -393,7 +375,6 @@ void PageRtData::updateZoom()
              (ui->zoomVButton->isChecked() ? Qt::Vertical : 0));
 
     ui->ivLCGraph->axisRect()->setRangeZoom(plotOrientations);
-    ui->ivHCGraph->axisRect()->setRangeZoom(plotOrientations);
     ui->cellGraph->axisRect()->setRangeZoom(plotOrientations);
     ui->tempGraph->axisRect()->setRangeZoom(plotOrientations);
 }
@@ -413,12 +394,10 @@ void PageRtData::on_zoomVButton_toggled(bool checked)
 void PageRtData::on_rescaleButton_clicked()
 {
     ui->ivLCGraph->rescaleAxes();
-    ui->ivHCGraph->rescaleAxes();
     ui->cellGraph->rescaleAxes();
     ui->tempGraph->rescaleAxes();
 
     ui->ivLCGraph->replot();
-    ui->ivHCGraph->replot();
     ui->cellGraph->replot();
     ui->tempGraph->replot();
 }

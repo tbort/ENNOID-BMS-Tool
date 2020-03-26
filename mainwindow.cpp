@@ -115,7 +115,7 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
 
-    mPageDebugPrint->printConsole("DieBieMSTool " + mVersion + " started<br>");
+    mPageDebugPrint->printConsole("ENNOID-BMS Tool " + mVersion + " started<br>");
 }
 
 MainWindow::~MainWindow()

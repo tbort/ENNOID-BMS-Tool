@@ -595,7 +595,7 @@ void BMSInterface::timerSlot()
                     emit statusMessage(tr("No firmware read response"), false);
                     emit messageDialog(tr("Read Firmware Version"),
                                        tr("Could not read firmware version. Make sure "
-                                          "that selected port really belongs to the DieBieMS. "),
+                                          "that selected port really belongs to the ENNOID-BMS. "),
                                        false, false);
                     disconnectPort();
                 }
@@ -689,15 +689,15 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(false);
         mFwRetries = 0;
         disconnectPort();
-        emit messageDialog(tr("Error"), tr("The firmware on the connected DieBieMS is too old. Please update it using a programmer."), false, false);
+        emit messageDialog(tr("Error"), tr("The firmware on the connected ENNOID-BMS is too old. Please update it using a programmer."), false, false);
     } else if (fw_connected > highest_supported) {
         mCommands->setLimitedMode(true);
         updateFwRx(true);
         if (!wasReceived) {
-            emit messageDialog(tr("Warning"), tr("The connected DieBieMS has newer firmware than this version of the"
-                                                " ENNOID-BMS Tool supports. It is recommended that you update the DieBieMS"
+            emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS has newer firmware than this version of the"
+                                                " ENNOID-BMS Tool supports. It is recommended that you update the ENNOID-BMS"
                                                 " Tool to the latest version. Alternatively, the firmware on"
-                                                " the connected DieBieMS can be downgraded in the firmware page."
+                                                " the connected ENNOID-BMS can be downgraded in the firmware page."
                                                 " Until then, limited communication mode will be used where"
                                                 " only the firmware can be changed."), false, false);
         }
@@ -706,8 +706,8 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
             mCommands->setLimitedMode(true);
             updateFwRx(true);
             if (!wasReceived) {
-                emit messageDialog(tr("Warning"), tr("The connected DieBieMS has too old firmware. Since the"
-                                                    " connected DieBieMS has firmware with bootloader support, it can be"
+                emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS has too old firmware. Since the"
+                                                    " connected ENNOID-BMS has firmware with bootloader support, it can be"
                                                     " updated from the Firmware page."
                                                     " Until then, limited communication mode will be used where only the"
                                                     " firmware can be changed."), false, false);
@@ -717,7 +717,7 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
             mFwRetries = 0;
             disconnectPort();
             if (!wasReceived) {
-                emit messageDialog(tr("Error"), tr("The firmware on the connected DieBieMS is too old. Please"
+                emit messageDialog(tr("Error"), tr("The firmware on the connected ENNOID-BMS is too old. Please"
                                                    " update it using a programmer."), false, false);
             }
         }
@@ -725,12 +725,12 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
         updateFwRx(true);
         if ((fw_connected < highest_supported)) {
             if (!wasReceived) {
-                //emit messageDialog(tr("Warning"), tr("The connected DieBieMS has compatible, but old firmware. It is recommended that you update it."), false, false);
+                //emit messageDialog(tr("Warning"), tr("The connected ENNOID-BMS is compatible, but old firmware. It is recommended that you update it."), false, false);
             }
         }
 
         QString fwStr;
-        fwStr.sprintf("DieBieMS Firmware Version %d.%d", major, minor);
+        fwStr.sprintf("ENNOID-BMS Firmware Version %d.%d", major, minor);
         if (!hw.isEmpty()) {
             fwStr += ", Hardware: " + hw;
         }

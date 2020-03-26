@@ -45,11 +45,13 @@ void PageMasterSignals::setDieBieMS(BMSInterface *dieBieMS)
     mDieBieMS = dieBieMS;
 
     if (mDieBieMS) {
-        ui->signalsTab->addRowSeparator(tr("Low current path"));
+        ui->signalsTab->addRowSeparator(tr("Current"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntLCFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntLCOffset");
+        ui->signalsTab->addRowSeparator(tr("Pack voltage"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "voltageLCFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "voltageLCOffset");
+        ui->signalsTab->addRowSeparator(tr("Load voltage"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "loadVoltageFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "loadVoltageOffset");
  //       ui->signalsTab->addRowSeparator(tr("High current path"));
@@ -57,7 +59,7 @@ void PageMasterSignals::setDieBieMS(BMSInterface *dieBieMS)
    //     ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "HCLoadCurrentDataSource");
    //     ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntHCFactor");
     //    ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntHCOffset");
-        ui->signalsTab->addRowSeparator(tr("Pack general sensing"));
+        ui->signalsTab->addRowSeparator(tr("Data source"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "packVoltageDataSource");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "packCurrentDataSource");
         ui->signalsTab->addRowSeparator(tr("Buzzer control"));

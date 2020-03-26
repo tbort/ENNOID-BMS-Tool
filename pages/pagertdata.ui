@@ -22,7 +22,7 @@
         <enum>QTabWidget::Triangular</enum>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="cellBarGraphTab">
         <attribute name="title">
@@ -51,16 +51,6 @@
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="QCustomPlot" name="ivLCGraph" native="true"/>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="ivHCGraphTab">
-        <attribute name="title">
-         <string>HC IVGraph</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_7">
-         <item>
-          <widget class="QCustomPlot" name="ivHCGraph" native="true"/>
          </item>
         </layout>
        </widget>

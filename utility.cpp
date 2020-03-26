@@ -113,7 +113,7 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *paren
     bool res = vesc->autoconnect();
 
     if (!res) {
-        vesc->emitMessageDialog(QObject::tr("Autoconnect"),QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in and that the DieBieMS is powered."),false);
+        vesc->emitMessageDialog(QObject::tr("Autoconnect"),QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in and that the ENNOID-BMS is powered."),false);
     }
 
     return res;
