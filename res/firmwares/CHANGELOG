@@ -1,9 +1,13 @@
 === FW 1.1 ===
 * Major code cleanup (Unused modules removed)
+* "testbms" terminal command is now functionnal for testing slaves boards
+* Timeout charge retry is now up to 1000 seconds
+* Fixed toggle switch bug at charging
+* Fixed charging issue with same charge/discharge port
 * High current path (HC) related code removed
 * Default settings are now set for Master-LV
 * LTC6812 & LTC6813 complete support
-* Balancing mask is now uint_32t
+* Balancing mask are now uint_32t
 * Precharge : "persistent" option is now renamed to "forced"
 
 === FW 1.0 ===
