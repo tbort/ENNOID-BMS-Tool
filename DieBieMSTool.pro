@@ -34,8 +34,8 @@ contains(DEFINES, HAS_SERIALPORT) {
 
 android: QT += androidextras
 
-android: TARGET = DieBieMSTool
-!android: TARGET = DieBieMSToolV$$DT_VERSION
+android: TARGET = ENNOID-BMS-Tool
+!android: TARGET = ENNOID-BMS-ToolV$$DT_VERSION
 
 TEMPLATE = app
 
