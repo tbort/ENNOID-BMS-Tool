@@ -57,11 +57,16 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
 
         ui->masterLimitsTab->addRowSeparator(tr("Current"));
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "maxAllowedCurrent");
-        ui->masterLimitsTab->addRowSeparator(tr("Temperature"));
+        ui->masterLimitsTab->addRowSeparator(tr("Temperature discharging"));
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBattDischargingMax");
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBattDischargingMin");
+        ui->masterLimitsTab->addRowSeparator(tr("Temperature charging"));
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBattChargingMax");
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBattChargingMin");
+        ui->masterLimitsTab->addRowSeparator(tr("Temperature cooling/heating"));
+        ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBattCoolingMax");
+        ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBattCoolingMin");
+        ui->masterLimitsTab->addRowSeparator(tr("Temperature Master board"));
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBMSMax");
         ui->masterLimitsTab->addParamRow(mDieBieMS->bmsConfig(), "allowedTempBMSMin");
 
@@ -75,10 +80,11 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->canTab->addParamRow(mDieBieMS->bmsConfig(), "useCANSafetyInput");
         ui->canTab->addParamRow(mDieBieMS->bmsConfig(), "useCANDelayedPowerDown");
 
-        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications"));
+        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Master"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCBTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCB25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCBBeta");
+        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Slaves"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTC25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCBeta");

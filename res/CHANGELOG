@@ -13,6 +13,7 @@
 * Support for new Master-HV onboard precharge relay on PC15
 * Slave board temperature measurement as been remove from battery temp statistics
 * Battery MAX can be now set to 120 celsius for disabling without error
+* Cooling output is now functionnal
 
 === FW 1.0 ===
 * ENNOID-BMS Master initial release

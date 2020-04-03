@@ -1038,6 +1038,50 @@ p, li { white-space: pre-wrap; }
             <suffix> °C</suffix>
             <vTx>9</vTx>
         </allowedTempBattChargingMin>
+        <allowedTempBattCoolingMax>
+            <longName>Battery temperature cooling max</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum temperature at which the cooling/heating output is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MAX_ALLOWED_COOL_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>5</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattCoolingMax>
+        <allowedTempBattCoolingMin>
+            <longName>Battery temperature cooling min</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the minimum temperature at which the cooling/heating output is enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>MIN_ALLOWED_COOL_BATT</cDefine>
+            <editorDecimalsDouble>1</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>120</maxDouble>
+            <minDouble>-20</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>5</stepDouble>
+            <valDouble>50</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix> °C</suffix>
+            <vTx>9</vTx>
+        </allowedTempBattCoolingMin>
         <allowedTempBMSMax>
             <longName>BMS Temperature max</longName>
             <type>1</type>
@@ -2231,6 +2275,8 @@ p, li { white-space: pre-wrap; }
         <ser>allowedTempBattDischargingMin</ser>
         <ser>allowedTempBattChargingMax</ser>
         <ser>allowedTempBattChargingMin</ser>
+        <ser>allowedTempBattCoolingMax</ser>
+        <ser>allowedTempBattCoolingMin</ser>
         <ser>allowedTempBMSMax</ser>
         <ser>allowedTempBMSMin</ser>
         <ser>displayTimeoutBatteryDead</ser>
