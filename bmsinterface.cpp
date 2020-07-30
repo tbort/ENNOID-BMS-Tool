@@ -1,9 +1,13 @@
 ﻿/*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
+    Forked to:
     Danny Bokma github@diebie.nl
+	
+	Now forked to:
+	ENNOID-BMS
+	Kevin Dionne kevin.dionne@ennoid.me
 
-    This file is part of BMS Tool.
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -25,8 +29,9 @@
 #include <QFileInfo>
 #include <QThread>
 #include <QEventLoop>
-#include <QSettings>
 #include <utility.h>
+#include <cmath>
+#include <QRegularExpression>
 
 #ifdef HAS_SERIALPORT
 #include <QSerialPortInfo>
@@ -34,6 +39,7 @@
 
 BMSInterface::BMSInterface(QObject *parent) : QObject(parent)
 {
+
     mbmsConfig = new ConfigParams(this);
     mInfoConfig = new ConfigParams(this);
     mPacket = new Packet(this);
@@ -51,6 +57,8 @@ BMSInterface::BMSInterface(QObject *parent) : QObject(parent)
     mTimer->start();
 
     mLastConnType = static_cast<conn_t>(QSettings().value("connection_type", CONN_NONE).toInt());
+    mLastTcpServer = mSettings.value("tcp_server", "127.0.0.1").toString();
+    mLastTcpPort = mSettings.value("tcp_port", 65102).toInt();
 
     mSendCanBefore = false;
     mCanIdBefore = 0;
@@ -80,6 +88,7 @@ BMSInterface::BMSInterface(QObject *parent) : QObject(parent)
     connect(mTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),this, SLOT(tcpInputError(QAbstractSocket::SocketError)));
 
     // BLE
+
     mBleUart = new BleUart(this);
     mLastBleAddr = QSettings().value("ble_addr").toString();
 
@@ -191,6 +200,47 @@ bool BMSInterface::fwRx()
     return mFwVersionReceived;
 }
 
+
+void BMSInterface::storeSettings()
+{
+    mSettings.beginWriteArray("bleNames");
+    QHashIterator<QString, QString> i(mBleNames);
+    int ind = 0;
+    while (i.hasNext()) {
+        i.next();
+        mSettings.setArrayIndex(ind);
+        mSettings.setValue("address", i.key());
+        mSettings.setValue("name", i.value());
+        ind++;
+    }
+    mSettings.endArray();
+
+    mSettings.beginWriteArray("profiles");
+    for (int i = 0; i < mProfiles.size(); ++i) {
+        MCCONF_TEMP cfg = mProfiles.value(i).value<MCCONF_TEMP>();
+        mSettings.setArrayIndex(i);
+        mSettings.setValue("current_min_scale", cfg.current_min_scale);
+        mSettings.setValue("current_max_scale", cfg.current_max_scale);
+        mSettings.setValue("erpm_or_speed_min", cfg.erpm_or_speed_min);
+        mSettings.setValue("erpm_or_speed_max", cfg.erpm_or_speed_max);
+        mSettings.setValue("duty_min", cfg.duty_min);
+        mSettings.setValue("duty_max", cfg.duty_max);
+        mSettings.setValue("watt_min", cfg.watt_min);
+        mSettings.setValue("watt_max", cfg.watt_max);
+        mSettings.setValue("name", cfg.name);
+    }
+    mSettings.endArray();
+
+    mSettings.beginWriteArray("pairedUuids");
+    for (int i = 0;i < mPairedUuids.size();i++) {
+        mSettings.setArrayIndex(i);
+        mSettings.setValue("uuid", mPairedUuids.at(i));
+    }
+    mSettings.endArray();
+}
+
+
+#ifdef HAS_BLUETOOTH
 BleUart *BMSInterface::bleDevice()
 {
     return mBleUart;
@@ -209,6 +259,12 @@ QString BMSInterface::getBleName(QString address)
     }
     return res;
 }
+
+QString BMSInterface::getLastBleAddr() const
+{
+    return mLastBleAddr;
+}
+#endif
 
 bool BMSInterface::isPortConnected()
 {
@@ -446,8 +502,8 @@ QList<VSerialInfo_t> BMSInterface::listSerialPorts()
         int index = res.size();
 
         if(port.manufacturer().startsWith("Silicon")) {
-            //info.name.insert(0, "DieBieMS - ");
-            info.name.append(" - DieBieMS");
+            //info.name.insert(0, "ENNOID-BMS - ");
+            info.name.append(" - ENNOID-BMS");
             info.isVesc = true;
             index = 0;
         } else {
@@ -500,6 +556,51 @@ double BMSInterface::getAutoconnectProgress() const
 {
     return mAutoconnectProgress;
 }
+
+QVector<int> BMSInterface::scanCan()
+{
+    QVector<int> canDevs;
+
+    if (!isPortConnected()) {
+        return canDevs;
+    }
+
+    QEventLoop loop;
+
+    bool timeout;
+    auto conn = connect(commands(), &Commands::pingCanRx,
+                        [&canDevs, &timeout, &loop](QVector<int> devs, bool isTimeout) {
+        for (int dev: devs) {
+            canDevs.append(dev);
+        }
+        timeout = isTimeout;
+        loop.quit();
+    });
+
+    commands()->pingCan();
+    loop.exec();
+
+    disconnect(conn);
+
+    if (!timeout) {
+        mCanDevsLast = canDevs;
+    } else {
+        canDevs.clear();
+    }
+
+    return canDevs;
+}
+
+QVector<int> BMSInterface::getCanDevsLast() const
+{
+    return mCanDevsLast;
+}
+
+void BMSInterface::ignoreCanChange(bool ignore)
+{
+    mIgnoreCanChange = ignore;
+}
+
 
 #ifdef HAS_SERIALPORT
 void BMSInterface::serialDataAvailable()
@@ -562,10 +663,12 @@ void BMSInterface::tcpInputError(QAbstractSocket::SocketError socketError)
     updateFwRx(false);
 }
 
+#ifdef HAS_BLUETOOTH
 void BMSInterface::bleDataRx(QByteArray data)
 {
     mPacket->processData(data);
 }
+#endif
 
 void BMSInterface::timerSlot()
 {
@@ -668,9 +771,9 @@ void BMSInterface::fwVersionReceived(int major, int minor, QString hw, QByteArra
     QString strUuid = Utility::uuid2Str(uuid, true);
 
     if (fwPairs.isEmpty()) {
-        emit messageDialog(tr("No Supported Firmwares"),
+        emit messageDialog(tr("Not Supported Firmwares"),
                            tr("This version of ENNOID-BMS Tool does not seem to have any supported "
-                              "firmwares. Something is probably wrong with the motor configuration "
+                              "firmwares. Something is probably wrong with the BMS configuration "
                               "file."),
                            false, false);
         updateFwRx(false);

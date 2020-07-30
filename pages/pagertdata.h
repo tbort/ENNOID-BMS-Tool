@@ -65,6 +65,7 @@ private:
     QVector<double> mLCLoadCurrent;
     QVector<double> mHCLoadVoltage;
     QVector<double> mHCLoadCurrent;
+    QVector<double> mchargerVoltage;
     QVector<double> mAuxVoltage;
     QVector<double> mAuxCurrent;
     QVector<double> mCellVHigh;

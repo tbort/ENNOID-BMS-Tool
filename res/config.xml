@@ -9,7 +9,7 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of cell(groups) in series in the batterypack. &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of cell(groups) in series in the battery pack. &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The BMS needs a minimum of 4 cell(groups) in series to operate, this is a minimal voltage requirement by the LTC and power supply.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>NO_OF_CELLS_SERIES</cDefine>
@@ -86,7 +86,7 @@ p, li { white-space: pre-wrap; }
             <vTx>9</vTx>
         </batteryCapacity>
         <cellMonitorICType>
-            <longName>IC type</longName>
+            <longName>Slave IC type</longName>
             <type>4</type>
             <transmittable>1</transmittable>
             <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -95,23 +95,21 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cell monitor IC type.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CELL_MONITOR_IC_TYPE</cDefine>
-            <valInt>3</valInt>
+            <valInt>1</valInt>
             <enumNames>None</enumNames>
-            <enumNames>LTC6803-2</enumNames>
-            <enumNames>LTC6804-1</enumNames>
             <enumNames>LTC6811-1</enumNames>
             <enumNames>LTC6812-1</enumNames>
             <enumNames>LTC6813-1</enumNames>
         </cellMonitorICType>
         <cellMonitorICCount>
-            <longName>IC count</longName>
+            <longName>Slave IC count</longName>
             <type>2</type>
             <transmittable>1</transmittable>
             <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of slave IC's.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of slave IC.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CELL_MONITOR_IC_COUNT</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
@@ -616,6 +614,50 @@ p, li { white-space: pre-wrap; }
             <suffix></suffix>
             <vTx>9</vTx>
         </loadVoltageOffset>
+        <chargerVoltageFactor>
+            <longName>Charger Voltage Factor</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scaling factor for charger MCU ADC voltage measurements.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CHARGER_VOLTAGE_FACTOR</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>500</maxDouble>
+            <minDouble>-500</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>135</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </chargerVoltageFactor>
+        <chargerVoltageOffset>
+            <longName>Charger Voltage Offset</longName>
+            <type>1</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Offset for charger voltage measurements. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>CHARGER_VOLTAGE_OFFSET</cDefine>
+            <editorDecimalsDouble>6</editorDecimalsDouble>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxDouble>500</maxDouble>
+            <minDouble>-500</minDouble>
+            <showDisplay>0</showDisplay>
+            <stepDouble>0.05</stepDouble>
+            <valDouble>0</valDouble>
+            <vTxDoubleScale>100000</vTxDoubleScale>
+            <suffix></suffix>
+            <vTx>9</vTx>
+        </chargerVoltageOffset>
         <throttleChargeIncreaseRate>
             <longName>Throttle charge increase rate</longName>
             <type>2</type>
@@ -836,8 +878,8 @@ p, li { white-space: pre-wrap; }
             <maxDouble>1</maxDouble>
             <minDouble>0</minDouble>
             <showDisplay>0</showDisplay>
-            <stepDouble>0.005</stepDouble>
-            <valDouble>0.02</valDouble>
+            <stepDouble>0.001</stepDouble>
+            <valDouble>0.005</valDouble>
             <vTxDoubleScale>100000</vTxDoubleScale>
             <suffix></suffix>
             <vTx>9</vTx>
@@ -892,9 +934,9 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Output voltage should be at a minimal of this factor of pack voltage to enable the main output switch, this is to prevent large inrush currents.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The load output voltage should be at a minimum of this factor of the pack voltage value before enabling the main output switch, this is to prevent large inrush currents.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Putting this value too low will result in a large inrush current because the battery and load voltage differ too much. Putting this threshold value too high could lead to the load never being enabled because the value cant be reached due to leakage current in combination with the pre charge resistor value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Putting this value too low will result in a large inrush current because the battery and the load voltage differ too much. Putting this threshold value too high could lead to the load never being enabled because the value cannot be reached due to leakage current in combination with the pre charge resistor value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>MINIMAL_PRECHARGE_PERCENTAGE</cDefine>
             <editorDecimalsDouble>2</editorDecimalsDouble>
             <editorScale>1</editorScale>
@@ -1234,7 +1276,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If the absolute battery current is below this threshold start keeping track of time and wait for the not used timeout to trigger. The not used timer will be reset if the absolute battery current passes this threshold.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When the battery current goes below this "Not used battery current threshold" value, the "Not used timeout" timer starts.&amp;quot; To disable the not used powerdown system this value can be set to 0ms, else if used, it should be set at a minimum of 5000ms.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>NOT_USED_CURRENT_THRESHOLD</cDefine>
             <editorDecimalsDouble>2</editorDecimalsDouble>
             <editorScale>1</editorScale>
@@ -1256,7 +1298,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If the absolute battery current is below the not used battery current threshold start keeping track of time and wait for the not used timeout to trigger (happens when the amount of time defined here is crossed). The not used timer will be reset if the absolute battery current is higher than the &amp;quot;Not used current threshold&amp;quot;. To disable the not used powerdown system this value can be set to 0ms, else if used, it should be a minimal of 5000ms.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The BMS will be powered OFF when this "Not used timeout" is over. The "not used timeout" timer will reset each time the battery current goes over the "Not used current threshold" value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>NOT_USED_TIMEOUT</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
@@ -1276,7 +1318,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The amount of time between disabeling the output and actually powerdown of the BMS. When implementing push to BMS enable the connected ESC might re-enable the BMS once it is powered down due to some residual energy in the ESC, this oscillation will prevent the whole system to actually completely power down. By setting this time to a longer time you have a higher chance of actually powering everything down, a lower time will turn it down quicker with the risk of oscillation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The amount of time between disabling the output and actually powering down the BMS. When implementing push to BMS enable the connected ESC might re-enable the BMS once it is powered down due to some residual energy in the ESC, this oscillation will prevent the whole system to actually completely power down. By setting this time to a longer time you have a higher chance of actually powering everything down, a lower time will turn it down quicker with the risk of oscillation.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>POWER_DOWN_DELAY</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
@@ -1331,7 +1373,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The CAN ID this BMS listenes to and leaves behind then talking on the CAN bus.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The CAN ID this BMS listens to and leaves behind when talking on the CAN bus.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CAN_ID</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
@@ -1354,9 +1396,8 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The CAN ID style / ID byte order. This is configureable to stay compatible with the VESC style and the style used in an e-foil project.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>CAN_ID_STYLE</cDefine>
             <valInt>0</valInt>
-            <enumNames>DieBie / VESC</enumNames>
+            <enumNames>ENNOID / DiebieMS / VESC</enumNames>
             <enumNames>EFoiler</enumNames>
-            <enumNames>Jan Pagels</enumNames>
         </CANIDStyle>
         <CANBaudRate>
             <longName>CAN throughput</longName>
@@ -1397,7 +1438,7 @@ p, li { white-space: pre-wrap; }
             <cDefine>CAN_STATUS_PROTOCOL</cDefine>
             <valInt>1</valInt>
             <enumNames>None</enumNames>
-            <enumNames>DieBie engineering</enumNames>
+            <enumNames>ENNOID / DiebieMS</enumNames>
             <enumNames>MG Electronics</enumNames>
         </emitStatusProtocolType>
         <waterSensorEnableMask>
@@ -1540,7 +1581,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use master BMS precharge for discharge output.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Use master BMS precharge for discharge output. Warning: Forced mode is only for hardware V1.0. Using this option with hardware V1.1 and above will damage the precharge circuit.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>LC_USE_PRECHARGE</cDefine>
             <valInt>1</valInt>
             <enumNames>Disabled</enumNames>
@@ -1567,7 +1608,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When the power button is configured as a pulse switch and allowForceOn you can force the BMS to stay on ignoring the cell voltage inputs. This function can be used to get home in a skateboard application when you know the battery is OK for example a wire came lose from a cell tab of the battery. This is risky! Because you can deeply discharge the battery this way. You can't charge the battery in this mode.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When the power button is configured as a pulse switch and allowForceOn is enabled, the BMS will stay ON and will ignore the cell voltage inputs. This function can be used to get home when you know the battery is OK. For example: a wire came loose from a cell tab of the battery. This is risky! Because you can deeply discharge the battery this way. You can't charge the battery in this mode.&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The forced-on method is activated when you long press (about 10 seconds) the power button when the bms is off. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>ALLOW_FORCE_ON</cDefine>
@@ -1609,9 +1650,9 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Configure the power button to be either a pulse or a toggle button. The method of reading the power button input will depend on this setting. When configured as a pulse input and with a pulse switch a short press will enable the BMS and a long pres when the BMS is on will power it down. &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Configure the power button to be either a pulse or a toggle button. When configured as a pulse input, a short press will enable the BMS and a long press will power it down. &lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When using a toggle switch the BMS is turned on when the switch closes and turnes off when the switch is opened up. Please be aware the the BMS also turnes of when it is not used. When it turned off by itself the BMS needs at least 10 seconds of the switch to be opened before it can be enabled again.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When configured as a toggle input, the BMS turns ON when the switch closes and turns OFF when the switch is opened up.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>BUTTON_PULSE_TOGGLE</cDefine>
             <valInt>1</valInt>
             <enumNames>Latching / Toggle</enumNames>
@@ -2255,6 +2296,8 @@ p, li { white-space: pre-wrap; }
         <ser>voltageLCOffset</ser>
         <ser>loadVoltageFactor</ser>
         <ser>loadVoltageOffset</ser>
+        <ser>chargerVoltageFactor</ser>
+        <ser>chargerVoltageOffset</ser>
         <ser>throttleChargeIncreaseRate</ser>
         <ser>throttleDisChargeIncreaseRate</ser>
         <ser>cellBalanceUpdateInterval</ser>

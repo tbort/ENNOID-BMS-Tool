@@ -127,7 +127,7 @@ private:
     int mStatusInfoTime;
     bool mKeyLeft;
     bool mKeyRight;
-    bool mMcConfRead;
+    bool mbmsConfigRead;
 
     PageWelcome *mPageWelcome;
     PageConnection *mPageConnection;

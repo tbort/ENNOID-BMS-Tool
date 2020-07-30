@@ -52,7 +52,6 @@
         <file>res/icons/motor_down.png</file>
         <file>res/icons/motor_up.png</file>
         <file>res/icons/motor.png</file>
-        <file>res/icons/appconf.png</file>
         <file>res/icons/mcconf.png</file>
         <file>res/icons/3ph_sine.png</file>
         <file>res/icons/Delete-96.png</file>
@@ -125,5 +124,7 @@
         <file>res/bootloaders/DieBieMS.bin</file>
         <file>res/config.xml</file>
         <file>res/firmwares/ENNOID/ENNOID-BMS.bin</file>
+        <file>res/firmwares/ENNOID-HV/ENNOID-BMS_HV.bin</file>
+        <file>res/logo_white.png</file>
     </qresource>
 </RCC>

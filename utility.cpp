@@ -29,10 +29,16 @@
 #include <QDebug>
 #include <QNetworkReply>
 #include <QMessageBox>
+#include <QFile>
+#include <QFileInfo>
+#include <QtGlobal>
+#include <QNetworkInterface>
+#include <QDirIterator>
 
 #ifdef Q_OS_ANDROID
 #include <QtAndroid>
 #include <QAndroidJniObject>
+#include <QAndroidJniEnvironment>
 #endif
 
 Utility::Utility(QObject *parent) : QObject(parent)
@@ -113,7 +119,10 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *paren
     bool res = vesc->autoconnect();
 
     if (!res) {
-        vesc->emitMessageDialog(QObject::tr("Autoconnect"),QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in and that the ENNOID-BMS is powered."),false);
+        vesc->emitMessageDialog(QObject::tr("Autoconnect"),
+                                QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in"
+                                            " and that the ENNOID-BMS is powered."),
+                                false);
     }
 
     return res;
@@ -138,9 +147,10 @@ void Utility::checkVersion(BMSInterface *dieBieMS)
 
         if (res.toDouble() > version.toDouble()) {
             if (dieBieMS) {
-                //dieBieMS->emitStatusMessage("A new version of ENNOID-BMS Tool is available", true);
+                dieBieMS->emitStatusMessage("A new version of ENNOID-BMS Tool is available", true);
             } else {
-                //qDebug() << "A new version of ENNOID-BMS Tool is available. Go to DeiBie.nl to download it and get all the latest features.";
+                qDebug() << "A new version of ENNOID-BMS Tool is available. Go to DeiBie.nl to download it"
+                            "and get all the latest features.";
             }
         }
     } else {
@@ -220,3 +230,25 @@ bool Utility::requestFilePermission()
     return true;
 #endif
 }
+
+bool Utility::waitSignal(QObject *sender, QString signal, int timeoutMs)
+{
+    QEventLoop loop;
+    QTimer timeoutTimer;
+    timeoutTimer.setSingleShot(true);
+    timeoutTimer.start(timeoutMs);
+    auto conn1 = QObject::connect(sender, signal.toLocal8Bit().data(), &loop, SLOT(quit()));
+    auto conn2 = QObject::connect(&timeoutTimer, SIGNAL(timeout()), &loop, SLOT(quit()));
+    loop.exec();
+
+    QObject::disconnect(conn1);
+    QObject::disconnect(conn2);
+
+    return timeoutTimer.isActive();
+}
+
+bool Utility::almostEqual(double A, double B, double eps)
+{
+    return fabs(A - B) <= eps * fmax(1.0f, fmax(fabs(A), fabs(B)));
+}
+

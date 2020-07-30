@@ -45,12 +45,12 @@ PageRtData::PageRtData(QWidget *parent) :
     int graphIndex = 0;
     ui->ivLCGraph->addGraph();
     ui->ivLCGraph->graph(graphIndex)->setPen(QPen(Qt::red));
-    ui->ivLCGraph->graph(graphIndex)->setName("Pack");
+    ui->ivLCGraph->graph(graphIndex)->setName("Pack Voltage");
     graphIndex++;
 
     ui->ivLCGraph->addGraph();
     ui->ivLCGraph->graph(graphIndex)->setPen(QPen(Qt::darkGreen));
-    ui->ivLCGraph->graph(graphIndex)->setName("Voltage");
+    ui->ivLCGraph->graph(graphIndex)->setName("Load Voltage");
     graphIndex++;
 
     ui->ivLCGraph->addGraph(ui->ivLCGraph->xAxis, ui->ivLCGraph->yAxis2);
@@ -88,7 +88,6 @@ PageRtData::PageRtData(QWidget *parent) :
     graphIndex++;
 
     // Temperature graph
-    // LC IVGraph
     graphIndex = 0;
     ui->tempGraph->addGraph();
     ui->tempGraph->graph(graphIndex)->setPen(QPen(Qt::blue));
@@ -262,6 +261,7 @@ void PageRtData::valuesReceived(BMS_VALUES values)
     appendDoubleAndTrunc(&mLCLoadCurrent, values.loadLCCurrent, maxS);
     appendDoubleAndTrunc(&mHCLoadVoltage, values.loadHCVoltage, maxS);
     appendDoubleAndTrunc(&mHCLoadCurrent, values.loadHCCurrent, maxS);
+    appendDoubleAndTrunc(&mchargerVoltage, values.chargerVoltage, maxS);
     appendDoubleAndTrunc(&mAuxVoltage, values.auxVoltage, maxS);
     appendDoubleAndTrunc(&mAuxCurrent, values.auxCurrent, maxS);
 

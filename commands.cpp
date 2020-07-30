@@ -50,6 +50,7 @@ Commands::Commands(QObject *parent) : QObject(parent)
     mTimeoutValues = 0;
     mTimeoutCells = 0;
     mTimeoutAux = 0;
+    mTimeoutPingCan = 0;
 
     connect(mTimer, SIGNAL(timeout()), this, SLOT(timerSlot()));
 }
@@ -141,6 +142,8 @@ void Commands::processPacket(QByteArray data)
         values.loadLCVoltage    = vb.vbPopFrontDouble16(1e1);
         values.loadLCCurrent    = vb.vbPopFrontDouble16(1e1);
 
+        values.chargerVoltage    = vb.vbPopFrontDouble16(1e1);
+
         values.tempBattHigh     = vb.vbPopFrontDouble16(1e1);
         values.tempBattAverage  = vb.vbPopFrontDouble16(1e1);
         values.tempBMSHigh      = vb.vbPopFrontDouble16(1e1);
@@ -148,7 +151,7 @@ void Commands::processPacket(QByteArray data)
 
         values.opState          = opStateToStr((OperationalStateTypedef)vb.vbPopFrontUint8());
         values.balanceActive    = vb.vbPopFrontUint8();
-
+        values.faultState       = faultStateToStr((bms_fault_code)vb.vbPopFrontUint8());
         emit valuesReceived(values);
     } break;
 
@@ -215,6 +218,15 @@ void Commands::processPacket(QByteArray data)
             mbmsConfig->storingDone();
         }
         break;
+
+    case COMM_PING_CAN: {
+        mTimeoutPingCan = 0;
+        QVector<int> devs;
+        while(vb.size() > 0) {
+            devs.append(vb.vbPopFrontUint8());
+        }
+        emit pingCanRx(devs, false);
+    } break;
 
     default:
         break;
@@ -519,6 +531,37 @@ QString Commands::opStateToStr(OperationalStateTypedef fault)
     }
 }
 
+QString Commands::faultStateToStr(bms_fault_code fault)
+{
+    switch (fault) {
+    case FAULT_CODE_NONE: return "System OK";
+    case FAULT_CODE_PACK_OVER_VOLTAGE: return "Pack overvoltage";
+    case FAULT_CODE_PACK_UNDER_VOLTAGE: return "Pack undervoltage";
+    case FAULT_CODE_LOAD_OVER_VOLTAGE: return "Load overvoltage";
+    case FAULT_CODE_LOAD_UNDER_VOLTAGE: return "Load undervoltage";
+    case FAULT_CODE_CHARGER_OVER_VOLTAGE: return "Charger overvoltage";
+    case FAULT_CODE_CHARGER_UNDER_VOLTAGE: return "Charger undervoltgae";
+    case FAULT_CODE_CELL_HARD_OVER_VOLTAGE: return "Cell hard overvoltage";
+    case FAULT_CODE_CELL_HARD_UNDER_VOLTAGE: return "Cell hard undervoltage";
+    case FAULT_CODE_CELL_SOFT_OVER_VOLTAGE: return "Cell soft overvoltage";
+    case FAULT_CODE_CELL_SOFT_UNDER_VOLTAGE: return "Cell soft undervoltage";
+    case FAULT_CODE_MAX_OVP_ERRORS: return "MAX OVP errors";
+    case FAULT_CODE_MAX_UVP_ERRORS: return "MAX UVP errors";
+    case FAULT_CODE_OVER_CURRENT: return "Over current";
+    case FAULT_CODE_OVER_TEMP_BMS: return "Over temp BMS";
+    case FAULT_CODE_UNDER_TEMP_BMS: return "Under temp BMS";
+    case FAULT_CODE_DISCHARGE_OVER_TEMP_CELLS: return "Discharge over temp cell";
+    case FAULT_CODE_DISCHARGE_UNDER_TEMP_CELLS: return "Discharge under temp cell";
+    case FAULT_CODE_CHARGE_OVER_TEMP_CELLS: return "Charge over temp cell";
+    case FAULT_CODE_CHARGE_UNDER_TEMP_CELLS: return "Charge under temp cell";
+    case FAULT_CODE_PRECHARGE_TIMEOUT: return "Precharge timeout";
+    case FAULT_CODE_DISCHARGE_RETRY: return "Discharge retry";
+    case FAULT_CODE_CHARGE_RETRY: return "Charge retry";
+    case FAULT_CODE_CHARGER_DISCONNECT: return "Charge retry";
+    default: return "Unknown fault";
+    }
+}
+
 void Commands::setbmsConfig(ConfigParams *bmsConfig)
 {
     mbmsConfig = bmsConfig;
@@ -584,5 +627,76 @@ void Commands::storeBMSConfig()
 {
     VByteArray vb;
     vb.vbAppendInt8(COMM_STORE_BMS_CONF);
+    emitData(vb);
+}
+
+void Commands::emitEmptyValues()
+{
+    BMS_VALUES values;
+    values.packVoltage = 0.0;
+    values.packCurrent = 0.0;
+    values.soC = 0.0;
+    values.cVHigh = 0.0;
+    values.cVAverage = 0.0;
+    values.cVLow = 0.0;
+    values.cVMisMatch = 0.0;
+    values.loadLCVoltage = 0.0;
+    values.loadLCCurrent = 0.0;
+    values.loadHCVoltage = 0.0;
+    values.loadHCCurrent = 0.0;
+    values.chargerVoltage = 0.0;
+    values.auxVoltage = 0.0;
+    values.auxCurrent = 0.0;
+    values.tempBattHigh = 0.0;
+    values.tempBattAverage = 0.0;
+    values.tempBMSHigh = 0.0;
+    values.tempBMSAverage = 0.0;
+    values.opState = "Unknown";
+    values.balanceActive = 0.0;
+    values.faultState = "Unknown";
+
+
+    emit valuesReceived(values);
+}
+
+void Commands::emitEmptySetupValues()
+{
+    BMS_VALUES values;
+    values.packVoltage = 0.0;
+    values.packCurrent = 0.0;
+    values.soC = 0.0;
+    values.cVHigh = 0.0;
+    values.cVAverage = 0.0;
+    values.cVLow = 0.0;
+    values.cVMisMatch = 0.0;
+    values.loadLCVoltage = 0.0;
+    values.loadLCCurrent = 0.0;
+    values.loadHCVoltage = 0.0;
+    values.loadHCCurrent = 0.0;
+    values.chargerVoltage = 0.0;
+    values.auxVoltage = 0.0;
+    values.auxCurrent = 0.0;
+    values.tempBattHigh = 0.0;
+    values.tempBattAverage = 0.0;
+    values.tempBMSHigh = 0.0;
+    values.tempBMSAverage = 0.0;
+    values.opState = OP_STATE_INIT;
+    values.balanceActive = 1;
+    values.faultState = FAULT_CODE_NONE;
+
+    emit valuesSetupReceived(values);
+}
+
+
+void Commands::pingCan()
+{
+    if (mTimeoutPingCan > 0) {
+        return;
+    }
+
+    mTimeoutPingCan = 500;
+
+    VByteArray vb;
+    vb.vbAppendInt8(COMM_PING_CAN);
     emitData(vb);
 }

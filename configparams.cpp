@@ -30,6 +30,7 @@
 #include <QFileInfo>
 #include <QBuffer>
 #include <cmath>
+#include "utility.h"
 
 ConfigParams::ConfigParams(QObject *parent) : QObject(parent)
 {

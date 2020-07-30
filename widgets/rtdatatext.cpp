@@ -40,6 +40,7 @@ RtDataText::RtDataText(QWidget *parent) : QWidget(parent)
     mValues.loadLCCurrent    = 0.0;
     mValues.loadHCVoltage    = 0.0;
     mValues.loadHCCurrent    = 0.0;
+    mValues.chargerVoltage   = 0.0;
     mValues.auxVoltage       = 0.0;
     mValues.auxCurrent       = 0.0;
     mValues.tempBattHigh     = 0.0;
@@ -153,11 +154,15 @@ void RtDataText::paintEvent(QPaintEvent *event)
                      Qt::AlignLeft, str);
 
     // Right info box
-    str.sprintf("V Load LC : %.1f V\n"
-                "P Load LC : %.1f W\n"
+    str.sprintf("V Load : %.1f V\n"
+                "P Load : %.1f W\n"
+                "V Charger : %.1f V\n"
+                "P Charger : %.1f W\n"
                 "\n",
                 mValues.loadLCVoltage,
-                mValues.loadLCCurrent * mValues.loadLCVoltage);
+                mValues.loadLCCurrent * mValues.loadLCVoltage,
+                mValues.chargerVoltage,
+                mValues.loadLCCurrent * mValues.chargerVoltage);
 
     painter.setOpacity(0.7);
     painter.fillRect(vidw - bbox_w, 0, bbox_w,mBoxH + 2 * mTxtOfs, Qt::black);

@@ -58,13 +58,30 @@ typedef enum {
 
 typedef enum {
     FAULT_CODE_NONE = 0,
-    FAULT_CODE_OVER_VOLTAGE,
-    FAULT_CODE_UNDER_VOLTAGE,
-    FAULT_CODE_DRV,
-    FAULT_CODE_ABS_OVER_CURRENT,
-    FAULT_CODE_OVER_TEMP_FET,
-    FAULT_CODE_OVER_TEMP_MOTOR
-} mc_fault_code;
+    FAULT_CODE_PACK_OVER_VOLTAGE,
+    FAULT_CODE_PACK_UNDER_VOLTAGE,
+    FAULT_CODE_LOAD_OVER_VOLTAGE,
+    FAULT_CODE_LOAD_UNDER_VOLTAGE,
+    FAULT_CODE_CHARGER_OVER_VOLTAGE,
+    FAULT_CODE_CHARGER_UNDER_VOLTAGE,
+    FAULT_CODE_CELL_HARD_OVER_VOLTAGE,
+    FAULT_CODE_CELL_HARD_UNDER_VOLTAGE,
+    FAULT_CODE_CELL_SOFT_OVER_VOLTAGE,
+    FAULT_CODE_CELL_SOFT_UNDER_VOLTAGE,
+    FAULT_CODE_MAX_OVP_ERRORS,
+    FAULT_CODE_MAX_UVP_ERRORS,
+    FAULT_CODE_OVER_CURRENT,
+    FAULT_CODE_OVER_TEMP_BMS,
+    FAULT_CODE_UNDER_TEMP_BMS,
+    FAULT_CODE_DISCHARGE_OVER_TEMP_CELLS,
+    FAULT_CODE_DISCHARGE_UNDER_TEMP_CELLS,
+    FAULT_CODE_CHARGE_OVER_TEMP_CELLS,
+    FAULT_CODE_CHARGE_UNDER_TEMP_CELLS,
+    FAULT_CODE_PRECHARGE_TIMEOUT,
+    FAULT_CODE_DISCHARGE_RETRY,
+    FAULT_CODE_CHARGE_RETRY,
+    FAULT_CODE_CHARGER_DISCONNECT
+} bms_fault_code;
 
 typedef enum {
     DISP_POS_MODE_NONE = 0,
@@ -95,12 +112,39 @@ struct MC_VALUES {
     Q_PROPERTY(int tachometer MEMBER tachometer)
     Q_PROPERTY(int tachometer_abs MEMBER tachometer_abs)
     Q_PROPERTY(double position MEMBER position)
-    Q_PROPERTY(mc_fault_code fault_code MEMBER fault_code)
+    //Q_PROPERTY(mc_fault_code fault_code MEMBER fault_code)
     Q_PROPERTY(QString fault_str MEMBER fault_str)
 
 public:
+    MC_VALUES() {
+        v_in = 0.0;
+        temp_mos = 0.0;
+        temp_mos_1 = 0.0;
+        temp_mos_2 = 0.0;
+        temp_mos_3 = 0.0;
+        temp_motor = 0.0;
+        current_motor = 0.0;
+        current_in = 0.0;
+        id = 0.0;
+        iq = 0.0;
+        rpm = 0.0;
+        duty_now = 0.0;
+        amp_hours = 0.0;
+        amp_hours_charged = 0.0;
+        watt_hours = 0.0;
+        watt_hours_charged = 0.0;
+        tachometer = 0;
+        tachometer_abs = 0;
+        position = 0.0;
+        //fault_code = FAULT_CODE_NONE;
+        vesc_id = 0;
+    }
+
     double v_in;
     double temp_mos;
+    double temp_mos_1;
+    double temp_mos_2;
+    double temp_mos_3;
     double temp_motor;
     double current_motor;
     double current_in;
@@ -115,7 +159,8 @@ public:
     int tachometer;
     int tachometer_abs;
     double position;
-    mc_fault_code fault_code;
+    //mc_fault_code fault_code;
+    int vesc_id;
     QString fault_str;
 };
 
@@ -135,6 +180,7 @@ struct BMS_VALUES {
     Q_PROPERTY(double loadLCCurrent MEMBER loadLCCurrent)
     Q_PROPERTY(double loadHCVoltage MEMBER loadHCVoltage)
     Q_PROPERTY(double loadHCCurrent MEMBER loadHCCurrent)
+    Q_PROPERTY(double chargerVoltage MEMBER chargerVoltage)
     Q_PROPERTY(double auxVoltage MEMBER auxVoltage)
     Q_PROPERTY(double auxCurrent MEMBER auxCurrent)
     Q_PROPERTY(double tempBattHigh MEMBER tempBattHigh)
@@ -146,6 +192,28 @@ struct BMS_VALUES {
     Q_PROPERTY(QString faultState MEMBER faultState)
 
 public:
+    BMS_VALUES(){
+        packVoltage = 0.0;
+        packCurrent =0.0;
+        soC = 0;
+        cVHigh = 0.0;
+        cVAverage =0.0;
+        cVLow = 0.0;
+        cVMisMatch = 0.0;
+        loadLCVoltage = 0.0;
+        loadLCCurrent = 0.0;
+        loadHCVoltage = 0.0;
+        loadHCCurrent = 0.0;
+        chargerVoltage =0.0;
+        auxVoltage = 0.0;
+        auxCurrent = 0.0;
+        tempBattHigh = 0.0;
+        tempBattAverage = 0.0;
+        tempBMSHigh = 0.0;
+        tempBMSAverage = 0.0;
+        balanceActive = 0;
+    }
+
     double packVoltage;
     double packCurrent;
     int    soC;
@@ -157,6 +225,7 @@ public:
     double loadLCCurrent;
     double loadHCVoltage;
     double loadHCCurrent;
+    double chargerVoltage;
     double auxVoltage;
     double auxCurrent;
     double tempBattHigh;
@@ -169,6 +238,33 @@ public:
 };
 
 Q_DECLARE_METATYPE(BMS_VALUES)
+
+struct MCCONF_TEMP {
+    Q_GADGET
+
+    Q_PROPERTY(double current_min_scale MEMBER current_min_scale)
+    Q_PROPERTY(double current_max_scale MEMBER current_max_scale)
+    Q_PROPERTY(double erpm_or_speed_min MEMBER erpm_or_speed_min)
+    Q_PROPERTY(double erpm_or_speed_max MEMBER erpm_or_speed_max)
+    Q_PROPERTY(double duty_min MEMBER duty_min)
+    Q_PROPERTY(double duty_max MEMBER duty_max)
+    Q_PROPERTY(double watt_min MEMBER watt_min)
+    Q_PROPERTY(double watt_max MEMBER watt_max)
+    Q_PROPERTY(QString name MEMBER name)
+
+public:
+    double current_min_scale;
+    double current_max_scale;
+    double erpm_or_speed_min;
+    double erpm_or_speed_max;
+    double duty_min;
+    double duty_max;
+    double watt_min;
+    double watt_max;
+    QString name;
+};
+
+Q_DECLARE_METATYPE(MCCONF_TEMP)
 
 typedef enum {
     DEBUG_SAMPLING_OFF = 0,
@@ -222,7 +318,8 @@ typedef enum {
     COMM_NRF_START_PAIRING,
     COMM_STORE_BMS_CONF = 50,
     COMM_GET_BMS_CELLS,
-    COMM_GET_BMS_AUX
+    COMM_GET_BMS_AUX,
+    COMM_PING_CAN
 } COMM_PACKET_ID;
 
 typedef struct {

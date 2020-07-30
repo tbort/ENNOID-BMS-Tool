@@ -1,7 +1,10 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
+    Forked to:
     Danny Bokma github@diebie.nl
+
+    Now forked to:
+    Kevin Dionne kevin.dionne@ennoid.me
 
     This file is part of BMS Tool.
 
@@ -44,6 +47,8 @@ public:
 signals:
     void dataRx(QByteArray data);
     void scanDone(QVariantMap devs, bool done);
+    void bleError(QString info);
+    void connected();
 
 public slots:
     void writeData(QByteArray data);

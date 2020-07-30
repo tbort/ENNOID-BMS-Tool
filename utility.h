@@ -23,6 +23,8 @@
 #define UTILITY_H
 
 #include <QObject>
+#include <QMetaEnum>
+#include <cstdint>
 #include "bmsinterface.h"
 
 class Utility : public QObject
@@ -41,6 +43,12 @@ public:
     Q_INVOKABLE static QString aboutText();
     Q_INVOKABLE static QString uuid2Str(QByteArray uuid, bool space);
     Q_INVOKABLE static bool requestFilePermission();
+    Q_INVOKABLE static bool waitSignal(QObject *sender, QString signal, int timeoutMs);
+    Q_INVOKABLE static bool almostEqual(double A, double B, double eps);
+    template<typename QEnum>
+    static QString QEnumToQString (const QEnum value) {
+        return QString(QMetaEnum::fromType<QEnum>().valueToKey(value));
+    }
 
 signals:
 

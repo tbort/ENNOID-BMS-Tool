@@ -77,7 +77,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mTimer = new QTimer(this);
     mKeyLeft = false;
     mKeyRight = false;
-    mMcConfRead = false;
+    mbmsConfigRead = false;
 
     connect(mTimer, SIGNAL(timeout()),this, SLOT(timerSlot()));
     connect(mDieBieMS, SIGNAL(statusMessage(QString,bool)),this, SLOT(showStatusInfo(QString,bool)));
@@ -198,7 +198,7 @@ void MainWindow::timerSlot()
         conf_cnt++;
         if (conf_cnt >= 20) {
             conf_cnt = 0;
-            if (!mMcConfRead) {
+            if (!mbmsConfigRead) {
                 mDieBieMS->commands()->getBMSconf();
             }
         }
@@ -310,7 +310,7 @@ void MainWindow::serialPortNotWritable(const QString &port)
 
 void MainWindow::bmsconfUpdated()
 {
-    mMcConfRead = true;
+    mbmsConfigRead = true;
 }
 
 void MainWindow::bmsConfigCheckResult(QStringList paramsNotSet)
@@ -440,7 +440,7 @@ void MainWindow::saveParamFileDialog(QString conf, bool wrapIfdef)
 {
     ConfigParams *params = 0;
 
-    if (conf.toLower() == "mcconf") {
+    if (conf.toLower() == "bmsconf") {
         params = mDieBieMS->bmsConfig();
     } else {
         qWarning() << "Invalid conf" << conf;
@@ -613,7 +613,7 @@ void MainWindow::checkUdev()
 #ifdef Q_OS_LINUX
     QFileInfo fi_mm("/lib/udev/rules.d/77-mm-usb-device-blacklist.rules");
     if (fi_mm.exists()) {
-        QFileInfo fi_bms("/lib/udev/rules.d/45-vesc.rules");
+        QFileInfo fi_vesc("/lib/udev/rules.d/45-vesc.rules");
         if (!fi_vesc.exists()) {
             QMessageBox::StandardButton reply;
             reply = QMessageBox::information(this,
@@ -625,7 +625,7 @@ void MainWindow::checkUdev()
                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 
             if (reply == QMessageBox::Yes) {
-                QFile f_bms(QDir::temp().absoluteFilePath(fi_vesc.fileName()));
+                QFile f_vesc(QDir::temp().absoluteFilePath(fi_vesc.fileName()));
                 if (!f_vesc.open(QIODevice::WriteOnly | QIODevice::Text)) {
                     showMessageDialog(tr("Create File Error"),
                                       f_vesc.errorString(),
@@ -759,12 +759,12 @@ void MainWindow::on_actionParameterEditorInfo_triggered()
 
 void MainWindow::on_actionSaveBMSConfigurationHeader_triggered()
 {
-    saveParamFileDialog("mcconf", false);
+    saveParamFileDialog("bmsconf", false);
 }
 
 void MainWindow::on_actionSaveBMSConfigurationHeaderWrap_triggered()
 {
-    saveParamFileDialog("mcconf", true);
+    saveParamFileDialog("bmsconf", true);
 }
 
 void MainWindow::on_actionTerminalPrintFaults_triggered()

@@ -20,6 +20,7 @@
 */
 
 #include "bleuart.h"
+#include "utility.h"
 
 #include <QDebug>
 #include <QLowEnergyConnectionParameters>
@@ -66,7 +67,11 @@ void BleUart::startConnect(QString addr)
 
 #else
     mControl = new QLowEnergyController(QBluetoothAddress(addr));
+
+
+
     mControl->setRemoteAddressType(QLowEnergyController::RandomAddress);
+
 #endif
 
     connect(mControl, SIGNAL(serviceDiscovered(QBluetoothUuid)),
@@ -157,6 +162,7 @@ void BleUart::deviceScanError(QBluetoothDeviceDiscoveryAgent::Error e)
 
     mDevs.clear();
     emit scanDone(mDevs, true);
+    //emit bleError(tr("BLE Scan error: ") + Utility::QEnumToQString(e));
 }
 
 void BleUart::serviceDiscovered(const QBluetoothUuid &gatt)
@@ -195,6 +201,8 @@ void BleUart::serviceScanDone()
 void BleUart::controllerError(QLowEnergyController::Error e)
 {
     qWarning() << "BLE error:" << e;
+    //disconnectBle();
+    //emit bleError(tr("BLE error: ") + Utility::QEnumToQString(e));
 }
 
 void BleUart::deviceConnected()
@@ -263,6 +271,7 @@ void BleUart::confirmedDescriptorWrite(const QLowEnergyDescriptor &d, const QByt
         disconnectBle();
     } else {
         mConnectDone = true;
+//        emit connected();
     }
 }
 

@@ -43,27 +43,32 @@ public:
     Q_INVOKABLE int getCanSendId();
     void setbmsConfig(ConfigParams *bmsConfig);
     Q_INVOKABLE void startFirmwareUpload(QByteArray &newFirmware, bool isBootloader = false);
-    double getFirmwareUploadProgress();
-    QString getFirmwareUploadStatus();
+    Q_INVOKABLE double getFirmwareUploadProgress();
+    Q_INVOKABLE QString getFirmwareUploadStatus();
     Q_INVOKABLE void cancelFirmwareUpload();
     void checkbmsConfig();
     void storeBMSConfig();
+    Q_INVOKABLE void emitEmptyValues();
+    Q_INVOKABLE void emitEmptySetupValues();
+
 
 signals:
     void dataToSend(QByteArray &data);
+
     void fwVersionReceived(int major, int minor, QString hw, QByteArray uuid);
     void ackReceived(QString ackType);
     void valuesReceived(BMS_VALUES values);
-
     void cellsReceived(int cellCount, QVector<double> cellVoltageArray);
     void auxReceived(int auxCount, QVector<double> auxVoltageArray);
-
     void printReceived(QString str);
     void rotorPosReceived(double pos);
     void bmsConfigCheckResult(QStringList paramsNotSet);
+    void valuesSetupReceived(BMS_VALUES values);
+    void pingCanRx(QVector<int> devs, bool isTimeout);
 
 public slots:
     void processPacket(QByteArray data);
+
     void getFwVersion();
     void getValues();
     void getCells();
@@ -77,6 +82,7 @@ public slots:
     void reboot();
     void sendAlive();
     void pairNrf(int ms);
+    void pingCan();
 
 private slots:
     void timerSlot();
@@ -85,6 +91,7 @@ private:
     void emitData(QByteArray data);
     void firmwareUploadUpdate(bool isTimeout);
     QString opStateToStr(OperationalStateTypedef fault);
+    QString faultStateToStr(bms_fault_code fault);
 
     QTimer *mTimer;
     bool mSendCan;
@@ -111,6 +118,7 @@ private:
     int mTimeoutValues;
     int mTimeoutCells;
     int mTimeoutAux;
+    int mTimeoutPingCan;
 };
 
 #endif // COMMANDS_H

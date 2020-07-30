@@ -1,9 +1,14 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
+
+    Forked to:
     Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Now forked ro:
+    ENNOID-BMS
+    Kevin Dionne kevin.dionne@ennoid.me
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -42,7 +47,7 @@ public slots:
 private:
     QQmlApplicationEngine *mEngine;
 
-    static QObject *BMSInterface_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine);
+    static QObject *BMSinterface_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine);
     static QObject *utility_singletontype_provider(QQmlEngine *engine, QJSEngine *scriptEngine);
 
 };

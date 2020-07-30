@@ -103,7 +103,7 @@ bool FwHelper::uploadFirmware(QString filename, BMSInterface *vesc, bool isBootl
     QFileInfo fileInfo(filename);
 
     if (checkName) {
-        if (!(fileInfo.fileName().startsWith("DieBie")) || !fileInfo.fileName().endsWith(".bin")) {
+        if (!(fileInfo.fileName().startsWith("ENNOID")) || !fileInfo.fileName().endsWith(".bin")) {
             vesc->emitMessageDialog(tr("Upload Error"),tr("The selected file name seems to be invalid."),false, false);
             return false;
         }

@@ -54,6 +54,9 @@ void PageMasterSignals::setDieBieMS(BMSInterface *dieBieMS)
         ui->signalsTab->addRowSeparator(tr("Load voltage"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "loadVoltageFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "loadVoltageOffset");
+        ui->signalsTab->addRowSeparator(tr("Charger voltage"));
+        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "chargerVoltageFactor");
+        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "chargerVoltageOffset");
  //       ui->signalsTab->addRowSeparator(tr("High current path"));
    //     ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "HCLoadVoltageDataSource");
    //     ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "HCLoadCurrentDataSource");
