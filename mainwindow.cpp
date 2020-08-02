@@ -157,11 +157,12 @@ void MainWindow::timerSlot()
         ui->actionCanFwd->setChecked(mDieBieMS->commands()->getSendCan());
     }
 
-    // RT value data only every 5 iterations. Cells & aux only every 20 iterations
+    // RT value data only every 5 iterations. Cells, aux & expansion_temp only every 20 iterations
     if (ui->actionRtData->isChecked()) {
         static int values_cnt = 0;
         static int cells_cnt = 0;
         static int aux_cnt = 0;
+        static int exp_temp_cnt = 0;
 
         values_cnt++;
         if(values_cnt >= 5) {
@@ -179,6 +180,12 @@ void MainWindow::timerSlot()
         if(aux_cnt >= 20) {
             aux_cnt = 0;
             mDieBieMS->commands()->getAux();
+        }
+
+        exp_temp_cnt++;
+        if(exp_temp_cnt >= 20) {
+            exp_temp_cnt = 0;
+            mDieBieMS->commands()->getExpansionTemp();
         }
     }
 

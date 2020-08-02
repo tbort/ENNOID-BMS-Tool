@@ -187,6 +187,22 @@ void Commands::processPacket(QByteArray data)
 
        } break;
 
+    case COMM_GET_BMS_EXP_TEMP:{
+        mTimeoutAux = 0;
+        int mExpTempAmount;
+        QVector<double> mExpTempVoltages;
+        mExpTempVoltages.clear();
+
+        mExpTempAmount = vb.vbPopFrontUint8();
+
+        for(int expTempValuePointer = 0; expTempValuePointer < mExpTempAmount; expTempValuePointer++){
+            mExpTempVoltages.append(vb.vbPopFrontDouble16(1e1));
+        }
+
+        emit expTempReceived(mExpTempAmount,mExpTempVoltages);
+
+       } break;
+
     case COMM_PRINT:
         emit printReceived(QString::fromLatin1(vb));
         break;
@@ -285,6 +301,18 @@ void Commands::getAux()
     emitData(vb);
 }
 
+void Commands::getExpansionTemp()
+{
+    if (mTimeoutAux > 0) {
+        return;
+    }
+
+    mTimeoutAux = mTimeoutCount;
+
+    VByteArray vb;
+    vb.vbAppendInt8(COMM_GET_BMS_EXP_TEMP);
+    emitData(vb);
+}
 void Commands::sendTerminalCmd(QString cmd)
 {
     VByteArray vb;

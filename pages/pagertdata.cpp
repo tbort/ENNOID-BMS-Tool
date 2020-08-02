@@ -183,6 +183,22 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->auxBarGraph->xAxis->setSubTicks(false);
     ui->auxBarGraph->xAxis->setTickLength(0, 5);
 
+    // Expansion bar graph
+    group3 = new QCPBarsGroup(ui->expBarGraph);
+    ExpBarsTemperature = new QCPBars(ui->expBarGraph->xAxis, ui->expBarGraph->yAxis);
+
+    ExpBarsTemperature->setBrush(QColor(0, 255, 0, 50));
+    ExpBarsTemperature->setPen(QColor(0, 211, 56));
+    ExpBarsTemperature->setWidth(0.9);
+    ExpBarsTemperature->setBarsGroup(group3);
+
+    ui->expBarGraph->xAxis->setRange(0.5, 12);
+    ui->expBarGraph->yAxis->setRange(-40, 75);
+    ui->expBarGraph->yAxis->setLabel("Temperature (°C)");
+    ui->expBarGraph->xAxis->setTickLabelRotation(85);
+    ui->expBarGraph->xAxis->setSubTicks(false);
+    ui->expBarGraph->xAxis->setTickLength(0, 5);
+
     connect(mTimer, SIGNAL(timeout()),this, SLOT(timerSlot()));
 }
 
@@ -204,6 +220,7 @@ void PageRtData::setDieBieMS(BMSInterface *dieBieMS)
         connect(mDieBieMS->commands(), SIGNAL(valuesReceived(BMS_VALUES)),this, SLOT(valuesReceived(BMS_VALUES)));
         connect(mDieBieMS->commands(), SIGNAL(cellsReceived(int,QVector<double>)),this, SLOT(cellsReceived(int,QVector<double>)));
         connect(mDieBieMS->commands(), SIGNAL(auxReceived(int,QVector<double>)),this, SLOT(auxReceived(int,QVector<double>)));
+        connect(mDieBieMS->commands(), SIGNAL(expTempReceived(int,QVector<double>)),this, SLOT(expTempReceived(int,QVector<double>)));
     }
 }
 
@@ -245,6 +262,7 @@ void PageRtData::timerSlot()
         ui->tempGraph->replot();
         ui->cellBarGraph->replot();
         ui->auxBarGraph->replot();
+        ui->expBarGraph->replot();
 
         mUpdateValPlot = false;
     }
@@ -357,6 +375,36 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
     ui->auxBarGraph->xAxis->setRange(0.5, indexPointer + 0.5);
     ui->auxBarGraph->yAxis->setRange(-40, 75);
     barsTemperature->setData(dataxNew, datayNormal);
+}
+
+void PageRtData::expTempReceived(int expTempCount, QVector<double> expTempVoltageArray){
+    QVector<double> dataxNew;
+    dataxNew.clear();
+    QVector<double> datayNormal;
+    datayNormal.clear();
+    QVector<QString> labels;
+    int indexPointer;
+
+    for(indexPointer = 0; indexPointer < expTempCount; indexPointer++){
+        dataxNew.append(indexPointer + 1);
+
+        if(expTempVoltageArray[indexPointer] < -50.0){
+            datayNormal.append(0.0);
+        }else{
+            datayNormal.append(expTempVoltageArray[indexPointer]);
+        }
+
+        QString voltageString = QStringLiteral("%1°C (T").arg(expTempVoltageArray[indexPointer], 0, 'f',3);
+        labels.append(voltageString + QString::number(indexPointer) + ")");
+    }
+
+    QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
+    textTicker->addTicks(dataxNew, labels);
+
+    ui->expBarGraph->xAxis->setTicker(textTicker);
+    ui->expBarGraph->xAxis->setRange(0.5, indexPointer + 0.5);
+    ui->expBarGraph->yAxis->setRange(-40, 75);
+    ExpBarsTemperature->setData(dataxNew, datayNormal);
 }
 
 void PageRtData::appendDoubleAndTrunc(QVector<double> *vec, double num, int maxSize)

@@ -48,6 +48,7 @@ private slots:
     void valuesReceived(BMS_VALUES values);
     void cellsReceived(int cellCount, QVector<double> cellVoltageArray);
     void auxReceived(int auxCount, QVector<double> auxVoltageArray);
+    void expTempReceived(int auxCount, QVector<double> auxVoltageArray);
 
     void on_zoomHButton_toggled(bool checked);
     void on_zoomVButton_toggled(bool checked);
@@ -86,7 +87,9 @@ private:
     QCPBars *barsNormal;
     QCPBars *barsBalance;
     QCPBarsGroup *group2;
+    QCPBarsGroup *group3;
     QCPBars *barsTemperature;
+    QCPBars *ExpBarsTemperature;
 
     void appendDoubleAndTrunc(QVector<double> *vec, double num, int maxSize);
     void updateZoom();

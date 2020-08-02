@@ -60,6 +60,7 @@ signals:
     void valuesReceived(BMS_VALUES values);
     void cellsReceived(int cellCount, QVector<double> cellVoltageArray);
     void auxReceived(int auxCount, QVector<double> auxVoltageArray);
+    void expTempReceived(int expTempCount, QVector<double> expTempVoltageArray);
     void printReceived(QString str);
     void rotorPosReceived(double pos);
     void bmsConfigCheckResult(QStringList paramsNotSet);
@@ -73,6 +74,7 @@ public slots:
     void getValues();
     void getCells();
     void getAux();
+    void getExpansionTemp();
     void sendTerminalCmd(QString cmd);
     void setDetect(disp_pos_mode mode);
     void samplePrint(debug_sampling_mode mode, int sample_len, int dec);

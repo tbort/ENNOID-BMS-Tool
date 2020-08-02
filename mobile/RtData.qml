@@ -239,6 +239,17 @@ Item {
         }
     }
 
+    Connections {
+        target: mCommands
+
+        onExpTempReceived: {
+            ExptempValues = expTempVoltageArray
+            if(tabBox.currentText==="Temperatures"){
+                updateProgressBars("Temps","T","\u00B0C", -50 ,100)
+            }
+        }
+    }
+
 
 }
 
