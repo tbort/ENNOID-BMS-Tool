@@ -133,9 +133,17 @@ Item {
                 createEditorMc("NTCLTC25Deg")
                 createEditorMc("NTCLTCBeta")
                 break;
+            case "NTC specifications Slaves":
+                createEditorMc("NTCEXPTopResistor")
+                createEditorMc("NTCEXP25Deg")
+                createEditorMc("NTCEXPBeta")
+                break;
             case "NTC enable":
+                createEditorMc("tempEnableMaskBMS")
                 createEditorMc("tempEnableMaskBattery")
                 createEditorMc("noOfTempSensorPerModule")
+                createEditorMc("noOfExpansionBoard")
+                createEditorMc("noOfTempSensorPerExpansionBoard")
                 break;
 
             default:

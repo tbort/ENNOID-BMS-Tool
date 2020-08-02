@@ -1132,13 +1132,13 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum temperature of the BMS.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the maximum temperature allowed for the Master Board.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>MAX_ALLOWED_TEMP_BMS</cDefine>
             <editorDecimalsDouble>1</editorDecimalsDouble>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
             <maxDouble>100</maxDouble>
-            <minDouble>-20</minDouble>
+            <minDouble>-100</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>5</stepDouble>
             <valDouble>90</valDouble>
@@ -1154,13 +1154,13 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the minimum temperature of the BMS.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define the minimum temperature allowed for the Master Board.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>MIN_ALLOWED_TEMP_BMS</cDefine>
             <editorDecimalsDouble>1</editorDecimalsDouble>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
             <maxDouble>100</maxDouble>
-            <minDouble>-20</minDouble>
+            <minDouble>-100</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>5</stepDouble>
             <valDouble>-20</valDouble>
@@ -1276,7 +1276,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When the battery current goes below this "Not used battery current threshold" value, the "Not used timeout" timer starts.&amp;quot; To disable the not used powerdown system this value can be set to 0ms, else if used, it should be set at a minimum of 5000ms.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;When the battery current goes below this "Not used battery current threshold" value, the "Not used timeout" timer starts.&amp;quot; &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>NOT_USED_CURRENT_THRESHOLD</cDefine>
             <editorDecimalsDouble>2</editorDecimalsDouble>
             <editorScale>1</editorScale>
@@ -1297,8 +1297,10 @@ p, li { white-space: pre-wrap; }
             <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The BMS will be powered OFF when this "Not used timeout" is over. The "not used timeout" timer will reset each time the battery current goes over the "Not used current threshold" value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans';&quot;&gt;The BMS will be powered OFF when this &amp;quot;Not used timeout&amp;quot; is over. The &amp;quot;not used timeout&amp;quot; timer will reset each time the battery current goes over the &amp;quot;Not used current threshold&amp;quot; value.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'DejaVu Sans';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans';&quot;&gt;To disable the not used powerdown system this value can be set to 0ms, else if used, it should be set at a minimum of 5000ms.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>NOT_USED_TIMEOUT</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
@@ -1491,31 +1493,15 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Tell what temperature sensor to use for the BMS temperature stats. The bitwise representation of this decimal value will show what sensor is enabled. The sensor order is as follows:&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_ENABLE&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_LTC_NTC1&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_LTC_CHIP&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_STM_NTC&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC0&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC1&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC2&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC3&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC4&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_EXT_ADC_NTC5&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_ADC_NTC6&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_ADC_NTC7&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;TEMP_INT_SHT&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For example, making this value 4 ( 0b0000000000100 )  will enable only the internal LTC temperature sensor. Making this value 8 ( 0b0000000001000 ) will only enable the ntc that is connected to the STM. When it is 12 (4+8) or ( 0b0000000001100 ) both the internal LTC temperature sensor and the NTC connected to the STM will be enabled.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Master board temperature monitoring: 0 = Disable, 1 = Enable.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>TEMPERATURE_ENABLE_MASK_BMS</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxInt>100000000</maxInt>
+            <maxInt>1</maxInt>
             <minInt>0</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
-            <valInt>8</valInt>
+            <valInt>1</valInt>
             <suffix></suffix>
             <vTx>5</vTx>
         </tempEnableMaskBMS>
@@ -1527,7 +1513,7 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Slave Module temperature 0 = Disable, 1 = Enable.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Battery temperature monitoring: 0 = Disable, 1 = Enable.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>TEMPERATURE_ENABLE_MASK_BATTERY</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
@@ -1540,14 +1526,14 @@ p, li { white-space: pre-wrap; }
             <vTx>5</vTx>
         </tempEnableMaskBattery>
         <noOfTempSensorPerModule>
-            <longName>Temp sensor per module</longName>
+            <longName>Temp sensor per LTC module</longName>
             <type>2</type>
             <transmittable>1</transmittable>
             <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of Temperature sensor per slave module.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of Temperature sensor per slave LTC module.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>NO_OF_TEMP_SENSOR_PER_MODULE</cDefine>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
@@ -1555,10 +1541,50 @@ p, li { white-space: pre-wrap; }
             <minInt>0</minInt>
             <showDisplay>0</showDisplay>
             <stepInt>1</stepInt>
-            <valInt>5</valInt>
+            <valInt>1</valInt>
             <suffix></suffix>
             <vTx>1</vTx>
         </noOfTempSensorPerModule>
+        <noOfTempSensorPerExpansionBoard>
+            <longName>Temp sensor per expansion board</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of Temperature sensor per Expansion Board.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NO_OF_TEMP_SENSOR_PER_EXPANSION_BOARD</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>8</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>0</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </noOfTempSensorPerExpansionBoard>
+        <noOfExpansionBoard>
+            <longName>Number of Expansion Board modules</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Number of Expansion Board.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>NO_OF_EXPANSION_BOARD</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>9</maxInt>
+            <minInt>0</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>1</stepInt>
+            <valInt>0</valInt>
+            <suffix></suffix>
+            <vTx>1</vTx>
+        </noOfExpansionBoard>
         <LCUseDischarge>
             <longName>Discharge output</longName>
             <type>4</type>
@@ -1959,6 +1985,66 @@ p, li { white-space: pre-wrap; }
             <suffix>B</suffix>
             <vTx>3</vTx>
         </NTCPCBBeta>
+        <NTCEXPTopResistor>
+            <longName>NTC EXP top resistor</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC Pullup resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>EXP_TOP_RESISTOR_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCEXPTopResistor>
+        <NTCEXP25Deg>
+            <longName>EXP PCB 25 deg</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC 25 degree resistor value&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>EXP_25_DEG_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>1000000</maxInt>
+            <minInt>10000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>10000</stepInt>
+            <valInt>100000</valInt>
+            <suffix>Ohm</suffix>
+            <vTx>5</vTx>
+        </NTCEXP25Deg>
+        <NTCEXPBeta>
+            <longName>EXP PCB Beta</longName>
+            <type>2</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;NTC beta factor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>EXP_BETA_PCB</cDefine>
+            <editorScale>1</editorScale>
+            <editAsPercentage>0</editAsPercentage>
+            <maxInt>50000</maxInt>
+            <minInt>1000</minInt>
+            <showDisplay>0</showDisplay>
+            <stepInt>50</stepInt>
+            <valInt>4100</valInt>
+            <suffix>B</suffix>
+            <vTx>3</vTx>
+        </NTCEXPBeta>
         <NTCHiAmpExtTopResistor>
             <longName>NTC HiAmp Ext. top resistor</longName>
             <type>2</type>
@@ -2339,6 +2425,8 @@ p, li { white-space: pre-wrap; }
         <ser>tempEnableMaskBMS</ser>
         <ser>tempEnableMaskBattery</ser>
         <ser>noOfTempSensorPerModule</ser>
+        <ser>noOfExpansionBoard</ser>
+        <ser>noOfTempSensorPerExpansionBoard</ser>
         <ser>LCUseDischarge</ser>
         <ser>LCUsePrecharge</ser>
         <ser>allowChargingDuringDischarge</ser>
@@ -2352,6 +2440,9 @@ p, li { white-space: pre-wrap; }
         <ser>NTCPCBTopResistor</ser>
         <ser>NTCPCB25Deg</ser>
         <ser>NTCPCBBeta</ser>
+        <ser>NTCEXPTopResistor</ser>
+        <ser>NTCEXP25Deg</ser>
+        <ser>NTCEXPBeta</ser>
         <ser>cellMonitorICType</ser>
         <ser>cellMonitorICCount</ser>
         <ser>extEnableState</ser>

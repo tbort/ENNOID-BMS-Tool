@@ -88,10 +88,16 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTC25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCBeta");
+        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Expansion Board"));
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXPTopResistor");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXP25Deg");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXPBeta");
         ui->masterSensorsTab->addRowSeparator(tr("NTC enable"));
-  //      ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBMS");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBMS");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBattery");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerModule");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfExpansionBoard");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerExpansionBoard");
   //      ui->masterSensorsTab->addRowSeparator(tr("Water detect enable mask"));
    //     ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "waterSensorEnableMask");
    //     ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "waterSensorThreshold");
