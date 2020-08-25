@@ -15,6 +15,6 @@ Latest compiled version can be found in the release tab:
 
 [ENNOID-BMS Bootloader](https://github.com/EnnoidMe/DieBieMS-Bootloader) Same as DieBieMS bootloader Can be flashed with the ENNOID-BMS Tool in the firmware tab or with an STlink-V2.
 
-[ENNOID-BMS Firmware](https://github.com/EnnoidMe/ENNOID-BMS-Firmware) Can be flashed with the ENNOID-BMS Tool in the firmware tab.  
+[ENNOID-BMS Firmware](https://github.com/EnnoidMe/ENNOID-BMS-Firmware/tree/ENNOID) Can be flashed with the ENNOID-BMS Tool in the firmware tab.  
 
 The compiled build .bin and hex files can be found in the MDK-ARM folder [Firmware files](https://github.com/EnnoidMe/ENNOID-BMS-Firmware/blob/master/MDK-ARM/DieBieMS/ENNOID-BMS.bin)
