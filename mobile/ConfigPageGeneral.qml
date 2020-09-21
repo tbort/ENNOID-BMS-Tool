@@ -133,7 +133,7 @@ Item {
                 createEditorMc("NTCLTC25Deg")
                 createEditorMc("NTCLTCBeta")
                 break;
-            case "NTC specifications Slaves":
+            case "NTC specifications Expansion Board":
                 createEditorMc("NTCEXPTopResistor")
                 createEditorMc("NTCEXP25Deg")
                 createEditorMc("NTCEXPBeta")
@@ -142,6 +142,8 @@ Item {
                 createEditorMc("tempEnableMaskBMS")
                 createEditorMc("tempEnableMaskBattery")
                 createEditorMc("noOfTempSensorPerModule")
+                break;
+            case "Expansion Board enable":
                 createEditorMc("noOfExpansionBoard")
                 createEditorMc("noOfTempSensorPerExpansionBoard")
                 break;
@@ -208,7 +210,9 @@ Item {
                         tabBox.model = [
                                     "NTC specifications Master",
                                     "NTC specifications Slaves",
-                                    "NTC enable"
+                                    "NTC enable",
+                                    "NTC specifications Expansion Board",
+                                    "Expansion Board enable"
                                 ]
                         break;
 

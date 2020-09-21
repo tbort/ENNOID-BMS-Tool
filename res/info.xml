@@ -12,7 +12,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;The firmware version(s) that this version of ENNOID-BMS Tool supports.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine></cDefine>
             <valInt>0</valInt>
-            <enumNames>1.1</enumNames>
+            <enumNames>1.2</enumNames>
         </fw_version>
         <help_can_forward>
             <longName>CAN Forwarding</longName>
@@ -111,7 +111,7 @@ a0Q3IiV42Vw3lXYNKTWOcdYZhuJVcZY+B6paWzSM7oIx1n1T28ufC6kt99F3XBYlvryq9RnO2FruhoOJ
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;The full BMS configuration can also be written to and read from XML files using the &lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu'; font-weight:600;&quot;&gt;File&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; menu. This is a good way to keep your settings when going between different &lt;/span&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;ENNOID-BMS&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; Tool versions, to share your settings and to store your configuration in general.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Ubuntu';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;Notice that uploading new firmware to the &lt;/span&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;ENNOID-BMS&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; will reset all its settings to their default values for that firmware. This means that after uploading firmware to the &lt;/span&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;ENNOID-BMS&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; you have to perform the motor configuration again.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt;Notice that uploading new firmware to the &lt;/span&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;ENNOID-BMS&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; will reset all its settings to their default values for that firmware. This means that after uploading firmware to the &lt;/span&gt;&lt;span style=&quot; font-family:'Sans Serif';&quot;&gt;ENNOID-BMS&lt;/span&gt;&lt;span style=&quot; font-family:'Ubuntu';&quot;&gt; you have to perform the BMS configuration again.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine></cDefine>
         </master_setting_description>
         <slave_setting_description>

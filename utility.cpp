@@ -180,7 +180,7 @@ QString Utility::vescToolChangeLog()
 
 QString Utility::aboutText()
 {
-    return tr("<b>ENNOID-BMS Tool V%1.0</b><br>"
+    return tr("<b>ENNOID-BMS Tool V%1</b><br>"
               "&copy; Kevin Dionne 2019<br>"
               "<a href=\"mailto:kevin.dionne@ennoid.me\">kevin.dionne@ennoid.me</a><br>"
               "<a href=\"https://www.ennoid.me/\">https://www.ennoid.me/</a><br>"
