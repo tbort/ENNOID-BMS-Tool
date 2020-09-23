@@ -92,6 +92,7 @@ Item {
                 createEditorMc("cellBalanceStart")
                 createEditorMc("cellBalanceDifferenceThreshold")
                 createEditorMc("cellBalanceUpdateInterval")
+                createEditorMc("cellBalanceAllTime")
                 break;
             default:
                 break;

@@ -68,6 +68,7 @@ void PageMasterCell::setDieBieMS(BMSInterface *dieBieMS)
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceStart");
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceDifferenceThreshold");
         ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceUpdateInterval");
+        ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "cellBalanceAllTime");
 //        ui->balancingTab->addParamRow(mDieBieMS->bmsConfig(), "maxSimultaneousDischargingCells");
 
         ui->throttlingTab->addRowSeparator(tr("Discharge"));
