@@ -226,7 +226,16 @@ ApplicationWindow {
                 anchors.leftMargin: 10
                 anchors.rightMargin: 10
             }
-        }
+         }
+
+         Page {
+             ConfigPageSignal {
+                 id: confPageSignal
+                 anchors.fill: parent
+                 anchors.leftMargin: 10
+                 anchors.rightMargin: 10
+                }
+         }
 
          Page {
             ConfigPageDisplay {
@@ -295,7 +304,7 @@ ApplicationWindow {
                     color: "#4f4f4f"
                 }
 
-                property int buttons: 7
+                property int buttons: 9
                 property int buttonWidth: 120
 
                 TabButton {
@@ -316,6 +325,10 @@ ApplicationWindow {
                 }
                 TabButton {
                     text: qsTr("Switch")
+                    width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
+                }
+                TabButton {
+                    text: qsTr("Signal")
                     width: Math.max(tabBar.buttonWidth, tabBar.width / tabBar.buttons)
                 }
                 TabButton {

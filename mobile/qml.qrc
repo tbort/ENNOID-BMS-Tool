@@ -27,5 +27,6 @@
         <file>CustomGauge.qml</file>
         <file>ProgressBar.qml</file>
         <file>PairingDialog.qml</file>
+        <file>ConfigPageSignal.qml</file>
     </qresource>
 </RCC>

@@ -34,7 +34,7 @@ Item {
     }
 
     onIsHorizontalChanged: {
-        //updateEditors()
+       // updateEditors()
     }
 
     function addSeparator(text) {
@@ -59,103 +59,36 @@ Item {
         destroyEditors()
 
         switch (pageBox.currentText) {
-        case "Power State":
-            switch(tabBox.currentText) {
-            case "Onstate":
-                createEditorMc("pulseToggleButton")
-                createEditorMc("notUsedCurrentThreshold")
-                createEditorMc("notUsedTimeout")
-                createEditorMc("powerDownDelay")
-                createEditorMc("allowForceOn")
-                break;
-            case "Jump to":
-                createEditorMc("extEnableState")
-                createEditorMc("chargeEnableState")
-                break;
-            default:
-                break;
-            }
-            break;
-
-        case "Limits":
-            switch(tabBox.currentText) {
-            case "Current":
-                createEditorMc("maxAllowedCurrent")
-                break;
-            case "Temperature discharging":
-                createEditorMc("allowedTempBattDischargingMax")
-                createEditorMc("allowedTempBattDischargingMin")
-                break;
-            case "Temperature charging":
-                createEditorMc("allowedTempBattChargingMax")
-                createEditorMc("allowedTempBattChargingMin")
-                break;
-            case "Temperature cooling/heating":
-                createEditorMc("allowedTempBattCoolingMax")
-                createEditorMc("allowedTempBattCoolingMin")
-                break;
-            case "Temperature Master board":
-                createEditorMc("allowedTempBMSMax")
-                createEditorMc("allowedTempBMSMin")
-                break;
-            default:
-                break;
-            }
-            break;
-
-        case "CAN":
-            switch(tabBox.currentText) {
-            case "CAN configuration":
-                createEditorMc("CANID")
-                createEditorMc("CANIDStyle")
-                createEditorMc("CANBaudRate")
-                break;
-            case "CAN messaging":
-                createEditorMc("emitStatusOverCAN")
-                createEditorMc("emitStatusProtocolType")
-                createEditorMc("useCANSafetyInput")
-                createEditorMc("useCANDelayedPowerDown")
-                break;
-            default:
-                break;
-            }
-            break;
-
-        case "Sensors":
-            switch(tabBox.currentText) {
-            case "NTC specifications Master":
-                createEditorMc("tempEnableMaskBMS")
-                createEditorMc("NTCPCBTopResistor")
-                createEditorMc("NTCPCB25Deg")
-                createEditorMc("NTCPCBBeta")
-                break;
-            case "NTC specifications Slaves":
-                createEditorMc("tempEnableMaskBattery")
-                createEditorMc("noOfTempSensorPerModule")
-                createEditorMc("NTCLTCTopResistor")
-                createEditorMc("NTCLTC25Deg")
-                createEditorMc("NTCLTCBeta")
-                break;
-            case "NTC specifications Expansion Board":
-                createEditorMc("tempEnableMaskExpansion")
-                createEditorMc("noOfExpansionBoard")
-                createEditorMc("noOfTempSensorPerExpansionBoard")
-                createEditorMc("NTCEXPTopResistor")
-                createEditorMc("NTCEXP25Deg")
-                createEditorMc("NTCEXPBeta")
-                break;
-            case "NTC advanced settings":
-                createEditorMc("maxUnderAndOverTemperatureErrorCount")
-
-
+        case "Discharge Current":
+                createEditorMc("shuntLCFactor")
+                createEditorMc("shuntLCOffset")
                 break;
 
-            default:
+        case "Charge Current":
+                createEditorMc("shuntChargeFactor")
+                createEditorMc("shuntChargeOffset")
                 break;
-            }
-
-            break;
-
+        case "Pack Voltage":
+                createEditorMc("voltageLCFactor")
+                createEditorMc("voltageLCOffset")
+                break;
+        case "Load Voltage":
+                createEditorMc("loadVoltageFactor")
+                createEditorMc("loadVoltageOffset")
+                break;
+        case "Charger Voltage":
+                createEditorMc("chargerVoltageFactor")
+                createEditorMc("chargerVoltageOffset")
+                break;
+        case "Data Source":
+                createEditorMc("packVoltageDataSource")
+                createEditorMc("packCurrentDataSource")
+                break;
+        case "Buzzer Control":
+                createEditorMc("buzzerSignalSource")
+                createEditorMc("buzzerSignalType")
+                createEditorMc("buzzerPersistent")
+                break;
         default:
             break;
         }
@@ -174,49 +107,58 @@ Item {
                 id: pageBox
                 Layout.fillWidth: true
                 model: [
-                    "Power State",
-                    "Limits",
-                    "CAN",
-                    "Sensors"
+                    "Discharge Current",
+                    "Charge Current",
+                    "Pack Voltage",
+                    "Load Voltage",
+                    "Charger Voltage",
+                    "Data Source",
+                    "Buzzer Control"
                 ]
 
                 onCurrentTextChanged: {
                     var tabTextOld = tabBox.currentText
 
                     switch(currentText) {
-                    case "Power State":
+                    case "Discharge Current":
                         tabBox.model = [
-                                    "Onstate",
-                                    "Jump to"
+                                    ""
                                 ]
                         break;
 
-                    case "Limits":
+                    case "Charge Current":
                         tabBox.model = [
-                                    "Current",
-                                    "Temperature discharging",
-                                    "Temperature charging",
-                                    "Temperature cooling/heating",
-                                    "Temperature Master board"
+                                    ""
+                                ]
+                        break;
+                    case "Pack Voltage":
+                        tabBox.model = [
+                                    ""
+                                ]
+                        break;
+                    case "Load Voltage":
+                        tabBox.model = [
+                                    ""
                                 ]
                         break;
 
-                    case "CAN":
+                    case "Charger Voltage":
                         tabBox.model = [
-                                    "CAN configuration",
-                                    "CAN messaging"
+                                    ""
                                 ]
                         break;
 
-                    case "Sensors":
+                    case "Data Source":
                         tabBox.model = [
-                                    "NTC specifications Master",
-                                    "NTC specifications Slaves",
-                                    "NTC enable",
-                                    "NTC specifications Expansion Board"
+                                    ""
                                 ]
                         break;
 
+                    case "Buzzer Control":
+                        tabBox.model = [
+                                    ""
+                                ]
+                        break;
                     default:
                         break;
                     }
@@ -226,17 +168,17 @@ Item {
                 if (tabTextOld === tabBox.currentText) {
                     updateEditors()
                 }
-            }	    
+            }
         }
-		
-		ComboBox {
-			id: tabBox
-			Layout.fillWidth: true
 
-			onCurrentTextChanged: {
-				updateEditors()
-			}
-		}
+        ComboBox {
+            id: tabBox
+            Layout.fillWidth: true
+
+            onCurrentTextChanged: {
+                updateEditors()
+            }
+        }
     }
 
         ScrollView {

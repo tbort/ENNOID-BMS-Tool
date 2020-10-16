@@ -91,7 +91,8 @@ Item {
             Layout.fillWidth: true
             model: [
                 "Cells voltages",
-                "Temperatures"
+                "Temperatures",
+                "Temperatures expansion"
             ]
             onCurrentTextChanged: {
 
@@ -99,7 +100,7 @@ Item {
                 case "Cells voltages":
                     updateProgressBars("Cells","C","V", 2.5, 4.2)
                     break;
-                case "Temperatures":
+                case "Temperatures expansion":
                     updateProgressBars("Temps","T","\u00B0C", -50 ,100)
                     break;
                 default:
@@ -244,7 +245,7 @@ Item {
 
         onExpTempReceived: {
             ExptempValues = expTempVoltageArray
-            if(tabBox.currentText==="Temperatures"){
+            if(tabBox.currentText==="Temperatures expansion"){
                 updateProgressBars("Temps","T","\u00B0C", -50 ,100)
             }
         }

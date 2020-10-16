@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -50,6 +54,7 @@ Commands::Commands(QObject *parent) : QObject(parent)
     mTimeoutValues = 0;
     mTimeoutCells = 0;
     mTimeoutAux = 0;
+    mTimeoutExp = 0;
     mTimeoutPingCan = 0;
 
     connect(mTimer, SIGNAL(timeout()), this, SLOT(timerSlot()));
@@ -188,7 +193,7 @@ void Commands::processPacket(QByteArray data)
        } break;
 
     case COMM_GET_BMS_EXP_TEMP:{
-        mTimeoutAux = 0;
+        mTimeoutExp = 0;
         int mExpTempAmount;
         QVector<double> mExpTempVoltages;
         mExpTempVoltages.clear();
@@ -303,11 +308,11 @@ void Commands::getAux()
 
 void Commands::getExpansionTemp()
 {
-    if (mTimeoutAux > 0) {
+    if (mTimeoutExp > 0) {
         return;
     }
 
-    mTimeoutAux = mTimeoutCount;
+    mTimeoutExp = mTimeoutCount;
 
     VByteArray vb;
     vb.vbAppendInt8(COMM_GET_BMS_EXP_TEMP);
@@ -420,6 +425,7 @@ void Commands::timerSlot()
     if (mTimeoutValues > 0) mTimeoutValues--;
     if (mTimeoutCells > 0) mTimeoutCells--;
     if (mTimeoutAux > 0) mTimeoutAux--;
+    if (mTimeoutExp > 0) mTimeoutExp--;
 }
 
 void Commands::emitData(QByteArray data)
@@ -573,8 +579,8 @@ QString Commands::faultStateToStr(bms_fault_code fault)
     case FAULT_CODE_CELL_HARD_UNDER_VOLTAGE: return "Cell hard undervoltage";
     case FAULT_CODE_CELL_SOFT_OVER_VOLTAGE: return "Cell soft overvoltage";
     case FAULT_CODE_CELL_SOFT_UNDER_VOLTAGE: return "Cell soft undervoltage";
-    case FAULT_CODE_MAX_OVP_ERRORS: return "MAX OVP errors";
-    case FAULT_CODE_MAX_UVP_ERRORS: return "MAX UVP errors";
+    case FAULT_CODE_MAX_UVP_OVP_ERRORS: return "MAX OVP/UVP errors";
+    case FAULT_CODE_MAX_UVT_OVT_ERRORS: return "MAX OVT/UVT errors";
     case FAULT_CODE_OVER_CURRENT: return "Over current";
     case FAULT_CODE_OVER_TEMP_BMS: return "Over temp BMS";
     case FAULT_CODE_UNDER_TEMP_BMS: return "Under temp BMS";

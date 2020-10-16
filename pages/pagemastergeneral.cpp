@@ -1,9 +1,13 @@
 /*
     Original copyright 2018 Benjamin Vedder benjamin@vedder.se and the VESC Tool project ( https://github.com/vedderb/vesc_tool )
-    Now forked to:
-    Danny Bokma github@diebie.nl
 
-    This file is part of BMS Tool.
+    Forked to:
+    Copyright 2018 Danny Bokma github@diebie.nl (https://github.com/DieBieEngineering/DieBieMS-Tool)
+
+    Now forked to:
+    Copyright 2019 - 2020 Kevin Dionne kevin.dionne@ennoid.me (https://github.com/EnnoidMe/ENNOID-BMS-Tool)
+
+    This file is part of ENNOID-BMS Tool.
 
     ENNOID-BMS Tool is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -80,25 +84,28 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->canTab->addParamRow(mDieBieMS->bmsConfig(), "useCANSafetyInput");
         ui->canTab->addParamRow(mDieBieMS->bmsConfig(), "useCANDelayedPowerDown");
 
-        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Master"));
+        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Master Board"));
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBMS");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCBTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCB25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCBBeta");
-        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Slaves"));
+        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Slave Board"));
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBattery");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerModule");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTC25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCBeta");
-        ui->masterSensorsTab->addRowSeparator(tr("NTC enable"));
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBMS");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBattery");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerModule");
         ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Expansion Board"));
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskExpansion");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfExpansionBoard");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerExpansionBoard");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXPTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXP25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXPBeta");
-        ui->masterSensorsTab->addRowSeparator(tr("Expansion Board enable"));
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfExpansionBoard");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerExpansionBoard");
+        ui->masterSensorsTab->addRowSeparator(tr("NTC advanced settings"));
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "maxUnderAndOverTemperatureErrorCount");
+
+
   //      ui->masterSensorsTab->addRowSeparator(tr("Water detect enable mask"));
    //     ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "waterSensorEnableMask");
    //     ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "waterSensorThreshold");
