@@ -73,6 +73,7 @@ Item {
                 break;
             case "Cell specifications":
                 createEditorMc("cellTechnology")
+                createEditorMc("cellVoltageOffset")
                 createEditorMc("cellHardOverVoltage")
                 createEditorMc("cellHardUnderVoltage")
                 createEditorMc("cellLCSoftUnderVoltage")
