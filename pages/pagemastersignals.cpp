@@ -52,9 +52,6 @@ void PageMasterSignals::setDieBieMS(BMSInterface *dieBieMS)
         ui->signalsTab->addRowSeparator(tr("Discharge Current"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntLCFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntLCOffset");
-        ui->signalsTab->addRowSeparator(tr("Charge Current"));
-        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntChargeFactor");
-        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "shuntChargeOffset");
         ui->signalsTab->addRowSeparator(tr("Pack voltage"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "voltageLCFactor");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "voltageLCOffset");

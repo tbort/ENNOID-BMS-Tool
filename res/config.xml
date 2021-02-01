@@ -76,7 +76,7 @@ p, li { white-space: pre-wrap; }
             <editorDecimalsDouble>2</editorDecimalsDouble>
             <editorScale>1</editorScale>
             <editAsPercentage>0</editAsPercentage>
-            <maxDouble>1000</maxDouble>
+            <maxDouble>5000</maxDouble>
             <minDouble>0</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>1</stepDouble>
@@ -136,28 +136,6 @@ p, li { white-space: pre-wrap; }
             <enumNames>Li-Polymer</enumNames>
             <enumNames>Li-Phosphate</enumNames>
         </cellTechnology>
-        <cellVoltageOffset>
-            <longName>Cell voltage offset</longName>
-            <type>1</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Cell voltage offset will be added on top of the measured voltage value of each channels. This can be helpful for adjusting any voltage drop caused by micro-current losses induced in the balancing cables during conversion.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>CELL_VOLTAGE_OFFSET</cDefine>
-            <editorDecimalsDouble>3</editorDecimalsDouble>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxDouble>5</maxDouble>
-            <minDouble>0</minDouble>
-            <showDisplay>0</showDisplay>
-            <stepDouble>0.001</stepDouble>
-            <valDouble>0</valDouble>
-            <vTxDoubleScale>100000</vTxDoubleScale>
-            <suffix>V</suffix>
-            <vTx>9</vTx>
-        </cellVoltageOffset>
         <cellHardUnderVoltage>
             <longName>Cell hard undervoltage</longName>
             <type>1</type>
@@ -410,7 +388,7 @@ p, li { white-space: pre-wrap; }
             <cDefine>PACK_VOLTAGE_DATA_SOURCE</cDefine>
             <valInt>1</valInt>
             <enumNames>NoSource</enumNames>
-            <enumNames>ISL28022 (I2C2 - 0x40) LV BatteryInput</enumNames>
+            <enumNames>ISL28022 (I2C2) BatteryInput</enumNames>
             <enumNames>SumOfIndividualCellVoltages</enumNames>
         </packVoltageDataSource>
         <packCurrentDataSource>
@@ -520,48 +498,6 @@ p, li { white-space: pre-wrap; }
             <suffix>LSB</suffix>
             <vTx>4</vTx>
         </shuntLCOffset>
-        <shuntChargeFactor>
-            <longName>Shunt charge factor</longName>
-            <type>1</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Scaling factor for ISL based shunt measurements. Only applies to ISL based current sensor source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>SHUNT_CHARGE_FACTOR</cDefine>
-            <editorDecimalsDouble>6</editorDecimalsDouble>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxDouble>1</maxDouble>
-            <minDouble>-1</minDouble>
-            <showDisplay>0</showDisplay>
-            <stepDouble>0.05</stepDouble>
-            <valDouble>-0.0052</valDouble>
-            <vTxDoubleScale>100000</vTxDoubleScale>
-            <suffix></suffix>
-            <vTx>9</vTx>
-        </shuntChargeFactor>
-        <shuntChargeOffset>
-            <longName>Shunt charge Offset</longName>
-            <type>2</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Offset for ISL based shunt measurements. Only applies to ISL based current sensor source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>SHUNT_CHARGE_OFFSET</cDefine>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxInt>1024</maxInt>
-            <minInt>-1024</minInt>
-            <showDisplay>0</showDisplay>
-            <stepInt>1</stepInt>
-            <valInt>0</valInt>
-            <suffix>LSB</suffix>
-            <vTx>4</vTx>
-        </shuntChargeOffset>
         <shuntHCFactor>
             <longName>Shunt HC factor</longName>
             <type>1</type>
@@ -1063,7 +999,7 @@ p, li { white-space: pre-wrap; }
             <minDouble>1</minDouble>
             <showDisplay>0</showDisplay>
             <stepDouble>10</stepDouble>
-            <valDouble>120</valDouble>
+            <valDouble>1000</valDouble>
             <vTxDoubleScale>100000</vTxDoubleScale>
             <suffix>A</suffix>
             <vTx>9</vTx>
@@ -1324,6 +1260,20 @@ p, li { white-space: pre-wrap; }
             <suffix>ms</suffix>
             <vTx>5</vTx>
         </displayTimeoutSplashScreen>
+        <displayStyle>
+            <longName>Display style</longName>
+            <type>4</type>
+            <transmittable>1</transmittable>
+            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Choose the display style for the I2C SSD1306 display when the BMS is under load enabled state.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+            <cDefine>DISP_STYLE</cDefine>
+            <valInt>0</valInt>
+            <enumNames>Basic</enumNames>
+            <enumNames>Advanced</enumNames>
+        </displayStyle>
         <maxUnderAndOverVoltageErrorCount>
             <longName>Max OVP &amp; UVP errors</longName>
             <type>2</type>
@@ -1582,25 +1532,48 @@ p, li { white-space: pre-wrap; }
             <vTx>9</vTx>
         </waterSensorThreshold>
         <tempEnableMaskBMS>
-            <longName>Temp sensor enable mask BMS</longName>
-            <type>2</type>
-            <transmittable>1</transmittable>
-            <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Master board temperature monitoring: 0 = Disable, 1 = Enable.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
-            <cDefine>TEMPERATURE_ENABLE_MASK_BMS</cDefine>
-            <editorScale>1</editorScale>
-            <editAsPercentage>0</editAsPercentage>
-            <maxInt>1</maxInt>
-            <minInt>0</minInt>
-            <showDisplay>0</showDisplay>
-            <stepInt>1</stepInt>
-            <valInt>1</valInt>
-            <suffix></suffix>
-            <vTx>5</vTx>
-        </tempEnableMaskBMS>
+                    <longName>Temp sensor enable mask BMS</longName>
+                    <type>2</type>
+                    <transmittable>1</transmittable>
+                    <description>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+        &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        p, li { white-space: pre-wrap; }
+        &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; ; font-weight:400; font-style:normal;&quot;&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans';&quot;&gt;Master board temperature monitoring mask:&lt;/span&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'DejaVu Sans';&quot;&gt;default = 1 = Enable on-board thermistor&lt;/span&gt;&lt;/p&gt;
+        &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The selected decimal value is transfered in binary :&lt;/p&gt;
+        &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;= (0000 0000 0000 0000) =&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;Disable all &lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;=&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;(0000 0000 0000 0001) = Enable on-board thermistor&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;=&lt;span style=&quot; color:#c0c0c0;&quot;&gt; &lt;/span&gt;(0000 0000 0000 0010) = Enable 1st LTC channel 1 only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;4 = (0000 0000 0000 0100) = Enable 1st LTC channel 2 only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;8 = (0000 0000 0000 1000) = Enable 1st LTC channel 3 only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;16 = (0000 0000 0001 0000) = Enable 1st LTC channel 4 only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;-----------------------------------------------------------------------------&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;65 535 = (1111 1111 1111 1111) = Enable all channels&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;65 534 = (1111 1111 1111 1110) = Disable on-board thermistor only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;65 533 = (1111 1111 1111 1101) = Disable 1st LTC channel 1 only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;65 531 = (1111 1111 1111 1011) = Disable 1st LTC channel 2 only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;65 527 = (1111 1111 1111 0111) = Disable 1st LTC channel 3 only&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;------------------------------------------------------------------------------&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;31 = (0000 0000 0001 1111) = Enable on-board thermistor + 1st LTCchannels 1 to 4&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;30 = (0000 0000 0001 1110) = Enable 1st LTC channels 1 to 4&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;63 = (0000 0000 0011 1111) = Enable on-board thermistor + 1st LTC channels 1 to 5&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;62 = (0000 0000 0011 1111) = Enable 1st LTC channels 1 to 5&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1023 = (0000 0011 1111 1111) = Enable on-board thermistor + 1st LTC channels 1 to 9&lt;/p&gt;
+        &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1022 = (0000 0011 1111 1110) = Enable 1st LTC channels 1 to 9&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+                    <cDefine>TEMPERATURE_ENABLE_MASK_BMS</cDefine>
+                    <editorScale>1</editorScale>
+                    <editAsPercentage>0</editAsPercentage>
+                    <maxInt>65536</maxInt>
+                    <minInt>0</minInt>
+                    <showDisplay>0</showDisplay>
+                    <stepInt>1</stepInt>
+                    <valInt>1</valInt>
+                    <suffix></suffix>
+                    <vTx>5</vTx>
+                </tempEnableMaskBMS>
         <tempEnableMaskBattery>
             <longName>Temp sensor enable mask Battery</longName>
             <type>2</type>
@@ -2527,7 +2500,6 @@ p, li { white-space: pre-wrap; }
         <ser>noOfCellsParallel</ser>
         <ser>noOfParallelModules</ser>
         <ser>batteryCapacity</ser>
-        <ser>cellVoltageOffset</ser>
         <ser>cellHardUnderVoltage</ser>
         <ser>cellHardOverVoltage</ser>
         <ser>cellLCSoftUnderVoltage</ser>
@@ -2546,8 +2518,6 @@ p, li { white-space: pre-wrap; }
         <ser>buzzerPersistent</ser>
         <ser>shuntLCFactor</ser>
         <ser>shuntLCOffset</ser>
-        <ser>shuntChargeFactor</ser>
-        <ser>shuntChargeOffset</ser>
         <ser>voltageLCFactor</ser>
         <ser>voltageLCOffset</ser>
         <ser>loadVoltageFactor</ser>
@@ -2582,6 +2552,7 @@ p, li { white-space: pre-wrap; }
         <ser>displayTimeoutBatteryError</ser>
         <ser>displayTimeoutBatteryErrorPreCharge</ser>
         <ser>displayTimeoutSplashScreen</ser>
+        <ser>displayStyle</ser>
         <ser>maxUnderAndOverVoltageErrorCount</ser>
         <ser>maxUnderAndOverTemperatureErrorCount</ser>
         <ser>notUsedCurrentThreshold</ser>

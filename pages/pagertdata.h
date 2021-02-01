@@ -70,7 +70,7 @@ private:
     QVector<double> mLCLoadCurrent;
     QVector<double> mHCLoadVoltage;
     QVector<double> mHCLoadCurrent;
-    QVector<double> mchargerVoltage;
+    QVector<double> mChargerVoltage;
     QVector<double> mAuxVoltage;
     QVector<double> mAuxCurrent;
     QVector<double> mCellVHigh;
@@ -80,6 +80,7 @@ private:
     QVector<double> mTempBMSAverage;
     QVector<double> mTempBattHigh;
     QVector<double> mTempBattAverage;
+    QVector<double> mHumidity;
     QVector<double> mSeconds;
 
     double mSecondCounter;

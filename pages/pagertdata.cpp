@@ -283,7 +283,7 @@ void PageRtData::valuesReceived(BMS_VALUES values)
     appendDoubleAndTrunc(&mLCLoadCurrent, values.loadLCCurrent, maxS);
     appendDoubleAndTrunc(&mHCLoadVoltage, values.loadHCVoltage, maxS);
     appendDoubleAndTrunc(&mHCLoadCurrent, values.loadHCCurrent, maxS);
-    appendDoubleAndTrunc(&mchargerVoltage, values.chargerVoltage, maxS);
+    appendDoubleAndTrunc(&mChargerVoltage, values.chargerVoltage, maxS);
     appendDoubleAndTrunc(&mAuxVoltage, values.auxVoltage, maxS);
     appendDoubleAndTrunc(&mAuxCurrent, values.auxCurrent, maxS);
 
@@ -295,6 +295,7 @@ void PageRtData::valuesReceived(BMS_VALUES values)
     appendDoubleAndTrunc(&mTempBMSAverage, values.tempBMSAverage, maxS);
     appendDoubleAndTrunc(&mTempBattHigh, values.tempBattHigh, maxS);
     appendDoubleAndTrunc(&mTempBattAverage, values.tempBattAverage, maxS);
+    appendDoubleAndTrunc(&mHumidity, values.humidity, maxS);
 
 
     qint64 tNow = QDateTime::currentMSecsSinceEpoch();

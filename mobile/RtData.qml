@@ -209,7 +209,7 @@ Item {
                     "T Batt Avrg: " + parseFloat(values.tempBattAverage).toFixed(1) + " \u00B0C\n" +
                     "T BMS High : " + parseFloat(values.tempBMSHigh).toFixed(2) + " \u00B0C\n" +
                     "T BMS Avrg : " + parseFloat(values.tempBMSAverage).toFixed(2) + " \u00B0C\n" +
-                    "P Pack     : " + parseFloat(values.packVoltage*values.packCurrent).toFixed(2) + " W\n" +
+                    "Humidity   : " + parseFloat(values.humidity).toFixed(1) + " %\n" +
                     "V Load     : " + parseFloat(values.loadLCVoltage).toFixed(2) + " V\n" +
                     "V Charger  : " + parseFloat(values.chargerVoltage).toFixed(2) + " V\n" +
                     "SoC        : " + parseFloat(values.soC).toFixed(1) + " %\n"

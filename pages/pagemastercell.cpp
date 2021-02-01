@@ -59,7 +59,6 @@ void PageMasterCell::setDieBieMS(BMSInterface *dieBieMS)
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "batteryCapacity");
         ui->specificationsTab->addRowSeparator(tr("Cell specifications"));
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellTechnology");
-        ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellVoltageOffset");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHardUnderVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellHardOverVoltage");
         ui->specificationsTab->addParamRow(mDieBieMS->bmsConfig(), "cellLCSoftUnderVoltage");

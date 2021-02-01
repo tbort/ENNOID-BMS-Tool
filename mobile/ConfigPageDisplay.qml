@@ -64,6 +64,7 @@ Item {
                 createEditorMc("displayTimeoutBatteryError")
                 createEditorMc("displayTimeoutBatteryErrorPreCharge")
                 createEditorMc("displayTimeoutSplashScreen")
+            createEditorMc("displayStyle")
                 break;         
         default:
             break;

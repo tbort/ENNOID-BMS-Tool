@@ -63,11 +63,6 @@ Item {
                 createEditorMc("shuntLCFactor")
                 createEditorMc("shuntLCOffset")
                 break;
-
-        case "Charge Current":
-                createEditorMc("shuntChargeFactor")
-                createEditorMc("shuntChargeOffset")
-                break;
         case "Pack Voltage":
                 createEditorMc("voltageLCFactor")
                 createEditorMc("voltageLCOffset")

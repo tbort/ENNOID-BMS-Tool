@@ -47,6 +47,7 @@ RtDataText::RtDataText(QWidget *parent) : QWidget(parent)
     mValues.tempBattAverage  = 0.0;
     mValues.tempBMSHigh      = 0.0;
     mValues.tempBMSAverage   = 0.0;
+    mValues.humidity         = 0.0;
     mValues.opState          = "Unknown.";
     mValues.faultState       = "Unknown.";
 }
@@ -134,16 +135,12 @@ void RtDataText::paintEvent(QPaintEvent *event)
                 "T Batt Avrg : %.1f \u00B0C\n"
                 "T BMS High  : %.1f \u00B0C\n"
                 "T BMS Avrg  : %.1f \u00B0C\n"
-                "SoC         : %i %%\n"
-                "OpState     : %s\n"
-                "FaultState  : %s\n",
+                "Humidity    : %.1f %%\n",
                 mValues.tempBattHigh,
                 mValues.tempBattAverage,
                 mValues.tempBMSHigh,
                 mValues.tempBMSAverage,
-                mValues.soC,
-                mValues.opState.toLocal8Bit().data(),
-                mValues.faultState.toLocal8Bit().data());
+                mValues.humidity);
 
     painter.setOpacity(0.7);
     painter.fillRect(vidw / 2.0 - bbox_w / 2.0, 0, bbox_w, bbow_h, Qt::black);
@@ -154,15 +151,20 @@ void RtDataText::paintEvent(QPaintEvent *event)
                      Qt::AlignLeft, str);
 
     // Right info box
-    str.sprintf("V Load : %.1f V\n"
-                "P Load : %.1f W\n"
-                "V Charger : %.1f V\n"
-                "P Charger : %.1f W\n"
-                "\n",
+    str.sprintf("V Load      : %.1f V\n"
+                "P Load      : %.1f W\n"
+                "V Charger   : %.1f V\n"
+                "P Charger   : %.1f W\n"
+                "SoC         : %i %%\n"
+                "OpState     : %s\n"
+                "FaultState  : %s\n",
                 mValues.loadLCVoltage,
-                mValues.loadLCCurrent * mValues.loadLCVoltage,
+                mValues.packCurrent * mValues.loadLCVoltage,
                 mValues.chargerVoltage,
-                mValues.loadLCCurrent * mValues.chargerVoltage);
+                mValues.packCurrent * mValues.chargerVoltage,
+                mValues.soC,
+                mValues.opState.toLocal8Bit().data(),
+                mValues.faultState.toLocal8Bit().data());
 
     painter.setOpacity(0.7);
     painter.fillRect(vidw - bbox_w, 0, bbox_w,mBoxH + 2 * mTxtOfs, Qt::black);

@@ -127,5 +127,6 @@
         <file>res/firmwares/ENNOID-HV/ENNOID-BMS_HV.bin</file>
         <file>res/logo_white.png</file>
         <file>res/firmwares/ENNOID-LV/ENNOID-BMS_LV.bin</file>
+        <file>res/firmwares/ENNOID-SS/ENNOID-BMS_SS.bin</file>
     </qresource>
 </RCC>
