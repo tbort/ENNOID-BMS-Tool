@@ -135,7 +135,7 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *paren
 void Utility::checkVersion(BMSInterface *dieBieMS)
 {
     QString version = QString::number(DT_VERSION);
-    QUrl url("https://ennoid.tiiny.site/");
+    QUrl url("https://raw.githubusercontent.com/EnnoidMe/ENNOID-BMS-Tool/ENNOID/res/ennoidbmstool-version.html");
     QNetworkAccessManager manager;
     QNetworkRequest request(url);
     QNetworkReply *reply = manager.get(request);
