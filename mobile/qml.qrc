@@ -24,7 +24,6 @@
         <file>ConfigPageCell.qml</file>
         <file>ConfigPageSwitch.qml</file>
         <file>ConfigPageDisplay.qml</file>
-        <file>CustomGauge.qml</file>
         <file>ProgressBar.qml</file>
         <file>PairingDialog.qml</file>
         <file>ConfigPageSignal.qml</file>

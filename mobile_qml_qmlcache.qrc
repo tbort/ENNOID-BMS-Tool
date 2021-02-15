@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<RCC>
+    <qresource prefix="/">
+        <file alias="qtquickcontrols2.conf">mobile/qtquickcontrols2.conf</file>
+    </qresource>
+    <qresource prefix="/mobile"/>
+</RCC>

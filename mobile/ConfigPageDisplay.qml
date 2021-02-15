@@ -64,8 +64,10 @@ Item {
                 createEditorMc("displayTimeoutBatteryError")
                 createEditorMc("displayTimeoutBatteryErrorPreCharge")
                 createEditorMc("displayTimeoutSplashScreen")
-            createEditorMc("displayStyle")
-                break;         
+                break;
+        case "Custom":
+                createEditorMc("displayStyle")
+                break;
         default:
             break;
         }
@@ -84,7 +86,8 @@ Item {
                 id: pageBox
                 Layout.fillWidth: true
                 model: [
-                    "Duration"
+                    "Duration",
+                    "Custom"
                 ]
 
                 onCurrentTextChanged: {
@@ -92,6 +95,11 @@ Item {
 
                     switch(currentText) {
                     case "Duration":
+                        tabBox.model = [
+                                    ""
+                                ]
+                        break;
+                    case "Custom":
                         tabBox.model = [
                                     ""
                                 ]

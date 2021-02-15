@@ -53,8 +53,8 @@ void PageMasterDisplay::setDieBieMS(BMSInterface *dieBieMS)
         ui->durationsTab->addParamRow(mDieBieMS->bmsConfig(), "displayTimeoutBatteryError");
         ui->durationsTab->addParamRow(mDieBieMS->bmsConfig(), "displayTimeoutBatteryErrorPreCharge");
         ui->durationsTab->addParamRow(mDieBieMS->bmsConfig(), "displayTimeoutSplashScreen");
-        ui->durationsTab->addParamRow(mDieBieMS->bmsConfig(), "displayStyle");
 
-        ui->customTab->addRowSeparator(tr("TBD"));
+        ui->customTab->addRowSeparator(tr("Options"));
+        ui->customTab->addParamRow(mDieBieMS->bmsConfig(), "displayStyle");
     }
 }

@@ -30,6 +30,7 @@ Item {
     property var progressBarsVisible: []
     property var cellValues: [6,6,6,6,6,6,6,6,6,6,6,6]
     property var tempValues: [100,100,100,100,100]
+    property var tempValuesExp: [100,100,100,100,100]
 
 
     property bool isHorizontal: width > height
@@ -76,6 +77,11 @@ Item {
                 createProgressBar(prefix+j, unit, tempValues[j], barFrom, barTo)
                 }
             break;
+        case "TempsExp":
+            for (var j = 0;j < tempValuesExp.length;j++) {
+                createProgressBar(prefix+j, unit, tempValuesExp[j], barFrom, barTo)
+                }
+            break;
         default:
             break;
         }
@@ -100,8 +106,11 @@ Item {
                 case "Cells voltages":
                     updateProgressBars("Cells","C","V", 2.5, 4.2)
                     break;
-                case "Temperatures expansion":
+                case "Temperatures":
                     updateProgressBars("Temps","T","\u00B0C", -50 ,100)
+                    break;
+                case "Temperatures expansion":
+                    updateProgressBars("TempsExp","T","\u00B0C", -50 ,100)
                     break;
                 default:
                     break;
@@ -244,9 +253,9 @@ Item {
         target: mCommands
 
         onExpTempReceived: {
-            ExptempValues = expTempVoltageArray
+            tempValuesExp = expTempVoltageArray
             if(tabBox.currentText==="Temperatures expansion"){
-                updateProgressBars("Temps","T","\u00B0C", -50 ,100)
+                updateProgressBars("TempsExp","T","\u00B0C", -50 ,100)
             }
         }
     }

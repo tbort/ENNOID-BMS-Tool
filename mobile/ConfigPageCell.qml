@@ -18,6 +18,7 @@
 
 import QtQuick 2.7
 import QtQuick.Controls 2.2
+
 import QtQuick.Layouts 1.3
 
 import Ennoid.bmsinterface 1.0

@@ -135,7 +135,7 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *paren
 void Utility::checkVersion(BMSInterface *dieBieMS)
 {
     QString version = QString::number(DT_VERSION);
-    QUrl url("https://vesc-project.com/vesctool-version.html");
+    QUrl url("https://ennoid.tiiny.site/");
     QNetworkAccessManager manager;
     QNetworkRequest request(url);
     QNetworkReply *reply = manager.get(request);
@@ -145,15 +145,15 @@ void Utility::checkVersion(BMSInterface *dieBieMS)
 
     QString res = QString::fromUtf8(reply->readAll());
 
-    if (res.startsWith("vesctoolversion")) {
-        res.remove(0, 15);
-        res.remove(res.indexOf("vesctoolversion"), res.size());
+    if (res.startsWith("ennoidbmstoolversion")) {
+        res.remove(0, 20);
+        res.remove(res.indexOf("ennoidbmstoolversion"), res.size());
 
         if (res.toDouble() > version.toDouble()) {
             if (dieBieMS) {
                 dieBieMS->emitStatusMessage("A new version of ENNOID-BMS Tool is available", true);
             } else {
-                qDebug() << "A new version of ENNOID-BMS Tool is available. Go to DeiBie.nl to download it"
+                qDebug() << "A new version of ENNOID-BMS Tool is available. Go to www.ennoid.me to download it"
                             "and get all the latest features.";
             }
         }

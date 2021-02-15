@@ -6,14 +6,13 @@
 INCLUDEPATH += $$PWD
 # Version
 DT_VERSION = 1.2
-
 DEFINES += DT_VERSION=$$DT_VERSION
 
 # Serial port available
 DEFINES += HAS_SERIALPORT
 
 # Options
-# Build mobile GUI
+#Build mobile GUI
 #CONFIG += build_mobile
 
 # Bluetooth available
@@ -117,3 +116,5 @@ DISTFILES += \
     android/gradle/wrapper/gradle-wrapper.properties
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+ANDROID_ABIS = x86

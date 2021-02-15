@@ -164,7 +164,7 @@ PageRtData::PageRtData(QWidget *parent) :
 
     barsBalance->moveAbove(barsNormal);
 
-    ui->cellBarGraph->xAxis->setRange(0.5, 12);
+    ui->cellBarGraph->xAxis->setRange(1, 12);
     ui->cellBarGraph->yAxis->setRange(2.5, 4.15);
     ui->cellBarGraph->yAxis->setLabel("Voltage (V)");
     ui->cellBarGraph->xAxis->setTickLabelRotation(85);
@@ -180,7 +180,7 @@ PageRtData::PageRtData(QWidget *parent) :
     barsTemperature->setWidth(0.9);
     barsTemperature->setBarsGroup(group2);
 
-    ui->auxBarGraph->xAxis->setRange(0.5, 12);
+    ui->auxBarGraph->xAxis->setRange(1, 9);
     ui->auxBarGraph->yAxis->setRange(-40, 75);
     ui->auxBarGraph->yAxis->setLabel("Temperature (°C)");
     ui->auxBarGraph->xAxis->setTickLabelRotation(85);
@@ -196,7 +196,7 @@ PageRtData::PageRtData(QWidget *parent) :
     ExpBarsTemperature->setWidth(0.9);
     ExpBarsTemperature->setBarsGroup(group3);
 
-    ui->expBarGraph->xAxis->setRange(0.5, 12);
+    ui->expBarGraph->xAxis->setRange(1, 8);
     ui->expBarGraph->yAxis->setRange(-40, 75);
     ui->expBarGraph->yAxis->setLabel("Temperature (°C)");
     ui->expBarGraph->xAxis->setTickLabelRotation(85);

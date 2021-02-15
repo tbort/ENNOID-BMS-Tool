@@ -103,7 +103,6 @@ Item {
                 Layout.fillWidth: true
                 model: [
                     "Discharge Current",
-                    "Charge Current",
                     "Pack Voltage",
                     "Load Voltage",
                     "Charger Voltage",
@@ -116,12 +115,6 @@ Item {
 
                     switch(currentText) {
                     case "Discharge Current":
-                        tabBox.model = [
-                                    ""
-                                ]
-                        break;
-
-                    case "Charge Current":
                         tabBox.model = [
                                     ""
                                 ]

@@ -84,22 +84,15 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->canTab->addParamRow(mDieBieMS->bmsConfig(), "useCANSafetyInput");
         ui->canTab->addParamRow(mDieBieMS->bmsConfig(), "useCANDelayedPowerDown");
 
-        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Master Board"));
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBMS");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCBTopResistor");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCB25Deg");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCPCBBeta");
-        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Slave Board"));
+        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications battery"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskBattery");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerModule");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTC25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCLTCBeta");
-        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications Expansion Board"));
+        ui->masterSensorsTab->addRowSeparator(tr("NTC specifications expansion Board"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "tempEnableMaskExpansion");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfExpansionBoard");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "noOfTempSensorPerExpansionBoard");
-        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXPTopResistor");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXP25Deg");
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXPBeta");
         ui->masterSensorsTab->addRowSeparator(tr("NTC advanced settings"));

@@ -123,24 +123,16 @@ Item {
 
         case "Sensors":
             switch(tabBox.currentText) {
-            case "NTC specifications Master":
-                createEditorMc("tempEnableMaskBMS")
-                createEditorMc("NTCPCBTopResistor")
-                createEditorMc("NTCPCB25Deg")
-                createEditorMc("NTCPCBBeta")
-                break;
-            case "NTC specifications Slaves":
+            case "NTC specifications battery":
                 createEditorMc("tempEnableMaskBattery")
                 createEditorMc("noOfTempSensorPerModule")
-                createEditorMc("NTCLTCTopResistor")
                 createEditorMc("NTCLTC25Deg")
                 createEditorMc("NTCLTCBeta")
                 break;
-            case "NTC specifications Expansion Board":
+            case "NTC specifications expansion Board":
                 createEditorMc("tempEnableMaskExpansion")
                 createEditorMc("noOfExpansionBoard")
                 createEditorMc("noOfTempSensorPerExpansionBoard")
-                createEditorMc("NTCEXPTopResistor")
                 createEditorMc("NTCEXP25Deg")
                 createEditorMc("NTCEXPBeta")
                 break;
@@ -210,10 +202,9 @@ Item {
 
                     case "Sensors":
                         tabBox.model = [
-                                    "NTC specifications Master",
-                                    "NTC specifications Slaves",
+                                    "NTC specifications battery",
                                     "NTC enable",
-                                    "NTC specifications Expansion Board"
+                                    "NTC specifications expansion Board"
                                 ]
                         break;
 

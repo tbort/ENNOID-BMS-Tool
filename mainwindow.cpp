@@ -524,7 +524,7 @@ void MainWindow::reloadPages()
     mPageMasterSettings = new PageMasterSettings(this);
     mPageMasterSettings->setDieBieMS(mDieBieMS);
     ui->pageWidget->addWidget(mPageMasterSettings);
-    addPageItem(tr("Master Settings"), "://res/icons/Outgoing Data-96.png", "", true);
+    addPageItem(tr("Settings"), "://res/icons/Outgoing Data-96.png", "", true);
 
     mPageMasterGeneral = new PageMasterGeneral(this);
     mPageMasterGeneral->setDieBieMS(mDieBieMS);
