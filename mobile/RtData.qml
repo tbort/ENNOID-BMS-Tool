@@ -216,8 +216,10 @@ Item {
             valText2.text =
                     "T Batt High: " + parseFloat(values.tempBattHigh).toFixed(1) + " \u00B0C\n" +
                     "T Batt Avrg: " + parseFloat(values.tempBattAverage).toFixed(1) + " \u00B0C\n" +
+                    "T Batt Low: " + parseFloat(values.tempBattLow).toFixed(1) + " \u00B0C\n" +
                     "T BMS High : " + parseFloat(values.tempBMSHigh).toFixed(2) + " \u00B0C\n" +
                     "T BMS Avrg : " + parseFloat(values.tempBMSAverage).toFixed(2) + " \u00B0C\n" +
+                    "T BMS Low : " + parseFloat(values.tempBMSLow).toFixed(2) + " \u00B0C\n" +
                     "Humidity   : " + parseFloat(values.humidity).toFixed(1) + " %\n" +
                     "V Load     : " + parseFloat(values.loadLCVoltage).toFixed(2) + " V\n" +
                     "V Charger  : " + parseFloat(values.chargerVoltage).toFixed(2) + " V\n" +

@@ -189,8 +189,10 @@ struct BMS_VALUES {
     Q_PROPERTY(double auxCurrent MEMBER auxCurrent)
     Q_PROPERTY(double tempBattHigh MEMBER tempBattHigh)
     Q_PROPERTY(double tempBattAverage MEMBER tempBattAverage)
+    Q_PROPERTY(double tempBattLow MEMBER tempBattLow)
     Q_PROPERTY(double tempBMSHigh MEMBER tempBMSHigh)
     Q_PROPERTY(double tempBMSAverage MEMBER tempBMSAverage)
+    Q_PROPERTY(double tempBMSLow MEMBER tempBMSLow)
     Q_PROPERTY(double humidity MEMBER humidity)
     Q_PROPERTY(QString opState MEMBER opState)
     Q_PROPERTY(int balanceActive MEMBER balanceActive)
@@ -214,8 +216,10 @@ public:
         auxCurrent = 0.0;
         tempBattHigh = 0.0;
         tempBattAverage = 0.0;
+        tempBattLow = 0.0;
         tempBMSHigh = 0.0;
         tempBMSAverage = 0.0;
+        tempBMSLow = 0.0;
         humidity = 0.0;
         balanceActive = 0;
     }
@@ -236,8 +240,10 @@ public:
     double auxCurrent;
     double tempBattHigh;
     double tempBattAverage;
+    double tempBattLow;
     double tempBMSHigh;
     double tempBMSAverage;
+    double tempBMSLow;
     double humidity;
     QString opState;
     int    balanceActive;

@@ -151,8 +151,10 @@ void Commands::processPacket(QByteArray data)
 
         values.tempBattHigh     = vb.vbPopFrontDouble16(1e1);
         values.tempBattAverage  = vb.vbPopFrontDouble16(1e1);
+        values.tempBattLow      = vb.vbPopFrontDouble16(1e1);
         values.tempBMSHigh      = vb.vbPopFrontDouble16(1e1);
         values.tempBMSAverage   = vb.vbPopFrontDouble16(1e1);
+        values.tempBMSLow     = vb.vbPopFrontDouble16(1e1);
         values.humidity   = vb.vbPopFrontDouble16(1e1);
 
         values.opState          = opStateToStr((OperationalStateTypedef)vb.vbPopFrontUint8());
@@ -684,8 +686,10 @@ void Commands::emitEmptyValues()
     values.auxCurrent = 0.0;
     values.tempBattHigh = 0.0;
     values.tempBattAverage = 0.0;
+    values.tempBattLow = 0.0;
     values.tempBMSHigh = 0.0;
     values.tempBMSAverage = 0.0;
+    values.tempBMSLow = 0.0;
     values.humidity = 0.0;
     values.opState = "Unknown";
     values.balanceActive = 0.0;
@@ -714,8 +718,10 @@ void Commands::emitEmptySetupValues()
     values.auxCurrent = 0.0;
     values.tempBattHigh = 0.0;
     values.tempBattAverage = 0.0;
+    values.tempBattLow = 0.0;
     values.tempBMSHigh = 0.0;
     values.tempBMSAverage = 0.0;
+    values.tempBMSLow = 0.0;
     values.opState = OP_STATE_INIT;
     values.balanceActive = 1;
     values.faultState = FAULT_CODE_NONE;

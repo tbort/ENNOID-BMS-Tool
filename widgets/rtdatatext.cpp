@@ -45,8 +45,10 @@ RtDataText::RtDataText(QWidget *parent) : QWidget(parent)
     mValues.auxCurrent       = 0.0;
     mValues.tempBattHigh     = 0.0;
     mValues.tempBattAverage  = 0.0;
+    mValues.tempBattLow      = 0.0;
     mValues.tempBMSHigh      = 0.0;
     mValues.tempBMSAverage   = 0.0;
+    mValues.tempBMSLow       = 0.0;
     mValues.humidity         = 0.0;
     mValues.opState          = "Unknown.";
     mValues.faultState       = "Unknown.";
@@ -133,13 +135,17 @@ void RtDataText::paintEvent(QPaintEvent *event)
     // Middle info box
     str.sprintf("T Batt High : %.1f \u00B0C\n"
                 "T Batt Avrg : %.1f \u00B0C\n"
+                "T Batt Low : %.1f \u00B0C\n"
                 "T BMS High  : %.1f \u00B0C\n"
                 "T BMS Avrg  : %.1f \u00B0C\n"
+                "T BMS Low  : %.1f \u00B0C\n"
                 "Humidity    : %.1f %%\n",
                 mValues.tempBattHigh,
                 mValues.tempBattAverage,
+                mValues.tempBattLow,
                 mValues.tempBMSHigh,
                 mValues.tempBMSAverage,
+                mValues.tempBMSLow,
                 mValues.humidity);
 
     painter.setOpacity(0.7);

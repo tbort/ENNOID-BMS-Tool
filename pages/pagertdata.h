@@ -78,8 +78,10 @@ private:
     QVector<double> mCellVLow;
     QVector<double> mTempBMSHigh;
     QVector<double> mTempBMSAverage;
+    QVector<double> mTempBMSLow;
     QVector<double> mTempBattHigh;
     QVector<double> mTempBattAverage;
+    QVector<double> mTempBattLow;
     QVector<double> mHumidity;
     QVector<double> mSeconds;
 

@@ -104,6 +104,11 @@ PageRtData::PageRtData(QWidget *parent) :
     graphIndex++;
 
     ui->tempGraph->addGraph();
+    ui->tempGraph->graph(graphIndex)->setPen(QPen(Qt::darkYellow));
+    ui->tempGraph->graph(graphIndex)->setName("BMS Low");
+    graphIndex++;
+
+    ui->tempGraph->addGraph();
     ui->tempGraph->graph(graphIndex)->setPen(QPen(Qt::green));
     ui->tempGraph->graph(graphIndex)->setName("Battery high");
     graphIndex++;
@@ -111,6 +116,11 @@ PageRtData::PageRtData(QWidget *parent) :
     ui->tempGraph->addGraph();
     ui->tempGraph->graph(graphIndex)->setPen(QPen(Qt::darkGreen));
     ui->tempGraph->graph(graphIndex)->setName("Battery Average");
+    graphIndex++;
+
+    ui->tempGraph->addGraph();
+    ui->tempGraph->graph(graphIndex)->setPen(QPen(Qt::darkRed));
+    ui->tempGraph->graph(graphIndex)->setName("Battery Low");
     graphIndex++;
 
     QFont legendFont = font();
@@ -252,8 +262,10 @@ void PageRtData::timerSlot()
         graphIndex = 0;
         ui->tempGraph->graph(graphIndex++)->setData(xAxis, mTempBMSHigh);
         ui->tempGraph->graph(graphIndex++)->setData(xAxis, mTempBMSAverage);
+        ui->tempGraph->graph(graphIndex++)->setData(xAxis, mTempBMSLow);
         ui->tempGraph->graph(graphIndex++)->setData(xAxis, mTempBattHigh);
         ui->tempGraph->graph(graphIndex++)->setData(xAxis, mTempBattAverage);
+        ui->tempGraph->graph(graphIndex++)->setData(xAxis, mTempBattLow);
 
         if (ui->autoscaleButton->isChecked()) {
             ui->ivLCGraph->rescaleAxes();
@@ -293,8 +305,10 @@ void PageRtData::valuesReceived(BMS_VALUES values)
 
     appendDoubleAndTrunc(&mTempBMSHigh, values.tempBMSHigh, maxS);
     appendDoubleAndTrunc(&mTempBMSAverage, values.tempBMSAverage, maxS);
+    appendDoubleAndTrunc(&mTempBMSLow, values.tempBMSLow, maxS);
     appendDoubleAndTrunc(&mTempBattHigh, values.tempBattHigh, maxS);
     appendDoubleAndTrunc(&mTempBattAverage, values.tempBattAverage, maxS);
+    appendDoubleAndTrunc(&mTempBattLow, values.tempBattLow, maxS);
     appendDoubleAndTrunc(&mHumidity, values.humidity, maxS);
 
 
@@ -339,7 +353,7 @@ void PageRtData::cellsReceived(int cellCount, QVector<double> cellVoltageArray){
         }
 
         QString voltageString = QStringLiteral("%1V (C").arg(fabs(cellVoltageArray[indexPointer]), 0, 'f',3);
-        labels.append(voltageString + QString::number(indexPointer) + ")");
+        labels.append(voltageString + QString::number(indexPointer+1) + ")");
     }
 
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);
