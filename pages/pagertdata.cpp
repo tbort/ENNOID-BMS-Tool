@@ -383,8 +383,8 @@ void PageRtData::auxReceived(int auxCount, QVector<double> auxVoltageArray){
             datayNormal.append(auxVoltageArray[indexPointer]);
         }
 
-        QString voltageString = QStringLiteral("%1°C (T").arg(auxVoltageArray[indexPointer], 0, 'f',3);
-        labels.append(voltageString + QString::number(indexPointer) + ")");
+        QString voltageString = QStringLiteral("%1°C (TH").arg(auxVoltageArray[indexPointer], 0, 'f',3);
+        labels.append(voltageString + QString::number(indexPointer+1) + ")");
     }
 
     QSharedPointer<QCPAxisTickerText> textTicker(new QCPAxisTickerText);

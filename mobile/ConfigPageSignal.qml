@@ -61,7 +61,6 @@ Item {
         switch (pageBox.currentText) {
         case "Discharge Current":
                 createEditorMc("shuntLCFactor")
-                createEditorMc("shuntLCOffset")
                 break;
         case "Pack Voltage":
                 createEditorMc("voltageLCFactor")
