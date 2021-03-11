@@ -68,18 +68,18 @@ Item {
 
         switch(type) {
         case "Cells":
-            for (var i = 0;i < cellValues.length;i++) {
-                createProgressBar(prefix+i, unit, cellValues[i], barFrom, barTo)
+            for (var i = 0 ; i < cellValues.length ; i++) {
+                createProgressBar(prefix+(i+1), unit, cellValues[i], barFrom, barTo)
                 }
             break;
         case "Temps":
-            for (var j = 0;j < tempValues.length;j++) {
-                createProgressBar(prefix+j, unit, tempValues[j], barFrom, barTo)
+            for (var j = 0 ; j < tempValues.length ; j++) {
+                createProgressBar(prefix+(j+1), unit, tempValues[j], barFrom, barTo)
                 }
             break;
         case "TempsExp":
-            for (var j = 0;j < tempValuesExp.length;j++) {
-                createProgressBar(prefix+j, unit, tempValuesExp[j], barFrom, barTo)
+            for (var k = 0 ; k < tempValuesExp.length ; k++) {
+                createProgressBar(prefix+(k+1), unit, tempValuesExp[k], barFrom, barTo)
                 }
             break;
         default:
@@ -211,19 +211,20 @@ Item {
                     "CVLow      : " + parseFloat(values.cVLow).toFixed(2) + " V\n" +
                     "CVMismatch : " + parseFloat(values.cVMisMatch).toFixed(2) + " V\n" +
                     "OpState    : " + values.opState + "\n" +
-                    "FaultState : " + values.faultState
+                    "FaultState : " + values.faultState + "\n" +
+                    "SoC        : " + parseFloat(values.soC).toFixed(1)
 
             valText2.text =
                     "T Batt High: " + parseFloat(values.tempBattHigh).toFixed(1) + " \u00B0C\n" +
                     "T Batt Avrg: " + parseFloat(values.tempBattAverage).toFixed(1) + " \u00B0C\n" +
-                    "T Batt Low: " + parseFloat(values.tempBattLow).toFixed(1) + " \u00B0C\n" +
+                    "T Batt Low : " + parseFloat(values.tempBattLow).toFixed(1) + " \u00B0C\n" +
                     "T BMS High : " + parseFloat(values.tempBMSHigh).toFixed(2) + " \u00B0C\n" +
                     "T BMS Avrg : " + parseFloat(values.tempBMSAverage).toFixed(2) + " \u00B0C\n" +
-                    "T BMS Low : " + parseFloat(values.tempBMSLow).toFixed(2) + " \u00B0C\n" +
+                    "T BMS Low  : " + parseFloat(values.tempBMSLow).toFixed(2) + " \u00B0C\n" +
                     "Humidity   : " + parseFloat(values.humidity).toFixed(1) + " %\n" +
                     "V Load     : " + parseFloat(values.loadLCVoltage).toFixed(2) + " V\n" +
-                    "V Charger  : " + parseFloat(values.chargerVoltage).toFixed(2) + " V\n" +
-                    "SoC        : " + parseFloat(values.soC).toFixed(1) + " %\n"
+                    "V Charger  : " + parseFloat(values.chargerVoltage).toFixed(2)
+
 
         }
     }

@@ -8,17 +8,21 @@ INCLUDEPATH += $$PWD
 DT_VERSION = 1.2
 DEFINES += DT_VERSION=$$DT_VERSION
 
-# Serial port available
-DEFINES += HAS_SERIALPORT
+!android: {
+    # Serial port available
+    DEFINES += HAS_SERIALPORT
+}
+
+CONFIG += c++11
+QMAKE_CXXFLAGS += -Wno-deprecated-copy
 
 # Options
 #Build mobile GUI
-#CONFIG += build_mobile
+CONFIG += build_mobile
+
 
 # Bluetooth available
 DEFINES += HAS_BLUETOOTH
-
-CONFIG += qtquickcompiler
 
 QT       += core gui
 QT       += widgets

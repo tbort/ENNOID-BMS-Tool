@@ -40,8 +40,8 @@ public:
 
     static double map(double x, double in_min, double in_max, double out_min, double out_max);
     static float throttle_curve(float val, float curve_acc, float curve_brake, int mode);
-    static bool autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *parent = 0);
-    Q_INVOKABLE static void checkVersion(BMSInterface *vesc = 0);
+    static bool autoconnectBlockingWithProgress(BMSInterface *dieBieMS, QWidget *parent = 0);
+    Q_INVOKABLE static void checkVersion(BMSInterface *dieBieMS = 0);
     Q_INVOKABLE static QString fwChangeLog();
     Q_INVOKABLE static QString vescToolChangeLog();
     Q_INVOKABLE static QString aboutText();

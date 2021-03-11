@@ -110,9 +110,9 @@ float Utility::throttle_curve(float val, float curve_acc, float curve_brake, int
     return ret;
 }
 
-bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *parent)
+bool Utility::autoconnectBlockingWithProgress(BMSInterface *dieBieMS, QWidget *parent)
 {
-    if (!vesc) {
+    if (!dieBieMS) {
         return false;
     }
 
@@ -120,10 +120,10 @@ bool Utility::autoconnectBlockingWithProgress(BMSInterface *vesc, QWidget *paren
     dialog.setWindowModality(Qt::WindowModal);
     dialog.show();
 
-    bool res = vesc->autoconnect();
+    bool res = dieBieMS->autoconnect();
 
     if (!res) {
-        vesc->emitMessageDialog(QObject::tr("Autoconnect"),
+        dieBieMS->emitMessageDialog(QObject::tr("Autoconnect"),
                                 QObject::tr("Could not autoconnect. Make sure that the USB cable is plugged in"
                                             " and that the ENNOID-BMS is powered."),
                                 false);
@@ -201,7 +201,7 @@ QString Utility::aboutText()
              "<a href=\"mailto:benjamin@vedder.se\">benjamin@vedder.se</a><br>"
              "<a href=\"https://vesc-project.com/\">https://vesc-project.com/</a><br>"
              "<br>").
-            arg(QString::number(DT_VERSION));
+                arg(QString::number(DT_VERSION, 'f', 2));
 }
 
 QString Utility::uuid2Str(QByteArray uuid, bool space)

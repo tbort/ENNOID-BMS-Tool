@@ -20,6 +20,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
+import Qt.labs.settings 1.0 as QSettings
 
 import Ennoid.bmsinterface 1.0
 import Ennoid.commands 1.0
@@ -39,6 +40,8 @@ ApplicationWindow {
 
     Component.onCompleted: {
        // Utility.checkVersion(VescIf)
+
+
     }
 
     Controls {
@@ -118,7 +121,7 @@ ApplicationWindow {
 
                 onClicked: {
                     VescIf.emitMessageDialog(
-                                "VESC Tool Changelog",
+                                "EBMS Tool Changelog",
                                 Utility.vescToolChangeLog(),
                                 true, false)
                 }
@@ -424,12 +427,13 @@ ApplicationWindow {
         standardButtons: Dialog.Ok
         modal: true
         focus: true
-        width: parent.width - 20
-        height: Math.min(implicitHeight, parent.height - 40)
         closePolicy: Popup.CloseOnEscape
 
+        width: parent.width - 20
+        height: Math.min(implicitHeight, parent.height - 40)
         x: (parent.width - width) / 2
         y: (parent.height - height) / 2
+        parent: ApplicationWindow.overlay
 
         ScrollView {
             anchors.fill: parent

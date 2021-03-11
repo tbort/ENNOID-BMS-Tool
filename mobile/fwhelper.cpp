@@ -95,7 +95,7 @@ QVariantMap FwHelper::getBootloaders(QString hw)
     return bls;
 }
 
-bool FwHelper::uploadFirmware(QString filename, BMSInterface *vesc, bool isBootloader, bool checkName)
+bool FwHelper::uploadFirmware(QString filename, BMSInterface *dieBieMS, bool isBootloader, bool checkName)
 {
     // TODO: Should this be removed on android?
     if (filename.startsWith("file:/")) {
@@ -108,13 +108,13 @@ bool FwHelper::uploadFirmware(QString filename, BMSInterface *vesc, bool isBootl
 
     if (checkName) {
         if (!(fileInfo.fileName().startsWith("ENNOID")) || !fileInfo.fileName().endsWith(".bin")) {
-            vesc->emitMessageDialog(tr("Upload Error"),tr("The selected file name seems to be invalid."),false, false);
+            dieBieMS->emitMessageDialog(tr("Upload Error"),tr("The selected file name seems to be invalid."),false, false);
             return false;
         }
     }
 
     if (!file.open(QIODevice::ReadOnly)) {
-        vesc->emitMessageDialog(tr("Upload Error"),
+        dieBieMS->emitMessageDialog(tr("Upload Error"),
                                 tr("Could not open file. Make sure that the path is valid."),
                                 false);
         qDebug() << fileInfo.fileName() << fileInfo.absolutePath();
@@ -122,14 +122,14 @@ bool FwHelper::uploadFirmware(QString filename, BMSInterface *vesc, bool isBootl
     }
 
     if (file.size() > 400000) {
-        vesc->emitMessageDialog(tr("Upload Error"),
+        dieBieMS->emitMessageDialog(tr("Upload Error"),
                                 tr("The selected file is too large to be a firmware."),
                                 false);
         return false;
     }
 
     QByteArray data = file.readAll();
-    vesc->commands()->startFirmwareUpload(data, isBootloader);
+    dieBieMS->commands()->startFirmwareUpload(data, isBootloader);
 
     return true;
 }
