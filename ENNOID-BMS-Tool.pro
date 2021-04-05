@@ -18,7 +18,7 @@ QMAKE_CXXFLAGS += -Wno-deprecated-copy
 
 # Options
 #Build mobile GUI
-CONFIG += build_mobile
+#CONFIG += build_mobile
 
 
 # Bluetooth available

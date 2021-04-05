@@ -138,6 +138,7 @@ Item {
                 break;
             case "NTC advanced settings":
                 createEditorMc("maxUnderAndOverTemperatureErrorCount")
+                createEditorMc("humidityICType")
 
 
                 break;

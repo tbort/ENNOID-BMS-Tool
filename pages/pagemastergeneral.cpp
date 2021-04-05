@@ -97,6 +97,7 @@ void PageMasterGeneral::setDieBieMS(BMSInterface *dieBieMS)
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "NTCEXPBeta");
         ui->masterSensorsTab->addRowSeparator(tr("NTC advanced settings"));
         ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "maxUnderAndOverTemperatureErrorCount");
+        ui->masterSensorsTab->addParamRow(mDieBieMS->bmsConfig(), "humidityICType");
 
 
   //      ui->masterSensorsTab->addRowSeparator(tr("Water detect enable mask"));

@@ -1,3 +1,18 @@
+For uploading new firmware:
+- Check the "Show non-default firmwares" checkbox
+- Select the hardware version & associated firmware
+- Click on the update firmware icon
+- Wait until the upload progress bar is complete
+- The BMS will restart once the upload is completed
+- The firmware update process is now completed
+
+=== FW 1.3 ===
+* Support for ENNOID-BMS-SS & ENNOID-BMS-SS-LITE
+* Humidity sensor support HTC1080 & SI7020/SHT21 on SS boards
+* Charger voltage readings on SS boards
+* SSD1306 display "Basic/Advanced" options
+* Many bug fixes
+
 === FW 1.2 ===
 * Support for Expansion board
 
