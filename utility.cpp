@@ -201,7 +201,7 @@ QString Utility::aboutText()
              "<a href=\"mailto:benjamin@vedder.se\">benjamin@vedder.se</a><br>"
              "<a href=\"https://vesc-project.com/\">https://vesc-project.com/</a><br>"
              "<br>").
-                arg(QString::number(DT_VERSION, 'f', 2));
+                arg(QString::number(DT_VERSION, 'f', 1));
 }
 
 QString Utility::uuid2Str(QByteArray uuid, bool space)
