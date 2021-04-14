@@ -415,14 +415,11 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the desired signal source / reason for the buzzer to start buzzing.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enable or disable the buzzer error code reporting under a fault condition.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>BUZZER_SIGNAL_SOURCE</cDefine>
-            <valInt>0</valInt>
-            <enumNames>Always off</enumNames>
-            <enumNames>Always on</enumNames>
-            <enumNames>All sources below</enumNames>
-            <enumNames>Undervoltage LC</enumNames>
-            <enumNames>Safe operating area</enumNames>
+            <valInt>1</valInt>
+            <enumNames>Off</enumNames>
+            <enumNames>On</enumNames>
         </buzzerSignalSource>
         <buzzerSignalType>
             <longName>Signal type</longName>
@@ -454,7 +451,7 @@ p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'DejaVu Sans'; ; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Define whether the buzzer should stay on or should reset when signal condition resets.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</description>
             <cDefine>BUZZER_PERSISTENT</cDefine>
-            <valInt>1</valInt>
+            <valInt>0</valInt>
         </buzzerPersistent>
         <shuntLCFactor>
             <longName>Shunt LC factor</longName>
@@ -2509,7 +2506,6 @@ p, li { white-space: pre-wrap; }
         <ser>packVoltageDataSource</ser>
         <ser>packCurrentDataSource</ser>
         <ser>buzzerSignalSource</ser>
-        <ser>buzzerSignalType</ser>
         <ser>buzzerPersistent</ser>
         <ser>shuntLCFactor</ser>
         <ser>voltageLCFactor</ser>

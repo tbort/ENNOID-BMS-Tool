@@ -80,7 +80,6 @@ Item {
                 break;
         case "Buzzer Control":
                 createEditorMc("buzzerSignalSource")
-                createEditorMc("buzzerSignalType")
                 createEditorMc("buzzerPersistent")
                 break;
         default:

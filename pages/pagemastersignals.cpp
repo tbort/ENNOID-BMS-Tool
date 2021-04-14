@@ -70,7 +70,6 @@ void PageMasterSignals::setDieBieMS(BMSInterface *dieBieMS)
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "packCurrentDataSource");
         ui->signalsTab->addRowSeparator(tr("Buzzer control"));
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "buzzerSignalSource");
-        ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "buzzerSignalType");
         ui->signalsTab->addParamRow(mDieBieMS->bmsConfig(), "buzzerPersistent");
     }
 }
