@@ -203,7 +203,7 @@ void MainWindow::timerSlot()
         }
     }
 
-    // Read configuration it isn't read since starting VESC Tool
+    // Read configuration it isn't read since starting ENNOID-BMS Tool
     if (mDieBieMS->isPortConnected()) {
         static int conf_cnt = 0;
         conf_cnt++;
@@ -630,9 +630,9 @@ void MainWindow::checkUdev()
             reply = QMessageBox::information(this,
                                              tr("Modemmenager"),
                                              tr("It looks like modemmanager is installed on your system, and that "
-                                                "there are no VESC udev rules installed. This will cause a delay "
-                                                "from when you plug in the VESC until you can use it. Would you like "
-                                                "to add a udev rule to prevent modemmanager from grabbing the VESC?"),
+                                                "there are no ENNOID-BMS udev rules installed. This will cause a delay "
+                                                "from when you plug in the ENNOID-BMS until you can use it. Would you like "
+                                                "to add a udev rule to prevent modemmanager from grabbing the ENNOID-BMS?"),
                                              QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
 
             if (reply == QMessageBox::Yes) {
@@ -644,7 +644,7 @@ void MainWindow::checkUdev()
                     return;
                 }
 
-                f_vesc.write("# Prevent modemmanager from grabbing the VESC\n"
+                f_vesc.write("# Prevent modemmanager from grabbing the ENNOID-BMS\n"
                              "ATTRS{idVendor}==\"0483\", ATTRS{idProduct}==\"5740\", ENV{ID_MM_DEVICE_IGNORE}=\"1\"\n");
                 f_vesc.close();
 

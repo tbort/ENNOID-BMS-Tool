@@ -480,3 +480,26 @@ void PageRtData::on_tempShowBatteryBox_toggled(bool checked)
     ui->tempGraph->graph(2)->setVisible(checked);
     ui->tempGraph->graph(3)->setVisible(checked);
 }
+/*
+void PageRtData::on_csvChooseDirButton_clicked()
+{
+    ui->csvFileEdit->setText(QFileDialog::getExistingDirectory(this,
+                                                               "Choose CSV output directory"));
+}
+
+void PageRtData::on_csvEnableLogBox_clicked(bool checked)
+{
+    if (checked) {
+        if (mDieBieMS) {
+            mDieBieMS->openRtLogFile(ui->csvFileEdit->text());
+        }
+    } else {
+        mDieBieMS->closeRtLogFile();
+    }
+}
+
+void PageRtData::on_csvHelpButton_clicked()
+{
+    HelpDialog::showHelp(this, mDieBieMS->infoConfig(), "help_rt_logging");
+}
+*/

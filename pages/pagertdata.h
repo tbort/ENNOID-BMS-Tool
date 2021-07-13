@@ -59,6 +59,9 @@ private slots:
     void on_rescaleButton_clicked();
     void on_tempShowBMSBox_toggled(bool checked);
     void on_tempShowBatteryBox_toggled(bool checked);
+    //void on_csvChooseDirButton_clicked();
+    //void on_csvEnableLogBox_clicked(bool checked);
+    //void on_csvHelpButton_clicked();
 
 private:
     Ui::PageRtData *ui;

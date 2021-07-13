@@ -121,7 +121,6 @@
         <file>res/icons/batteries-96.png</file>
         <file>res/logo.png</file>
         <file>res/bg.png</file>
-        <file>res/bootloaders/DieBieMS.bin</file>
         <file>res/config.xml</file>
         <file>res/firmwares/ENNOID/ENNOID-BMS.bin</file>
         <file>res/firmwares/ENNOID-HV/ENNOID-BMS_HV.bin</file>
@@ -129,5 +128,6 @@
         <file>res/firmwares/ENNOID-LV/ENNOID-BMS_LV.bin</file>
         <file>res/firmwares/ENNOID-SS/ENNOID-BMS_SS.bin</file>
         <file>res/firmwares/ENNOID-SS-LITE/ENNOID-BMS_SS_LITE.bin</file>
+        <file>res/bootloaders/generic.bin</file>
     </qresource>
 </RCC>
