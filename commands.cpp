@@ -130,7 +130,7 @@ void Commands::processPacket(QByteArray data)
         firmwareUploadUpdate(!vb.at(0));
         break;
 
-    case COMM_GET_VALUES: {
+    case COMM_EBMS_GET_VALUES: {
         mTimeoutValues = 0;
         BMS_VALUES values;
 
@@ -163,7 +163,7 @@ void Commands::processPacket(QByteArray data)
         emit valuesReceived(values);
     } break;
 
-    case COMM_GET_BMS_CELLS:{
+    case COMM_EBMS_GET_CELLS:{
         mTimeoutCells = 0;
         int mCellAmount;
         QVector<double> mCellVoltages;
@@ -179,7 +179,7 @@ void Commands::processPacket(QByteArray data)
 
        } break;
 
-    case COMM_GET_BMS_AUX:{
+    case COMM_EBMS_GET_AUX:{
         mTimeoutAux = 0;
         int mAuxAmount;
         QVector<double> mAuxVoltages;
@@ -195,7 +195,7 @@ void Commands::processPacket(QByteArray data)
 
        } break;
 
-    case COMM_GET_BMS_EXP_TEMP:{
+    case COMM_EBMS_GET_EXP_TEMP:{
         mTimeoutExp = 0;
         int mExpTempAmount;
         QVector<double> mExpTempVoltages;
@@ -219,8 +219,8 @@ void Commands::processPacket(QByteArray data)
         emit rotorPosReceived(vb.vbPopFrontDouble32(1e5));
         break;
 
-    case COMM_GET_MCCONF:
-    case COMM_GET_MCCONF_DEFAULT:
+    case COMM_EBMS_GET_MCCONF:
+    case COMM_EBMS_GET_MCCONF_DEFAULT:
         mTimeoutBMSconf = 0;
         if (mbmsConfig) {
             mbmsConfig->deSerialize(vb);
@@ -233,11 +233,11 @@ void Commands::processPacket(QByteArray data)
         }
         break;
 
-    case COMM_SET_MCCONF:
+    case COMM_EBMS_SET_MCCONF:
         emit ackReceived("BMS Write OK");
         break;
 
-    case COMM_STORE_BMS_CONF:
+    case COMM_EBMS_STORE_CONF:
         if (mbmsConfig) {
             mbmsConfig->storingDone();
         }
@@ -279,7 +279,7 @@ void Commands::getValues()
     mTimeoutValues = mTimeoutCount;
 
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_VALUES);
+    vb.vbAppendInt8(COMM_EBMS_GET_VALUES);
     emitData(vb);
 }
 
@@ -292,7 +292,7 @@ void Commands::getCells()
     mTimeoutCells = mTimeoutCount;
 
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_BMS_CELLS);
+    vb.vbAppendInt8(COMM_EBMS_GET_CELLS);
     emitData(vb);
 }
 
@@ -305,7 +305,7 @@ void Commands::getAux()
     mTimeoutAux = mTimeoutCount;
 
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_BMS_AUX);
+    vb.vbAppendInt8(COMM_EBMS_GET_AUX);
     emitData(vb);
 }
 
@@ -318,7 +318,7 @@ void Commands::getExpansionTemp()
     mTimeoutExp = mTimeoutCount;
 
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_BMS_EXP_TEMP);
+    vb.vbAppendInt8(COMM_EBMS_GET_EXP_TEMP);
     emitData(vb);
 }
 void Commands::sendTerminalCmd(QString cmd)
@@ -358,7 +358,7 @@ void Commands::getBMSconf()
 
     mCheckNextbmsConfig = false;
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_MCCONF);
+    vb.vbAppendInt8(COMM_EBMS_GET_MCCONF);
     emitData(vb);
 }
 
@@ -372,7 +372,7 @@ void Commands::getBMSconfDefault()
 
     mCheckNextbmsConfig = false;
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_MCCONF_DEFAULT);
+    vb.vbAppendInt8(COMM_EBMS_GET_MCCONF_DEFAULT);
     emitData(vb);
 }
 
@@ -381,7 +381,7 @@ void Commands::setBMSconf(bool check)
     if (mbmsConfig) {
         mbmsConfigLast = *mbmsConfig;
         VByteArray vb;
-        vb.vbAppendInt8(COMM_SET_MCCONF);
+        vb.vbAppendInt8(COMM_EBMS_SET_MCCONF);
         mbmsConfig->serialize(vb);
         emitData(vb);
 
@@ -656,14 +656,14 @@ void Commands::checkbmsConfig()
 {
     mCheckNextbmsConfig = true;
     VByteArray vb;
-    vb.vbAppendInt8(COMM_GET_MCCONF);
+    vb.vbAppendInt8(COMM_EBMS_GET_MCCONF);
     emitData(vb);
 }
 
 void Commands::storeBMSConfig()
 {
     VByteArray vb;
-    vb.vbAppendInt8(COMM_STORE_BMS_CONF);
+    vb.vbAppendInt8(COMM_EBMS_STORE_CONF);
     emitData(vb);
 }
 

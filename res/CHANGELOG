@@ -1,3 +1,6 @@
+=== FW 1.4 ===
+* CAN_PACKET_ID & COMM_PACKET_ID are now inline with latest VESC-BMS commands
+
 === FW 1.3 ===
 * Support for ENNOID-BMS-SS & ENNOID-BMS-SS-LITE
 * Humidity sensor support HTC1080 & SI7020/SHT21 on SS boards
