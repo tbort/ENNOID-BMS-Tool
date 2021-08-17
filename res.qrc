@@ -122,13 +122,13 @@
         <file>res/logo.png</file>
         <file>res/bg.png</file>
         <file>res/config.xml</file>
-        <file>res/firmwares/ENNOID-HV/ENNOID-BMS_HV.bin</file>
         <file>res/logo_white.png</file>
-        <file>res/firmwares/ENNOID-LV/ENNOID-BMS_LV.bin</file>
-        <file>res/firmwares/ENNOID-SS/ENNOID-BMS_SS.bin</file>
-        <file>res/firmwares/ENNOID-SS-LITE/ENNOID-BMS_SS_LITE.bin</file>
         <file>res/bootloaders/generic.bin</file>
-        <file>res/firmwares/ENNOID-LV-2/ENNOID-BMS_LV_2.bin</file>
-        <file>res/firmwares/ENNOID-SS-24/ENNOID-BMS_SS_24.bin</file>
+        <file>res/firmwares/ENNOID-HV/ENNOID-BMS.bin</file>
+        <file>res/firmwares/ENNOID-LV/ENNOID-BMS.bin</file>
+        <file>res/firmwares/ENNOID-LV-2/ENNOID-BMS.bin</file>
+        <file>res/firmwares/ENNOID-SS/ENNOID-BMS.bin</file>
+        <file>res/firmwares/ENNOID-SS-24/ENNOID-BMS.bin</file>
+        <file>res/firmwares/ENNOID-SS-LITE/ENNOID-BMS.bin</file>
     </qresource>
 </RCC>
