@@ -410,6 +410,7 @@ p, li { white-space: pre-wrap; }
             <enumNames>CAN-&gt;DieBieShunt</enumNames>
             <enumNames>CAN-&gt;Isabellenhutte</enumNames>
             <enumNames>INA226 (I2C)</enumNames>
+            <enumNames>VESC CAN</enumNames>
         </packCurrentDataSource>
         <buzzerSignalSource>
             <longName>Signal source</longName>
