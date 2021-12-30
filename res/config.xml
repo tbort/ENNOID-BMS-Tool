@@ -1428,6 +1428,7 @@ p, li { white-space: pre-wrap; }
             <valInt>0</valInt>
             <enumNames>ENNOID / DiebieMS / VESC</enumNames>
             <enumNames>EFoiler</enumNames>
+            <enumNames>J1939</enumNames>
         </CANIDStyle>
         <CANBaudRate>
             <longName>CAN throughput</longName>
@@ -1471,6 +1472,7 @@ p, li { white-space: pre-wrap; }
             <enumNames>ENNOID / DiebieMS</enumNames>
             <enumNames>MG Electronics</enumNames>
             <enumNames>VESC</enumNames>
+            <enumNames>Advanced</enumNames>
         </emitStatusProtocolType>
         <waterSensorEnableMask>
             <longName>Water sensor enable mask</longName>
