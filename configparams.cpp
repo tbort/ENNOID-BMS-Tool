@@ -894,11 +894,31 @@ void ConfigParams::getXML(QXmlStreamWriter &stream, QString configName)
     stream.writeStartElement(configName);
 
     QHashIterator<QString, ConfigParam> i(mParams);
+    QList<QPair<QString, ConfigParam>> pairs;
     while (i.hasNext()) {
         i.next();
 
-        const ConfigParam &p = i.value();
-        QString name = i.key();
+        pairs.append(QPair<QString,ConfigParam>(i.key(), i.value()));
+    }
+
+    // sort the list
+    for (int a=0; a < pairs.count(); a++) {
+        for (int b=a+1; b < pairs.count(); b++) {
+            QString first=pairs.at(a).first;
+            QString second=pairs.at(b).first;
+            if (first.toUpper() > second.toUpper()) {
+                pairs.move(b, a);
+                a=0;
+            }
+        }
+    }
+
+    QListIterator<QPair<QString, ConfigParam>> j(pairs);
+    while (j.hasNext()) {
+        QPair<QString, ConfigParam> pair = j.next();
+
+        const ConfigParam &p = pair.second;
+        QString name = pair.first;
 
         switch (p.type) {
         case CFG_T_BOOL:
